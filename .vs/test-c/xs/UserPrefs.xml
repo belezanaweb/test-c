@@ -1,4 +1,17 @@
 ﻿<Properties StartupConfiguration="{EBAB9720-4DB0-4E94-9DF9-3791B70A62A6}|Default">
-  <MonoDevelop.Ide.ItemProperties.test-c FirstBuild="True" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="test-c/Model/Warehouse.cs">
+    <Files>
+      <File FileName="test-c/Controllers/ProductsController.cs" Line="30" Column="10" />
+      <File FileName="test-c/Model/Product.cs" Line="10" Column="9" />
+      <File FileName="test-c/Model/Inventory.cs" Line="7" Column="51" />
+      <File FileName="test-c/Model/Warehouse.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.test-c PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>

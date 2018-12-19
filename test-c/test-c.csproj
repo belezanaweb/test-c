@@ -6,10 +6,16 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="Business\" />
+    <Folder Include="Model\" />
+    <Folder Include="Model\Context\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Model\Base\Base.cs" />
+  </ItemGroup>
 </Project>
