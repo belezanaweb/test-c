@@ -3,3 +3,11 @@
 /Users/Haline/Projects/test-c/test-c/obj/Debug/netcoreapp2.1/test-c.RazorAssemblyInfo.cs
 /Users/Haline/Projects/test-c/test-c/obj/Debug/netcoreapp2.1/test-c.AssemblyInfoInputs.cache
 /Users/Haline/Projects/test-c/test-c/obj/Debug/netcoreapp2.1/test-c.AssemblyInfo.cs
+/Users/Haline/Projects/test-c/test-c/bin/Debug/netcoreapp2.1/test-c.deps.json
+/Users/Haline/Projects/test-c/test-c/bin/Debug/netcoreapp2.1/test-c.runtimeconfig.json
+/Users/Haline/Projects/test-c/test-c/bin/Debug/netcoreapp2.1/test-c.runtimeconfig.dev.json
+/Users/Haline/Projects/test-c/test-c/bin/Debug/netcoreapp2.1/test-c.dll
+/Users/Haline/Projects/test-c/test-c/bin/Debug/netcoreapp2.1/test-c.pdb
+/Users/Haline/Projects/test-c/test-c/obj/Debug/netcoreapp2.1/test-c.RazorTargetAssemblyInfo.cache
+/Users/Haline/Projects/test-c/test-c/obj/Debug/netcoreapp2.1/test-c.dll
+/Users/Haline/Projects/test-c/test-c/obj/Debug/netcoreapp2.1/test-c.pdb

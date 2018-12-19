@@ -18,9 +18,14 @@ namespace test_c
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration _configuration { get; }
+        public IHostingEnvironment _environment { get; }
+
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
-            Configuration = configuration;
+            _configuration = configuration;
+            _environment = environment;
+            //Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
@@ -31,7 +36,7 @@ namespace test_c
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             var connectionString = _configuration["MySqlConnection:MySqlConnectioString"];
-            services.AddDbContext<MySQLContext>(options => options.UseMySql(connectionString));
+            //services.AddDbContext<MySQLContext>(options => options.UseMySql(connectionString));
 
             services.AddMvc();
 
