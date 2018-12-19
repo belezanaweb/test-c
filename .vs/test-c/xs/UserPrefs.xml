@@ -1,11 +1,12 @@
 ﻿<Properties StartupConfiguration="{EBAB9720-4DB0-4E94-9DF9-3791B70A62A6}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="test-c/Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="readme.txt">
     <Files>
       <File FileName="test-c/Repository/IProductRepository.cs" Line="6" Column="2" />
       <File FileName="test-c/Repository/Implementations/ProductRepositoryImpl.cs" Line="37" Column="20" />
       <File FileName="test-c/Repository/Generic/GenericRepository.cs" Line="53" Column="52" />
-      <File FileName="test-c/Startup.cs" Line="39" Column="68" />
+      <File FileName="test-c/Startup.cs" Line="39" Column="15" />
       <File FileName="test-c/Controllers/ValuesController.cs" Line="1" Column="1" />
+      <File FileName="readme.txt" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.test-c PreferredExecutionTarget="MonoDevelop.Default" />

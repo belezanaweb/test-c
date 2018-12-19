@@ -1,0 +1,1 @@
+﻿Observação: desculpe, tive um problema com o ambiente (Visual Studio for Mac) e não consegui testar (Debugger operation failed. Synchronous operation cancelled!).
