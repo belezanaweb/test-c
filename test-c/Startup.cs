@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using testc.Business;
+using testc.Model.Context;
+using testc.Repository.Generic;
 
 namespace test_c
 {
@@ -25,7 +28,15 @@ namespace test_c
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            var connectionString = _configuration["MySqlConnection:MySqlConnectioString"];
+            services.AddDbContext<MySQLContext>(options => options.UseMySql(connectionString));
+
+            services.AddMvc();
+
+            services.AddScoped<IProductBusiness, ProductBusinessImpl>();
+            services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>)); ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

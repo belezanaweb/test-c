@@ -3,43 +3,63 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using testc.Business;
+using testc.Model;
 
 namespace test_c.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("v1/")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
+        private IProductBusiness _productBusiness;
+
+        public ProductsController(IProductBusiness productBusiness)
+        {
+            _productBusiness = productBusiness;
+        }
+
         // GET api/products
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IActionResult Get()
         {
-            return new string[] { "product1", "product2" };
+            return Ok(_productBusiness.GetAll());
         }
 
         // GET api/products/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{sku}")]
+        public IActionResult Get(int sku)
         {
-            return "product";
+            var product = _productBusiness.GetBySku(sku);
+            if (product == null) return NotFound();
+            return Ok(product);
+
         }
 
         // POST api/products
         [HttpPost]
-        public void Post([FromBody] string product)
+        public IActionResult Post([FromBody] Product product)
         {
+            if (product == null) return BadRequest();
+            return new ObjectResult(_productBusiness.Create(product));
         }
 
         // PUT api/products/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string product)
+        [HttpPut("{sku}")]
+        public IActionResult Put([FromBody] Product product)
         {
+            if (product == null) return BadRequest();
+            var updatedProduct = _productBusiness.Update(product);
+            if (updatedProduct == null) return BadRequest();
+            return new ObjectResult(_productBusiness.Update(product));
         }
 
         // DELETE api/products/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete("{sku}")]
+        public IActionResult Delete(int sku)
         {
+            _productBusiness.Delete(sku);
+            return NoContent();
         }
     }
 }

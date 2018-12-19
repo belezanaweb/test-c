@@ -9,6 +9,11 @@
     <Folder Include="Business\" />
     <Folder Include="Model\" />
     <Folder Include="Model\Context\" />
+    <Folder Include="Business\Implementations\" />
+    <Folder Include="Model\Base\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Repository\Generic\" />
+    <Folder Include="Repository\Implementations\" />
   </ItemGroup>
 
   <ItemGroup>

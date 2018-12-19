@@ -1,9 +1,10 @@
 ﻿using System;
+using testc.Model.Base;
+
 namespace testc.Model
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public long? Sku { get; set; }
         public string Name { get; set; }
         public Inventory Inventory { get; set; }
         public bool IsMarketable { get; set; }
