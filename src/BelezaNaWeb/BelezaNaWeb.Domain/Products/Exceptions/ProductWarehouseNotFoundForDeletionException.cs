@@ -5,8 +5,5 @@ namespace BelezaNaWeb.Domain.Products.Exceptions
 {
     public class ProductWarehouseNotFoundForDeletionException : DomainException
     {
-        public ProductWarehouseNotFoundForDeletionException(string message) : base(message)
-        {
-        }
     }
 }

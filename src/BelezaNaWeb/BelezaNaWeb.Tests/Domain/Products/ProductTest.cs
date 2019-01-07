@@ -31,7 +31,7 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var product = new Product(1, "test");
             Assert.Throws<InvalidProductWarehouseNameException>(() =>
             {
-                product.Add("", ProductInventoryWarehouseType.ECOMMERCE);
+                product.Inventory.Add("", ProductInventoryWarehouseType.ECOMMERCE);
             });
         }
 
@@ -41,7 +41,7 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var product = new Product(1, "test");
             Assert.Throws<InvalidProductWarehouseNameException>(() =>
             {
-                product.AddOrUpdate("SP", ProductInventoryWarehouseType.ECOMMERCE, -1);
+                product.Inventory.AddOrUpdate("SP", ProductInventoryWarehouseType.ECOMMERCE, -1);
             });
         }
 
@@ -65,9 +65,9 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var product = new Product(1, "test");
             var warehouseName = "SP";
 
-            product.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
+            product.Inventory.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
 
-            var warehouse = product.Inventory.GetByWarehouseName(warehouseName);
+            var warehouse = product.Inventory.Warehouses[warehouseName];
             Assert.True(warehouse != null);
             Assert.Equal("1", warehouse.Quantity.ToString());
         }
@@ -78,9 +78,9 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var product = new Product(1, "test");
             var warehouseName = "SP";
 
-            product.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
+            product.Inventory.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
 
-            var warehouse = product.Inventory.GetByWarehouseName(warehouseName);
+            var warehouse = product.Inventory.Warehouses[warehouseName];
             Assert.True(warehouse != null);
         }
 
@@ -91,9 +91,9 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var warehouseName = "SP";
             var quantity = 2;
 
-            product.AddOrUpdate(warehouseName, ProductInventoryWarehouseType.ECOMMERCE, quantity);
+            product.Inventory.AddOrUpdate(warehouseName, ProductInventoryWarehouseType.ECOMMERCE, quantity);
 
-            var warehouse = product.Inventory.GetByWarehouseName(warehouseName);
+            var warehouse = product.Inventory.Warehouses[warehouseName];
             Assert.True(warehouse != null);
             Assert.Equal(warehouse.Quantity.ToString(), quantity.ToString());
         }
@@ -105,10 +105,10 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var warehouseName = "SP";
             var quantity = 5;
 
-            product.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
-            product.AddOrUpdate(warehouseName, ProductInventoryWarehouseType.ECOMMERCE, quantity);
+            product.Inventory.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
+            product.Inventory.AddOrUpdate(warehouseName, ProductInventoryWarehouseType.ECOMMERCE, quantity);
 
-            var warehouse = product.Inventory.GetByWarehouseName(warehouseName);
+            var warehouse = product.Inventory.Warehouses[warehouseName];
             Assert.True(warehouse != null);
             Assert.Equal(warehouse.Quantity.ToString(), quantity.ToString());
         }
@@ -119,8 +119,8 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var product = new Product(1, "test");
             var warehouseName = "SP";
 
-            product.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
-            product.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
+            product.Inventory.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
+            product.Inventory.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
 
             Assert.Equal(2, product.Inventory.Quantity);
         }
@@ -132,7 +132,7 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var warehouseName = "SP";
             var quantity = 5;
 
-            product.AddOrUpdate(warehouseName, ProductInventoryWarehouseType.ECOMMERCE, quantity);
+            product.Inventory.AddOrUpdate(warehouseName, ProductInventoryWarehouseType.ECOMMERCE, quantity);
 
             Assert.Equal(product.Inventory.Quantity, quantity);
         }
@@ -143,10 +143,10 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var product = new Product(1, "test");
             var warehouseName = "SP";
 
-            product.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
+            product.Inventory.Add(warehouseName, ProductInventoryWarehouseType.ECOMMERCE);
             var productWasAdded = product.Inventory.Quantity == 1;
 
-            product.Remove(warehouseName);
+            product.Inventory.Remove(warehouseName);
             var productWasRemoved = product.Inventory.Quantity == 0;
 
             Assert.True(productWasAdded);
@@ -159,7 +159,7 @@ namespace BelezaNaWeb.Tests.Domain.Products
         {
             var product = new Product(1, "test");
             Assert.Throws<ProductWarehouseNotFoundForDeletionException>(() => {
-                product.Remove("SP");
+                product.Inventory.Remove("SP");
             });
         }
 
@@ -170,10 +170,10 @@ namespace BelezaNaWeb.Tests.Domain.Products
             var warehouseName = "SP";
             var quantity = 5;
 
-            product.AddOrUpdate(warehouseName, ProductInventoryWarehouseType.ECOMMERCE, quantity);
+            product.Inventory.AddOrUpdate(warehouseName, ProductInventoryWarehouseType.ECOMMERCE, quantity);
             var productWasAdded = product.Inventory.Quantity == quantity;
 
-            product.Remove(warehouseName);
+            product.Inventory.Remove(warehouseName);
             var productWasRemoved = product.Inventory.Quantity == 0;
 
             Assert.True(productWasAdded);

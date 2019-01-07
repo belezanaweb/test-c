@@ -16,11 +16,14 @@
   <ItemGroup>
     <Folder Include="Domain\" />
     <Folder Include="Domain\Products\" />
+    <Folder Include="Infra\" />
+    <Folder Include="Infra\Repositories\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="UnitTest1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BelezaNaWeb.Domain\BelezaNaWeb.Domain.csproj" />
+    <ProjectReference Include="..\BelezaNaWeb.Infra\BelezaNaWeb.Infra.csproj" />
   </ItemGroup>
 </Project>

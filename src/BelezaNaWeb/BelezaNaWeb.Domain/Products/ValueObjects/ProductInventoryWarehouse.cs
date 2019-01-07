@@ -22,10 +22,10 @@ namespace BelezaNaWeb.Domain.Products.ValueObjects
             }
         }
 
-        public uint Quantity { get; private set; }
-        public ProductInventoryWarehouseType Type { get; set; }
+        public int Quantity { get; private set; }
+        public ProductInventoryWarehouseType Type { get; private set; }
 
-        public ProductInventoryWarehouse(string locality, uint quantity, 
+        public ProductInventoryWarehouse(string locality, int quantity, 
                                          ProductInventoryWarehouseType type)
         {
             Locality = locality;

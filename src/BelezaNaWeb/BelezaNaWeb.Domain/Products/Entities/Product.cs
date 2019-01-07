@@ -1,13 +1,43 @@
-﻿using System;
-using BelezaNaWeb.Domain.Products.Enums;
+﻿using BelezaNaWeb.Domain.Products.Exceptions;
 using BelezaNaWeb.Domain.Products.ValueObjects;
 
 namespace BelezaNaWeb.Domain.Products.Entities
 {
     public class Product
     {
-        public long Sku { get; private set; }
-        public string Name { get; private set; }
+        private long _sku;
+        public long Sku 
+        { 
+            get
+            {
+                return _sku;
+            }
+
+            private set
+            {
+                if (value <= 0)
+                    throw new InvalidProductSkuException();
+
+                _sku = value;
+            }
+        }
+
+        private string _name;
+        public string Name 
+        { 
+            get
+            {
+                return _name;
+            }
+
+            private set
+            {
+                if (string.IsNullOrEmpty(value))
+                    throw new InvalidProductNameException();
+
+                _name = value;
+            }
+        }
         public ProductInventory Inventory { get; private set; }
         public bool IsMarketable { 
             get
@@ -21,21 +51,6 @@ namespace BelezaNaWeb.Domain.Products.Entities
             Sku = sku;
             Name = name;
             Inventory = inventory ?? new ProductInventory();
-        }
-
-        public void Add(string wharehouseName, ProductInventoryWarehouseType type)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddOrUpdate(string wharehouseName, ProductInventoryWarehouseType type, int newQuantity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove(string warehouseName)
-        {
-            throw new NotImplementedException();
         }
     }
 }
