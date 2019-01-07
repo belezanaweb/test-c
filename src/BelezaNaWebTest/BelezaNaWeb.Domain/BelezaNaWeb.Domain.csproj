@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Products\" />
+    <Folder Include="Products\Interfaces\" />
+    <Folder Include="Products\Entities\" />
+    <Folder Include="Products\ValueObjects\" />
+    <Folder Include="Products\Enums\" />
+    <Folder Include="Products\Exceptions\" />
+    <Folder Include="Common\" />
+    <Folder Include="Common\Exceptions\" />
+  </ItemGroup>
+</Project>
