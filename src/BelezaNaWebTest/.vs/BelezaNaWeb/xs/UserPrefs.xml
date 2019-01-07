@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{1E6D7C00-FC25-465C-BD2A-A10A243A2335}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BelezaNaWeb.Tests/Domain/Products/ProductTest.cs">
+    <Files>
+      <File FileName="BelezaNaWeb.Domain/Class1.cs" Line="7" Column="6" />
+      <File FileName="BelezaNaWeb.Domain/Products/ValueObjects/ProductInventory.cs" Line="26" Column="60" />
+      <File FileName="BelezaNaWeb.Domain/Products/ValueObjects/ProductInventoryWarehouse.cs" Line="25" Column="21" />
+      <File FileName="BelezaNaWeb.Tests/Domain/Products/ProductTest.cs" Line="129" Column="81" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.BelezaNaWeb PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

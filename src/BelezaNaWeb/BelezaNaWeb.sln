@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb", "BelezaNaWebTest\BelezaNaWeb.csproj", "{1E6D7C00-FC25-465C-BD2A-A10A243A2335}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb", "BelezaNaWeb\BelezaNaWeb.csproj", "{1E6D7C00-FC25-465C-BD2A-A10A243A2335}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.Tests", "BelezaNaWeb.Tests\BelezaNaWeb.Tests.csproj", "{9A9CA2FD-3053-4C01-A288-C7EF01276085}"
 EndProject
