@@ -73,13 +73,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Services\Service.csproj">
-      <Project>{04e120ae-7994-4154-bdaf-8e522bbb381e}</Project>
-      <Name>Service</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\Model\Model.csproj">
       <Project>{9d84b55f-3675-4b41-ac40-0d1ef4d39e16}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\Services\Service.csproj">
+      <Project>{04e120ae-7994-4154-bdaf-8e522bbb381e}</Project>
+      <Name>Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
