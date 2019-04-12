@@ -1,0 +1,5 @@
+C:\Users\cvivere\source\repos\BelezaNaWeb\src\Model\bin\Debug\Model.dll
+C:\Users\cvivere\source\repos\BelezaNaWeb\src\Model\bin\Debug\Model.pdb
+C:\Users\cvivere\source\repos\BelezaNaWeb\src\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\cvivere\source\repos\BelezaNaWeb\src\Model\obj\Debug\Model.dll
+C:\Users\cvivere\source\repos\BelezaNaWeb\src\Model\obj\Debug\Model.pdb
