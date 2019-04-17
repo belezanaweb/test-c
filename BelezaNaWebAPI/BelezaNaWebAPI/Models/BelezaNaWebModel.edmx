@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="inventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_warehouses" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="produto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_inventory" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar(max)" Nullable="false" />
+          <Property Name="sku" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="warehouses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="locality" Type="varchar(max)" />
+          <Property Name="type" Type="varchar(max)" />
+        </EntityType>
+        <Association Name="FK_produto_Toinventory">
+          <End Role="inventory" Type="Self.inventory" Multiplicity="1" />
+          <End Role="produto" Type="Self.produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="produto">
+              <PropertyRef Name="Id_inventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToWarehouse">
+          <End Role="warehouses" Type="Self.warehouses" Multiplicity="1" />
+          <End Role="inventory" Type="Self.inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="warehouses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="inventory">
+              <PropertyRef Name="Id_warehouses" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database1ModelStoreContainer">
+          <EntitySet Name="inventory" EntityType="Self.inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="produto" EntityType="Self.produto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="warehouses" EntityType="Self.warehouses" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_produto_Toinventory" Association="Self.FK_produto_Toinventory">
+            <End Role="inventory" EntitySet="inventory" />
+            <End Role="produto" EntitySet="produto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToWarehouse" Association="Self.FK_Table_ToWarehouse">
+            <End Role="warehouses" EntitySet="warehouses" />
+            <End Role="inventory" EntitySet="inventory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="inventory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_warehouses" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="produto" Relationship="Self.FK_produto_Toinventory" FromRole="inventory" ToRole="produto" />
+          <NavigationProperty Name="warehouses" Relationship="Self.FK_Table_ToWarehouse" FromRole="inventory" ToRole="warehouses" />
+        </EntityType>
+        <EntityType Name="produto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_inventory" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sku" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="inventory" Relationship="Self.FK_produto_Toinventory" FromRole="produto" ToRole="inventory" />
+        </EntityType>
+        <EntityType Name="warehouses">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="locality" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="inventory" Relationship="Self.FK_Table_ToWarehouse" FromRole="warehouses" ToRole="inventory" />
+        </EntityType>
+        <Association Name="FK_produto_Toinventory">
+          <End Role="inventory" Type="Self.inventory" Multiplicity="1" />
+          <End Role="produto" Type="Self.produto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="produto">
+              <PropertyRef Name="Id_inventory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_ToWarehouse">
+          <End Role="warehouses" Type="Self.warehouses" Multiplicity="1" />
+          <End Role="inventory" Type="Self.inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="warehouses">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="inventory">
+              <PropertyRef Name="Id_warehouses" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BelezaNaWebEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="inventory" EntityType="Self.inventory" />
+          <EntitySet Name="produto" EntityType="Self.produto" />
+          <EntitySet Name="warehouses" EntityType="Self.warehouses" />
+          <AssociationSet Name="FK_produto_Toinventory" Association="Self.FK_produto_Toinventory">
+            <End Role="inventory" EntitySet="inventory" />
+            <End Role="produto" EntitySet="produto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToWarehouse" Association="Self.FK_Table_ToWarehouse">
+            <End Role="warehouses" EntitySet="warehouses" />
+            <End Role="inventory" EntitySet="inventory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="BelezaNaWebEntities">
+          <EntitySetMapping Name="inventory">
+            <EntityTypeMapping TypeName="Database1Model.inventory">
+              <MappingFragment StoreEntitySet="inventory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_warehouses" ColumnName="Id_warehouses" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="produto">
+            <EntityTypeMapping TypeName="Database1Model.produto">
+              <MappingFragment StoreEntitySet="produto">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_inventory" ColumnName="Id_inventory" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="warehouses">
+            <EntityTypeMapping TypeName="Database1Model.warehouses">
+              <MappingFragment StoreEntitySet="warehouses">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="locality" ColumnName="locality" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="inventory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_warehouses" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="produto" Relationship="Self.FK_produto_Toinventory" FromRole="inventory" ToRole="produto" />
+    <NavigationProperty Name="warehouses" Relationship="Self.FK_Table_ToWarehouse" FromRole="inventory" ToRole="warehouses" />
+  </EntityType>
+  <EntityType Name="produto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id_inventory" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="sku" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="inventory" Relationship="Self.FK_produto_Toinventory" FromRole="produto" ToRole="inventory" />
+  </EntityType>
+  <EntityType Name="warehouses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="locality" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="inventory" Relationship="Self.FK_Table_ToWarehouse" FromRole="warehouses" ToRole="inventory" />
+  </EntityType>
+  <Association Name="FK_produto_Toinventory">
+    <End Role="inventory" Type="Self.inventory" Multiplicity="1" />
+    <End Role="produto" Type="Self.produto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="inventory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="produto">
+        <PropertyRef Name="Id_inventory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_ToWarehouse">
+    <End Role="warehouses" Type="Self.warehouses" Multiplicity="1" />
+    <End Role="inventory" Type="Self.inventory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="warehouses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="inventory">
+        <PropertyRef Name="Id_warehouses" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BelezaNaWebEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="inventory" EntityType="Self.inventory" />
+    <EntitySet Name="produto" EntityType="Self.produto" />
+    <EntitySet Name="warehouses" EntityType="Self.warehouses" />
+    <AssociationSet Name="FK_produto_Toinventory" Association="Self.FK_produto_Toinventory">
+      <End Role="inventory" EntitySet="inventory" />
+      <End Role="produto" EntitySet="produto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_ToWarehouse" Association="Self.FK_Table_ToWarehouse">
+      <End Role="warehouses" EntitySet="warehouses" />
+      <End Role="inventory" EntitySet="inventory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
