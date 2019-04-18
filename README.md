@@ -12,6 +12,7 @@ Ao finalizar o teste, submeta um pull request para o repositório que nosso time
 
 ### Tarefas
 
+
 Com a seguinte representação de produto:
 
 ```json
