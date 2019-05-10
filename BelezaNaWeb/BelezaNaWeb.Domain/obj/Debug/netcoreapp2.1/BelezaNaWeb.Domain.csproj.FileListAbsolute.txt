@@ -1,9 +1,0 @@
-C:\Dev\Cursos\Prova\BelezaNaWeb\BelezaNaWeb.Domain\bin\Debug\netcoreapp2.1\BelezaNaWeb.Domain.deps.json
-C:\Dev\Cursos\Prova\BelezaNaWeb\BelezaNaWeb.Domain\bin\Debug\netcoreapp2.1\BelezaNaWeb.Domain.dll
-C:\Dev\Cursos\Prova\BelezaNaWeb\BelezaNaWeb.Domain\bin\Debug\netcoreapp2.1\BelezaNaWeb.Domain.pdb
-C:\Dev\Cursos\Prova\BelezaNaWeb\BelezaNaWeb.Domain\obj\Debug\netcoreapp2.1\BelezaNaWeb.Domain.csprojAssemblyReference.cache
-C:\Dev\Cursos\Prova\BelezaNaWeb\BelezaNaWeb.Domain\obj\Debug\netcoreapp2.1\BelezaNaWeb.Domain.csproj.CoreCompileInputs.cache
-C:\Dev\Cursos\Prova\BelezaNaWeb\BelezaNaWeb.Domain\obj\Debug\netcoreapp2.1\BelezaNaWeb.Domain.AssemblyInfoInputs.cache
-C:\Dev\Cursos\Prova\BelezaNaWeb\BelezaNaWeb.Domain\obj\Debug\netcoreapp2.1\BelezaNaWeb.Domain.AssemblyInfo.cs
-C:\Dev\Cursos\Prova\BelezaNaWeb\BelezaNaWeb.Domain\obj\Debug\netcoreapp2.1\BelezaNaWeb.Domain.dll
-C:\Dev\Cursos\Prova\BelezaNaWeb\BelezaNaWeb.Domain\obj\Debug\netcoreapp2.1\BelezaNaWeb.Domain.pdb
