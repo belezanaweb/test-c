@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.572
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.API", "BelezaNaWeb.API\BelezaNaWeb.API.csproj", "{56D21ECE-3E18-4024-BD12-F1425E60A637}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.Business", "BelezaNaWeb.Business\BelezaNaWeb.Business.csproj", "{E78515D2-7B44-4A7E-895C-6D51BE17FD1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.Data", "BelezaNaWeb.Data\BelezaNaWeb.Data.csproj", "{302E92F0-FBB2-4C99-825E-D466C50F1BE9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.Domain", "BelezaNaWeb.Domain\BelezaNaWeb.Domain.csproj", "{562625A5-56EF-4CE7-B411-B50739920FB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.CrossCutting", "BelezaNaWeb.CrossCutting\BelezaNaWeb.CrossCutting.csproj", "{0F53A3F6-F873-4293-8E30-274019B00E90}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56D21ECE-3E18-4024-BD12-F1425E60A637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56D21ECE-3E18-4024-BD12-F1425E60A637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56D21ECE-3E18-4024-BD12-F1425E60A637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56D21ECE-3E18-4024-BD12-F1425E60A637}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E78515D2-7B44-4A7E-895C-6D51BE17FD1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E78515D2-7B44-4A7E-895C-6D51BE17FD1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E78515D2-7B44-4A7E-895C-6D51BE17FD1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E78515D2-7B44-4A7E-895C-6D51BE17FD1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302E92F0-FBB2-4C99-825E-D466C50F1BE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302E92F0-FBB2-4C99-825E-D466C50F1BE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302E92F0-FBB2-4C99-825E-D466C50F1BE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302E92F0-FBB2-4C99-825E-D466C50F1BE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562625A5-56EF-4CE7-B411-B50739920FB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562625A5-56EF-4CE7-B411-B50739920FB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562625A5-56EF-4CE7-B411-B50739920FB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562625A5-56EF-4CE7-B411-B50739920FB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F53A3F6-F873-4293-8E30-274019B00E90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F53A3F6-F873-4293-8E30-274019B00E90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F53A3F6-F873-4293-8E30-274019B00E90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F53A3F6-F873-4293-8E30-274019B00E90}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECAFEA1D-1F62-4E5B-8FA6-AF67C1C49F0F}
+	EndGlobalSection
+EndGlobal
