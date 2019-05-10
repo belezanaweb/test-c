@@ -71,3 +71,6 @@ Crie endpoints para as seguintes ações:
 
 - Os produtos podem ficar em memória, não é necessário persistir os dados
 - Testes são sempre bem-vindos :smiley:
+
+### Observação
+Como teste exportei um arquivo do Postman ja com as requisições. É só importar.
