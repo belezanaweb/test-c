@@ -1,0 +1,12 @@
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\bin\Debug\netstandard2.0\BlzWeb.Domain.deps.json
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\bin\Debug\netstandard2.0\BlzWeb.Domain.dll
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\bin\Debug\netstandard2.0\BlzWeb.Domain.pdb
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\bin\Debug\netstandard2.0\BlzWeb.Shared.dll
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\bin\Debug\netstandard2.0\BlzWeb.Shared.pdb
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\obj\Debug\netstandard2.0\BlzWeb.Domain.csprojResolveAssemblyReference.cache
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\obj\Debug\netstandard2.0\BlzWeb.Domain.csproj.CoreCompileInputs.cache
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\obj\Debug\netstandard2.0\BlzWeb.Domain.AssemblyInfoInputs.cache
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\obj\Debug\netstandard2.0\BlzWeb.Domain.AssemblyInfo.cs
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\obj\Debug\netstandard2.0\BlzWeb.Domain.csproj.CopyComplete
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\obj\Debug\netstandard2.0\BlzWeb.Domain.dll
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Domain\obj\Debug\netstandard2.0\BlzWeb.Domain.pdb

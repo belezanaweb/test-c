@@ -1,0 +1,9 @@
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Shared\bin\Debug\netstandard2.0\BlzWeb.Shared.deps.json
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Shared\bin\Debug\netstandard2.0\BlzWeb.Shared.dll
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Shared\bin\Debug\netstandard2.0\BlzWeb.Shared.pdb
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Shared\obj\Debug\netstandard2.0\BlzWeb.Shared.csprojResolveAssemblyReference.cache
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Shared\obj\Debug\netstandard2.0\BlzWeb.Shared.csproj.CoreCompileInputs.cache
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Shared\obj\Debug\netstandard2.0\BlzWeb.Shared.AssemblyInfoInputs.cache
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Shared\obj\Debug\netstandard2.0\BlzWeb.Shared.AssemblyInfo.cs
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Shared\obj\Debug\netstandard2.0\BlzWeb.Shared.dll
+C:\Users\jsjunior\Desktop\beleza\1974-master\BlzWeb.Shared\obj\Debug\netstandard2.0\BlzWeb.Shared.pdb
