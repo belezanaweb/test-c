@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb", "BelezaNaWeb\BelezaNaWeb.csproj", "{9504FD8E-9632-40E1-ABB3-F92A2CCDE970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.Tests", "BelezaNaWeb.Tests\BelezaNaWeb.Tests.csproj", "{303A63EB-85E4-472C-8A61-63131998EAAB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9504FD8E-9632-40E1-ABB3-F92A2CCDE970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9504FD8E-9632-40E1-ABB3-F92A2CCDE970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9504FD8E-9632-40E1-ABB3-F92A2CCDE970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9504FD8E-9632-40E1-ABB3-F92A2CCDE970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{303A63EB-85E4-472C-8A61-63131998EAAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{303A63EB-85E4-472C-8A61-63131998EAAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{303A63EB-85E4-472C-8A61-63131998EAAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{303A63EB-85E4-472C-8A61-63131998EAAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3907D41-7D62-4657-A36F-FEA8D8677C48}
+	EndGlobalSection
+EndGlobal
