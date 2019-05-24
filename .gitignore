@@ -9,6 +9,8 @@
 *.cache
 *.suo
 *.vs
+*.config
+*.cshtml
 # Include dlls if they’re in the NuGet packages directory
 !/packages/*/lib/*.dll
 !/packages/*/lib/*/*.dll
@@ -25,6 +27,10 @@ _UpgradeReport_Files/
 bin/
 obj/
 TestResults/
+fonts/
+scripts/
+content/
+areas/
 ###################
 # Web publish log #
 ###################
@@ -73,3 +79,7 @@ _[Ss]cripts
 *.nupkg
 *.ncrunchsolution
 *.dot[Cc]over
+BelezaNaWeb/BelezaNaWeb/Global.asax
+BelezaNaWeb/BelezaNaWeb/favicon.ico
+BelezaNaWeb/BelezaNaWeb/BelezaNaWeb.csproj
+BelezaNaWeb/BelezaNaWeb/Global.asax.cs
