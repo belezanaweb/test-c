@@ -9,6 +9,7 @@ using BelezaNaWeb;
 using BelezaNaWeb.Controllers;
 using BelezaNaWeb.Data;
 using BelezaNaWeb.Models;
+using BelezaNaWeb.CustomException;
 
 namespace BelezaNaWeb.Tests.Controllers
 {
@@ -50,6 +51,18 @@ namespace BelezaNaWeb.Tests.Controllers
         }
 
         [TestMethod]
+        [ExpectedException(typeof(NotFoundException),
+            "Produto não encontrado")]
+        public void GetProductByIdFail()
+        {
+            ProductsData controller = new ProductsData();
+
+            ProductModel result = controller.GetProductBySKU(100);
+
+            Assert.IsNull(result);
+        }
+
+        [TestMethod]
         public void AddProduct()
         {
             ProductsData controller = new ProductsData();
@@ -87,7 +100,7 @@ namespace BelezaNaWeb.Tests.Controllers
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception),
+        [ExpectedException(typeof(NotFoundException),
             "Produto não encontrado")]
         public void RemoveProduct()
         {
