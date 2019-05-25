@@ -16,80 +16,80 @@ namespace BelezaNaWeb.Controllers
         
         // GET: api/products
         [HttpGet]
-        public IHttpActionResult Get()
+        public HttpResponseMessage Get()
         {
             try
             {
                 List<ProductModel> products = productData.GetProducts();
-                return Ok(products);
+
+                return Request.CreateResponse(HttpStatusCode.OK, products);
             }
             catch(Exception e) {
-                return BadRequest(e.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
         }
 
         // GET: api/products/5
         [Route("{sku}")]
         [HttpGet]
-        public IHttpActionResult Get(int sku)
+        public HttpResponseMessage Get(int sku)
         {
             try
             {
                 ProductModel product = productData.GetProductBySKU(sku);
 
-                return Ok(product);
+                return Request.CreateResponse(HttpStatusCode.OK, product);
             }
             catch (Exception e) {
-                return BadRequest(e.Message);
+                return Request.CreateResponse(HttpStatusCode.NotFound, e.Message);
             }
         }
 
         // POST: api/products
         [HttpPost]
-        public IHttpActionResult Post(ProductModel product)
+        public HttpResponseMessage Post(ProductModel product)
         {
             try
             {
                 productData.Add(product);
-                return Ok("Ok");
+                return Request.CreateResponse(HttpStatusCode.OK, string.Format("Produto {0} adicionado", product.sku));
             }
             catch (Exception e)
             {
-                return BadRequest(e.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
-
         }
 
         // PUT: api/products/5
         [Route("{sku}")]
         [HttpPut]
-        public IHttpActionResult Put(int sku, ProductModel product)
+        public HttpResponseMessage Put(int sku, ProductModel product)
         {
             try
             {
                 productData.ModifyProduct(sku, product);
-                return Ok("Ok");
+                return Request.CreateResponse(HttpStatusCode.OK, string.Format("Produto {0} alterado", sku));
             }
             catch(Exception e)
             {
-                return BadRequest(e.Message);
+                return Request.CreateResponse(HttpStatusCode.NotFound, e.Message);
             }
         }
 
         // DELETE: api/products/5
         [Route("{sku}")]
         [HttpDelete]
-        public IHttpActionResult Delete(int sku)
+        public HttpResponseMessage Delete(int sku)
         {
             try
             {
                 productData.RemoveProduct(sku);
 
-                return Ok("Ok");
+                return Request.CreateResponse(HttpStatusCode.OK, string.Format("Produto {0} deletado", sku));
             }
             catch(Exception e)
             {
-                return BadRequest(e.Message);
+                return Request.CreateResponse(HttpStatusCode.NotFound, e.Message);
             }
         }
     }

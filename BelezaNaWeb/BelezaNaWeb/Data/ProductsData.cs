@@ -12,8 +12,11 @@ namespace BelezaNaWeb.Data
 
         public void Add(ProductModel product)
         {
+            if (product == null)
+                throw new Exception("produto nulo");
+
             if (listProducts.Any(n => n.sku == product.sku))
-                throw new Exception("Produto já existe no banco.");
+                throw new Exception(string.Format("Produto {0} já existe no banco.", product.sku));
 
             listProducts.Add(product);
         }
