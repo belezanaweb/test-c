@@ -11,17 +11,17 @@ namespace BelezaNaWeb.Models
         {
             get
             {
-                return listOfWarehouses.Sum(x => x.quantity);
+                return warehouses.Sum(x => x.quantity);
             }
         }
 
-        public List<WarehouseModel> listOfWarehouses { get; set; }
+        public List<WarehouseModel> warehouses { get; set; }
 
         public InventoryModel() { }
 
         public InventoryModel(List<WarehouseModel> warehouses)
         {
-            this.listOfWarehouses = warehouses;
+            this.warehouses = warehouses;
         }
     }
 }

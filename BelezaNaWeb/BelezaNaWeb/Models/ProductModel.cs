@@ -7,17 +7,24 @@ namespace BelezaNaWeb.Models
 {
     public class ProductModel
     {
-        public int skuCode { get; set; }
-        public string productName { get; set; }
-        public InventoryModel productInventory { get; set; }
+        public int sku { get; set; }
+        public string name { get; set; }
+        public InventoryModel inventory { get; set; }
         public bool isMarketable
         {
             get
             {
-                return (productInventory.quantity > 0);
+                return (inventory.quantity > 0);
             }
         }
 
         public ProductModel() { }
+
+        public ProductModel(int sku, string name, InventoryModel inventory)
+        {
+            this.sku = sku;
+            this.name = name;
+            this.inventory = inventory;
+        }
     }
 }

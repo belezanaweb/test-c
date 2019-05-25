@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using BelezaNaWeb.Data;
 using BelezaNaWeb.Models;
 
 namespace BelezaNaWeb.Controllers
@@ -11,31 +12,85 @@ namespace BelezaNaWeb.Controllers
     [RoutePrefix("api/products")]
     public class ProductsController : ApiController
     {
-        List<ProductModel> listProducts = new List<ProductModel>();
-
-        // GET: api/Products/5
+        private ProductsData productData = new ProductsData();
+        
+        // GET: api/products
         [HttpGet]
-        public string Get(int id)
+        public IHttpActionResult Get()
         {
-            return "value";
+            try
+            {
+                List<ProductModel> products = productData.GetProducts();
+                return Ok(products);
+            }
+            catch(Exception e) {
+                return BadRequest(e.Message);
+            }
         }
 
-        // POST: api/Products
+        // GET: api/products/5
+        [Route("{sku}")]
+        [HttpGet]
+        public IHttpActionResult Get(int sku)
+        {
+            try
+            {
+                ProductModel product = productData.GetProductBySKU(sku);
+
+                return Ok(product);
+            }
+            catch (Exception e) {
+                return BadRequest(e.Message);
+            }
+        }
+
+        // POST: api/products
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IHttpActionResult Post(ProductModel product)
         {
+            try
+            {
+                productData.Add(product);
+                return Ok("Ok");
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+
         }
 
-        // PUT: api/Products/5
+        // PUT: api/products/5
+        [Route("{sku}")]
         [HttpPut]
-        public void Put(int id, [FromBody]string value)
+        public IHttpActionResult Put(int sku, ProductModel product)
         {
+            try
+            {
+                productData.ModifyProduct(sku, product);
+                return Ok("Ok");
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
 
-        // DELETE: api/Products/5
+        // DELETE: api/products/5
+        [Route("{sku}")]
         [HttpDelete]
-        public void Delete(int id)
+        public IHttpActionResult Delete(int sku)
         {
+            try
+            {
+                productData.RemoveProduct(sku);
+
+                return Ok("Ok");
+            }
+            catch(Exception e)
+            {
+                return BadRequest(e.Message);
+            }
         }
     }
 }
