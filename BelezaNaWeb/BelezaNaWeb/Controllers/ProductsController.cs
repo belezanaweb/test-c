@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using BelezaNaWeb.CustomException;
 using BelezaNaWeb.Data;
 using BelezaNaWeb.Models;
 
@@ -40,8 +41,12 @@ namespace BelezaNaWeb.Controllers
 
                 return Request.CreateResponse(HttpStatusCode.OK, product);
             }
+            catch (NotFoundException nf)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound, nf.Message);
+            }
             catch (Exception e) {
-                return Request.CreateResponse(HttpStatusCode.NotFound, e.Message);
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
         }
 
@@ -70,9 +75,13 @@ namespace BelezaNaWeb.Controllers
                 productData.ModifyProduct(sku, product);
                 return Request.CreateResponse(HttpStatusCode.OK, string.Format("Produto {0} alterado", sku));
             }
-            catch(Exception e)
+            catch(NotFoundException nf)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, e.Message);
+                return Request.CreateResponse(HttpStatusCode.NotFound, nf.Message);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
         }
 
@@ -87,9 +96,13 @@ namespace BelezaNaWeb.Controllers
 
                 return Request.CreateResponse(HttpStatusCode.OK, string.Format("Produto {0} deletado", sku));
             }
-            catch(Exception e)
+            catch(NotFoundException nf)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound, e.Message);
+                return Request.CreateResponse(HttpStatusCode.NotFound, nf.Message);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e.Message);
             }
         }
     }

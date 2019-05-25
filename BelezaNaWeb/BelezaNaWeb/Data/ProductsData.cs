@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BelezaNaWeb.CustomException;
 using BelezaNaWeb.Models;
 
 namespace BelezaNaWeb.Data
@@ -12,11 +13,11 @@ namespace BelezaNaWeb.Data
 
         public void Add(ProductModel product)
         {
-            if (product == null)
+            if (product == null || product.name == null)
                 throw new Exception("produto nulo");
 
             if (listProducts.Any(n => n.sku == product.sku))
-                throw new Exception(string.Format("Produto {0} já existe no banco.", product.sku));
+                throw new AlreadyExistsException(string.Format("Produto {0} já existe no banco.", product.sku));
 
             listProducts.Add(product);
         }
@@ -32,7 +33,7 @@ namespace BelezaNaWeb.Data
 
             if (product == null)
             {
-                throw new Exception("Produto não encontrado.");
+                throw new NotFoundException("Produto não encontrado.");
             }
 
             return product;
@@ -41,7 +42,7 @@ namespace BelezaNaWeb.Data
         public void ModifyProduct(int sku, ProductModel product)
         {
             if (!listProducts.Any(n => n.sku == sku))
-                throw new Exception("Produto não encontrado.");
+                throw new NotFoundException("Produto não encontrado.");
 
             listProducts.Where(n => n.sku == sku)
                 .Select(s =>
@@ -60,7 +61,7 @@ namespace BelezaNaWeb.Data
             if (product != null)
                 listProducts.Remove(product);
             else
-                throw new Exception("Produto não encontrado");
+                throw new NotFoundException("Produto não encontrado");
         }
     }
 }

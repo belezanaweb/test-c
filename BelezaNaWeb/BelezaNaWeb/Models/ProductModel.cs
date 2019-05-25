@@ -14,7 +14,7 @@ namespace BelezaNaWeb.Models
         {
             get
             {
-                return (inventory.quantity > 0);
+                return (inventory != null && inventory.quantity > 0);
             }
         }
 
