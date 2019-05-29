@@ -26,11 +26,11 @@ namespace belezaweb.Controllers
         [Route("AlterProduct/{sku}")]
         public IActionResult AlterProduct([FromRoute]int sku, [FromBody]Product product)
         {
-            var aux = _products.FirstOrDefault(n => n.Id == sku);
-            if (aux == null)
+            var result = _products.FirstOrDefault(n => n.Id == sku);
+            if (result == null)
                 return NotFound($"Produto {sku} não encontrado.");
 
-            _products.Remove(aux);
+            _products.Remove(result);
             _products.Add(product);
 
             return Ok($"Produto alterado com sucesso!");
@@ -40,12 +40,12 @@ namespace belezaweb.Controllers
         [Route("delete/{sku}")]
         public IActionResult Delete([FromRoute]int sku)
         {
-            var aux = _products.FirstOrDefault(n => n.Id == sku);
+            var result = _products.FirstOrDefault(n => n.Id == sku);
 
-            if (aux == null)
+            if (result == null)
                 return NoContent();
 
-            _products.Remove(aux);
+            _products.Remove(result);
 
             return Ok($"Produto {sku} excluído com sucesso!");
         }
