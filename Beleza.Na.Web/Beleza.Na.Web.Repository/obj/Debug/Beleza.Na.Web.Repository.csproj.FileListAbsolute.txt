@@ -1,0 +1,9 @@
+C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Repository\bin\Debug\Beleza.Na.Web.Repository.dll
+C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Repository\bin\Debug\Beleza.Na.Web.Repository.pdb
+C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Repository\bin\Debug\Beleza.Na.Web.Domain.dll
+C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Repository\bin\Debug\Beleza.Na.Web.Domain.pdb
+C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Repository\obj\Debug\Beleza.Na.Web.Repository.csprojAssemblyReference.cache
+C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Repository\obj\Debug\Beleza.Na.Web.Repository.csproj.CoreCompileInputs.cache
+C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Repository\obj\Debug\Beleza.Na.Web.Repository.csproj.CopyComplete
+C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Repository\obj\Debug\Beleza.Na.Web.Repository.dll
+C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Repository\obj\Debug\Beleza.Na.Web.Repository.pdb
