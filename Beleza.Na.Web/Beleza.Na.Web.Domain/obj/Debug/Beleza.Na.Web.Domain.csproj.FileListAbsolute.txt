@@ -1,6 +1,0 @@
-C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Domain\bin\Debug\Beleza.Na.Web.Domain.dll
-C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Domain\bin\Debug\Beleza.Na.Web.Domain.pdb
-C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Domain\obj\Debug\Beleza.Na.Web.Domain.csprojAssemblyReference.cache
-C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Domain\obj\Debug\Beleza.Na.Web.Domain.csproj.CoreCompileInputs.cache
-C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Domain\obj\Debug\Beleza.Na.Web.Domain.dll
-C:\Users\lcampos\Desktop\test-c\Beleza.Na.Web\Beleza.Na.Web.Domain\obj\Debug\Beleza.Na.Web.Domain.pdb
