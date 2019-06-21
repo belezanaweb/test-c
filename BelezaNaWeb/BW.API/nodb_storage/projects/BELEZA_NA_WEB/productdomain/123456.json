@@ -1,0 +1,1 @@
+{"Sku":123456,"Name":"abs","Inventory":{"Quantity":0,"Warehouses":[{"Locality":"sp","Quantity":2050,"Type":"PHYSICAL_STORE"},{"Locality":"rio de janeiro","Quantity":3000,"Type":"MARKETPLACE"},{"Locality":"ABC STORE","Quantity":4187,"Type":"MARKETPLACE"}]},"IsMarketable":false}
