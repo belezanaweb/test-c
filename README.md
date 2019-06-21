@@ -1,3 +1,12 @@
+### Sobre o projeto criado.
+
+- Fiz o projeto baseado em clean code.
+- Usei persistência noSql,onde é guardado os dados na pasta "nodb_storage".
+- Para rodar o projeto, use swagger no endereço: https://localhost:44345/swagger
+
+
+
+
 ### Backend Test
 
 Esta é uma avaliação básica de código.
