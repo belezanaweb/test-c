@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace IoCConfig
 {
@@ -20,9 +21,7 @@ namespace IoCConfig
 
         public void ConfigureIoC(IServiceCollection svc)
         {
-            svc.AddTransient<ICategoriaDomainService, CategoriaDomainSvc>();
-            svc.AddTransient<ICategoriaApp, CategoriaApp>();
-            svc.AddScoped<ICategoriaRepository, CategoriaRepository>();
+            
         }
     }
 }
