@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <ApplicationIcon />
+    <OutputTypeEx>library</OutputTypeEx>
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="1.0.1" />
+    <PackageReference Include="SimpleInjector" Version="4.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BelezanaWeb.Infrastructure.Data.MongoDB\BelezanaWeb.Infrastructure.Data.MongoDB.csproj" />
+    <ProjectReference Include="..\BelezanaWeb.Infrastructure.Data.SqlSever\BelezanaWeb.Infrastructure.Data.SqlSever.csproj" />
+    <ProjectReference Include="..\BelezanaWeb.Interface\BelezanaWeb.Interface.csproj" />
+    <ProjectReference Include="..\BelezanaWeb.Service\BelezanaWeb.Service.csproj" />
+  </ItemGroup>
+
+</Project>

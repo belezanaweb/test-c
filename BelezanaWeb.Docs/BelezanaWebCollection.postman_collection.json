@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "42c45c3e-edc1-4d9b-b4b9-d93ad89515c4",
+		"name": "BelezanaWebCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:13000/api/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "13000",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ProductWithWarehouses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:13000/api/product/withwarehouses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "13000",
+					"path": [
+						"api",
+						"product",
+						"withwarehouses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Warehouse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:13000/api/warehouse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "13000",
+					"path": [
+						"api",
+						"warehouse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku\": 43264,\r\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\r\n    \"inventory\": {\r\n        \"Warehouses\": [\r\n            {\r\n                \"locality\": \"SP\",\r\n                \"quantity\": 12,\r\n                \"type\": \"ECOMMERCE\"\r\n            },\r\n            {\r\n                \"locality\": \"MOEMA\",\r\n                \"quantity\": 3,\r\n                \"type\": \"PHYSICAL_STORE\"\r\n            }\r\n        ]\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:13000/api/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "13000",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku\": 43264,\r\n    \"name\": \"L'Oréal XXX\",\r\n    \"inventory\": {\r\n        \"Warehouses\": [\r\n                {\r\n                    \"Locality\": \"SP\",\r\n                    \"Quantity\": 1,\r\n                    \"Type\": \"ECOMMERCE\",\r\n                    \"Active\": true\r\n                },\r\n                {\r\n                    \"Locality\": \"MOEMA\",\r\n                    \"Quantity\": 1,\r\n                    \"Type\": \"PHYSICAL_STORE\",\r\n                    \"Active\": true\r\n                }\r\n        ]\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:13000/api/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "13000",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku\": 43264\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:13000/api/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "13000",
+					"path": [
+						"api",
+						"product"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
