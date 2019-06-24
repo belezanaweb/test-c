@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BNW.App;
+using BNW.App.Interfaces;
+using BNW.Infra;
+using Domain.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace IoCConfig
@@ -21,7 +25,8 @@ namespace IoCConfig
 
         public void ConfigureIoC(IServiceCollection svc)
         {
-            
+            svc.AddScoped<IProductApplication, ProductApplication>();
+            svc.AddScoped<IProductRepository, ProductRepository>();
         }
     }
 }

@@ -1,9 +1,11 @@
-﻿namespace Domain.Entities
+﻿using System.Collections.Generic;
+
+namespace Domain.Entities
 {
     public class Inventory
     {
         public int quantity { get; set; }
-        public Warehouse[] warehouses { get; set; }
+        public IList<Warehouse> warehouses { get; set; }
     }
 
 }

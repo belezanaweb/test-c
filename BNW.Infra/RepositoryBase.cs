@@ -8,9 +8,10 @@ namespace BNW.Infra
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         protected dynamic _db;  //dbcontext
-        public RepositoryBase(dynamic db)
+        public RepositoryBase()
         {
-            _db = db;
+            //_db = db;
+            _db = null;
         }
 
         public async void Add(T obj)
