@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.3.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.3.2" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BW.API\BW.API.csproj" />
+    <ProjectReference Include="..\BW.AplicationCore\BW.AplicationCore.csproj" />
+    <ProjectReference Include="..\BW.Infrastructure\BW.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
