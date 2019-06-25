@@ -18,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BNW.App\BNW.App.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\IoCConfig\IoCConfig.csproj" />
   </ItemGroup>
 
 </Project>

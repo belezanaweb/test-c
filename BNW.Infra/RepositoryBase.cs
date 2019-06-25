@@ -7,16 +7,23 @@ namespace BNW.Infra
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        protected dynamic _db;  //dbcontext
+        private static List<T> objetos = new List<T>();
         public RepositoryBase()
         {
-            //_db = db;
-            _db = null;
+        }
+
+        public static List<T> Objetos
+        {
+            get
+            {
+                if (objetos == null) objetos = new List<T>();
+                return objetos;
+            }
         }
 
         public async void Add(T obj)
         {
-            return;
+            Objetos.Add(obj);
         }
 
         public void Dispose()
@@ -26,7 +33,7 @@ namespace BNW.Infra
 
         public async Task<IEnumerable<T>> GetAll()
         {
-            return null;
+            return Objetos;
         }
 
         public async Task<T> GetById(int id)
@@ -36,12 +43,13 @@ namespace BNW.Infra
 
         public async void Remove(T obj)
         {
-            return;
+            Objetos.Remove(obj);
         }
 
         public async void Update(T obj)
         {
-            return;
+            Objetos.Remove(obj);
+            Objetos.Add(obj);
         }
     }
 }

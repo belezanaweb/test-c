@@ -8,4 +8,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BNW.App\BNW.App.csproj" />
+    <ProjectReference Include="..\BNW.Infra\BNW.Infra.csproj" />
+  </ItemGroup>
+
 </Project>

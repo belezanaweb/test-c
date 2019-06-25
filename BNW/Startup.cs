@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IoCConfig;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +36,7 @@ namespace BNW
                     Contact = new Contact { Name = "Cesar Vilarim", Email = "cesar.vilarim@hotmail.com", Url = "https://github.com/csvila" }
                 });
             });
+            IoCConstructor.Instance().ConfigureIoC(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
