@@ -1,6 +1,7 @@
 ﻿using BNW.App.Interfaces;
 using Domain.Entities;
 using Domain.Interfaces;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -21,8 +22,10 @@ namespace BNW.App
             {
                 product.inventory.quantity = product.inventory.warehouses.Sum(x => x.quantity);
                 product.isMarketable = product.inventory.quantity > 0;
+                return product;
             }
-            return product;
+
+            throw new ArgumentException("SKU já existente");
         }
     }
 }

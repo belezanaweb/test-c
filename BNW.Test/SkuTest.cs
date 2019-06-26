@@ -1,4 +1,6 @@
-﻿using Domain.Entities;
+﻿using BNW.App;
+using BNW.App.Interfaces;
+using Domain.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 
@@ -33,9 +35,20 @@ namespace BNW.Test
             }
         };
 
+        IProductApplication _app;
+
+        public SkuTest(IProductApplication app)
+        {
+            _app = app;
+        }
+
         [TestMethod]
         public void RetornarErroQuandoInserirSkuDuplicado()
         {
+            _app.Add(product1);
+            _app.Add(product2);
+            _app.Add(product1);
+            Assert.ThrowsException<System.ArgumentException>(()=> { return; });
         }
     }
 }
