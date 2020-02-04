@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using BelezaNaWeb.Data.Context;
+using BelezaNaWeb.IOC;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace BelezaNaWeb.Api
 {
@@ -26,7 +22,7 @@ namespace BelezaNaWeb.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
+            services.AddDbContext<BelezaNaWebContext>(opt => opt.UseInMemoryDatabase(databaseName: "BelezaNaWebProdutos"));
             RegisterServices(services);
         }
 
@@ -52,7 +48,7 @@ namespace BelezaNaWeb.Api
 
         private static void RegisterServices(IServiceCollection services)
         {
-            //BeblueIOC.RegisterServices(services);
+            BelezaNaWebContainer.RegisterServices(services);
         }
     }
 }

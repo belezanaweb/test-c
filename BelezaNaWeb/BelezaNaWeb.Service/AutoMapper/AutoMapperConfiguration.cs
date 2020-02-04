@@ -1,10 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using AutoMapper;
 
 namespace BelezaNaWeb.Service.AutoMapper
 {
-    class AutoMapperConfiguration
+    public class AutoMapperConfiguration
     {
+        public static MapperConfiguration RegisterMappings()
+        {
+            return new MapperConfiguration(c =>
+            {
+                c.AddProfile(new DomainToViewModelMappingProfile());
+                c.AddProfile(new ViewModelToDomainMappingProfile());
+            });
+        }
     }
 }

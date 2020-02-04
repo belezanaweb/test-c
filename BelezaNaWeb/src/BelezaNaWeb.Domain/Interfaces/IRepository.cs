@@ -5,9 +5,10 @@ namespace BelezaNaWeb.Domain.Interfaces
 {
     public interface IRepository<TEntity> : IDisposable where TEntity : class
     {
-        Task<TEntity> Add(TEntity entity);
-        Task<TEntity> GetById(long id);
-        Task<TEntity> Update(TEntity entity);
-        Task Remove(long id);
+        Task AddAsync(TEntity entity);
+        Task<TEntity> GetByIdAsync(long id);
+        void  Update(TEntity entity);
+        Task Deletar(long id);
+        Task CommitAsync();
     }
 }
