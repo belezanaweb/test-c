@@ -26,6 +26,8 @@ namespace BelezaNaWeb.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +48,11 @@ namespace BelezaNaWeb.Api
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static void RegisterServices(IServiceCollection services)
+        {
+            //BeblueIOC.RegisterServices(services);
         }
     }
 }

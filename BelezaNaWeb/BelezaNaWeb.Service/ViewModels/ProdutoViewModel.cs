@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BelezaNaWeb.Api.ViewModel
+namespace BelezaNaWeb.Service.ViewModels
 {
     public class ProdutoViewModel
     {

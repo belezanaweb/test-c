@@ -1,6 +1,6 @@
 ﻿namespace BelezaNaWeb.Domain.Produtos
 {
-    class Warehouse
+    public class Warehouse
     {
         public string Locality { get; set; }
 

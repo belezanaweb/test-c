@@ -1,4 +1,4 @@
-﻿using BelezaNaWeb.Api.ViewModel;
+﻿using BelezaNaWeb.Service.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;

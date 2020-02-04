@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace BelezaNaWeb.Api.ViewModel
+namespace BelezaNaWeb.Service.ViewModels
 {
     public class InventoryViewModel
     {

@@ -8,5 +8,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\BelezaNaWeb.Service\BelezaNaWeb.Service.csproj" />
+  </ItemGroup>
+
 
 </Project>
