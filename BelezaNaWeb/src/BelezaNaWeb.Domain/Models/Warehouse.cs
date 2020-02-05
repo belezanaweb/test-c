@@ -2,6 +2,8 @@
 {
     public class Warehouse
     {
+        public int Id { get; private set; }
+
         public string Locality { get; set; }
 
         public long Quantity { get; set; }

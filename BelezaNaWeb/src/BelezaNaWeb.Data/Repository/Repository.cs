@@ -46,6 +46,7 @@ namespace BelezaNaWeb.Data.Repository
 
         public  void  Update(TEntity entity)
         {
+            DbSet.Attach(entity);
             DbSet.Update(entity);
         }
     }

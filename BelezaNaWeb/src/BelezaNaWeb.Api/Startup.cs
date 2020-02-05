@@ -1,3 +1,4 @@
+using BelezaNaWeb.Api.Configuration;
 using BelezaNaWeb.Data.Context;
 using BelezaNaWeb.IOC;
 using Microsoft.AspNetCore.Builder;
@@ -22,7 +23,8 @@ namespace BelezaNaWeb.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddDbContext<BelezaNaWebContext>(opt => opt.UseInMemoryDatabase(databaseName: "BelezaNaWebProdutos"));
+            services.AddDbContext<BelezaNaWebContext>();
+            services.AddSwaggerConfig();
             RegisterServices(services);
         }
 
@@ -43,6 +45,12 @@ namespace BelezaNaWeb.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(s =>
+            {
+                s.SwaggerEndpoint("/swagger/v1/swagger.json", "BELEZA NA WEB - DESENVOLVEDOR C# - Backend Test (Felipe Henrique Freire)");
             });
         }
 

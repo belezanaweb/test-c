@@ -9,6 +9,8 @@ namespace BelezaNaWeb.Data.Mappings
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
             builder.HasKey(e => e.Sku);
+            builder.HasOne(p => p.Inventory);
         }
     }
 }
+

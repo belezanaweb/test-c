@@ -3,6 +3,8 @@ using BelezaNaWeb.Data.Context;
 using BelezaNaWeb.Data.Repository;
 using BelezaNaWeb.Domain.Models.Repository;
 using BelezaNaWeb.Service.AutoMapper;
+using BelezaNaWeb.Service.Interfaces;
+using BelezaNaWeb.Service.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BelezaNaWeb.IOC
@@ -20,7 +22,7 @@ namespace BelezaNaWeb.IOC
             serviceCollection.AddSingleton<IConfigurationProvider>(AutoMapperConfiguration.RegisterMappings());
             serviceCollection.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<IConfigurationProvider>(), sp.GetService));
 
-            //serviceCollection.AddScoped<IProdutoService, ProdutoService>();
+            serviceCollection.AddScoped<IProdutoService, ProdutoService>();
             #endregion
 
             #region Data

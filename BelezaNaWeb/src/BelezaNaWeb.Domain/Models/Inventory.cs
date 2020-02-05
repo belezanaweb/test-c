@@ -5,6 +5,7 @@ namespace BelezaNaWeb.Domain.Produtos
 {
     public class Inventory
     {
+        public int  Id { get; private set; }
         public long Quantity { get; private set; }
         public List<Warehouse> Warehouses { get; private set; } = new List<Warehouse>();
 
