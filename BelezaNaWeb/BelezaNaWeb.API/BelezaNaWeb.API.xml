@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BelezaNaWeb.API</name>
+    </assembly>
+    <members>
+        <member name="M:BelezaNaWeb.API.Controllers.ProductController.Get(System.Int32)">
+            <summary>
+            Get a specific product
+            </summary>
+            <param name="sku"></param>   
+        </member>
+        <member name="M:BelezaNaWeb.API.Controllers.ProductController.Create(BelezaNaWeb.API.Models.Product)">
+            <summary>
+            Create a specific product
+            </summary>
+            <param name="item"></param>   
+        </member>
+        <member name="M:BelezaNaWeb.API.Controllers.ProductController.Edit(System.Int32,BelezaNaWeb.API.Models.Product)">
+            <summary>
+            Edit a specific product
+            </summary>
+            <param name="sku"></param>   
+            <param name="item"></param>   
+        </member>
+        <member name="M:BelezaNaWeb.API.Controllers.ProductController.Delete(System.Int32)">
+            <summary>
+            Deletes a specific product
+            </summary>
+            <param name="sku"></param>   
+        </member>
+    </members>
+</doc>
