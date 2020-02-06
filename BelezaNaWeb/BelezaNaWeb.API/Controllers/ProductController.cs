@@ -9,11 +9,11 @@ namespace BelezaNaWeb.API.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly ProductContext _productsSingleton;
+        private readonly ProductContext _productContext;
 
-        public ProductController(ProductContext productsSingleton)
+        public ProductController(ProductContext productContext)
         {
-            _productsSingleton = productsSingleton;
+            _productContext = productContext;
         }
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace BelezaNaWeb.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Product> Get(int sku)
         {
-            var product = _productsSingleton.Products.FirstOrDefault(x => x.Sku == sku);
+            var product = _productContext.Products.FirstOrDefault(x => x.Sku == sku);
 
             if(product == null)
             {
@@ -44,14 +44,14 @@ namespace BelezaNaWeb.API.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<Product> Create(Product item)
         {
-            var product = _productsSingleton.Products.FirstOrDefault(x => x.Sku == item.Sku);
+            var product = _productContext.Products.FirstOrDefault(x => x.Sku == item.Sku);
 
             if (product != null)
             {
                 return BadRequest("Dois produtos são considerados iguais se os seus skus forem iguais");
             }
 
-            _productsSingleton.Products.Add(item);
+            _productContext.Products.Add(item);
 
             return CreatedAtRoute("", new { sku = item.Sku }, item);
         }
@@ -67,7 +67,7 @@ namespace BelezaNaWeb.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Product> Edit(int sku, Product item)
         {
-            var product = _productsSingleton.Products.FirstOrDefault(x => x.Sku == sku);
+            var product = _productContext.Products.FirstOrDefault(x => x.Sku == sku);
 
             if (product == null)
             {
@@ -88,14 +88,14 @@ namespace BelezaNaWeb.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult Delete(int sku)
         {
-            var product = _productsSingleton.Products.FirstOrDefault(x => x.Sku == sku);
+            var product = _productContext.Products.FirstOrDefault(x => x.Sku == sku);
 
             if (product == null)
             {
                 return NotFound();
             }
 
-            _productsSingleton.Products.Remove(product);
+            _productContext.Products.Remove(product);
 
             return Ok();
         }
