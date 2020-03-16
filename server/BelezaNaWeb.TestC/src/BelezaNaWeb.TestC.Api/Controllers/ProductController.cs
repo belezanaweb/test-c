@@ -23,10 +23,11 @@ namespace BelezaNaWeb.TestC.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public ActionResult<Product> Get(uint sku)
         {
-            if (_productDao.Get(sku) == null)
+            var product = _productDao.Get(sku);
+            if (product == null)
                 return NotFound(new { ErrorMessage = "Produto não encontrado" });
 
-            return _productDao.Get(sku);
+            return product;
         }
 
         [HttpPost]
