@@ -44,6 +44,10 @@ namespace BelezaNaWeb.TestC.Api.Data
         }
 
         private int FindIndex(uint sku)
-            => products.Where(p => p.Sku == sku).Select((p, i) => i).Single();
+            => products
+                .Select((obj, index) => new { obj, index })
+                .Where(p => p.obj.Sku == sku)
+                .Select(p => p.index)
+                .Single();
     }
 }

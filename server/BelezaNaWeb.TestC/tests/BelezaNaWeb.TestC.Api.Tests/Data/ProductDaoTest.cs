@@ -91,16 +91,21 @@ namespace BelezaNaWeb.TestC.Api.Tests.Data
         public void Edit_Product_Success()
         {
             // Arrange
-            var newProduct = new Product { Sku = 1, Name = "Nome teste 1", Inventory = new Inventory() };
-            var existingProduct = new Product { Sku = 2, Name = "Nome teste 2", Inventory = new Inventory() };
-            products.Add(existingProduct);
+            var existingProducts = new List<Product>
+            {
+                new Product { Sku = 1, Name = "Nome teste 1", Inventory = new Inventory() },
+                new Product { Sku = 2, Name = "Nome teste 2", Inventory = new Inventory() },
+                new Product { Sku = 3, Name = "Nome teste 3", Inventory = new Inventory() },
+            };
+            var newProduct = new Product { Sku = 4, Name = "Nome teste 4", Inventory = new Inventory() };
+            existingProducts.ForEach(p => products.Add(p));
 
             // Act
             productDao.Edit(2, newProduct);
 
             // Assert
-            Assert.Equal(1, products.Count);
-            Assert.Contains(newProduct, products);
+            Assert.Equal(3, products.Count);
+            Assert.Equal(newProduct, products[1]);
         }
         
         [Fact]
