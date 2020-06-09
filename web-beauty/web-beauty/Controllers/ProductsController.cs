@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace web_beauty.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/products")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
