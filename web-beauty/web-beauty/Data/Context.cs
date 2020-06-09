@@ -13,7 +13,7 @@ namespace web_beauty.Data
 
         public Context(string port, string host)
         {
-            database = new MongoClient($"mongodb://{host}:{port}").GetDatabase("DiscountCalculator");
+            database = new MongoClient($"mongodb://{host}:{port}").GetDatabase("Ecommerce");
         }
 
         public IMongoCollection<Product> Products

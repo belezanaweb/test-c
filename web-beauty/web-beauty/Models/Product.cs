@@ -1,5 +1,6 @@
 
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace web_beauty.Models {
         [BsonId]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         public string Id { get; set; }
-        public string Sku { get; set; }
+        public long Sku { get; set; }
         public string Name { get; set; }
         public Inventory Inventory { get; set; }
         public bool IsMarketable { get; set; }
