@@ -30,9 +30,9 @@ namespace web_beauty.Services
             await _productRepository.Update(product);
         }
 
-        public async Task Delete(Product product)
+        public async Task Delete(long sku)
         {
-            await _productRepository.Delete(product);
+            await _productRepository.Delete(sku);
         }
     }
 }

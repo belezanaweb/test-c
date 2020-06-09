@@ -34,9 +34,9 @@ namespace web_beauty.Repositories
             await _context.Products.ReplaceOneAsync(p => p.Sku == product.Sku, product);
         }
 
-        public async Task Delete(Product product)
+        public async Task Delete(long sku)
         {
-            await _context.Products.DeleteOneAsync(p => p.Sku == product.Sku);
+            await _context.Products.DeleteOneAsync(p => p.Sku == sku);
         }
     }
 }

@@ -12,7 +12,7 @@ using web_beauty.Services;
 
 namespace web_beauty.Controllers
 {
-    [Route("api/products")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
@@ -25,37 +25,32 @@ namespace web_beauty.Controllers
             _productService = new ProductService(repo);
         }
 
-        // POST api/<ProductsController>
+        // POST api/products/post
         [HttpPost]
         public async Task Post([FromBody] Product product)
         {
            await _productService.CreateProduct(product);
         }
 
-        // GET: api/<ProductsController>
+        // POST api/products/delete
+        [HttpPost]        
+        public async Task Delete([FromQuery] long sku)
+        {
+            await _productService.Delete(sku);
+        }
+
+        // POST api/products/GetBySku?sku={sku}
         [HttpGet]
-        public IEnumerable<string> Get([FromServices] Context context)
+        public async Task<Product> GetBySku([FromQuery] long sku)
         {
-            return new string[] { "value1", "value2" };
+            return await _productService.GetBySku(sku);
         }
 
-        // GET api/<ProductsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        // POST api/products/post
+        [HttpPost]
+        public async Task Update([FromBody] Product product)
         {
-            return "value";
-        }
-
-        // PUT api/<ProductsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE api/<ProductsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            await _productService.Update(product);
         }
     }
 }
