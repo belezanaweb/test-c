@@ -17,12 +17,14 @@ namespace web_beauty.Controllers
     public class ProductsController : ControllerBase
     {
 
-        private readonly ProductService _productService;
-        public ProductsController()
+        private readonly IProductService _productService;
+        public ProductsController(IProductService productService)
         {
-            var context = new Context("27017", "localhost");
-            var repo = new ProductRepository(context);
-            _productService = new ProductService(repo);
+
+            _productService = productService;
+            //var context = new Context("27017", "localhost");
+            //var repo = new ProductRepository(context);
+            //_productService = new ProductService(repo);
         }
 
         // POST api/products/post
