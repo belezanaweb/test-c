@@ -9,8 +9,8 @@ namespace web_beauty.Services
 {
     public class ProductService : IProductService
     {
-        private readonly ProductRepository _productRepository;
-        public ProductService(ProductRepository productRepository)
+        private readonly IProductRepository _productRepository;
+        public ProductService(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }

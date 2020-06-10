@@ -6,7 +6,7 @@ using web_beauty.Models;
 
 namespace web_beauty.Repositories
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
         Task CreateProduct(Product product);
         Task<Product> GetBySku(long sku);
