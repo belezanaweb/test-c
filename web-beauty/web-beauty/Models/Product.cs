@@ -24,6 +24,8 @@ namespace web_beauty.Models {
 
         public void CalculateQuantity()
         {
+            Inventory.Quantity = 0;
+
             foreach (var warehouse in Inventory.Warehouses)
             {
                 Inventory.Quantity += warehouse.Quantity;
