@@ -12,7 +12,7 @@ namespace web_beauty.Models
         {
             Warehouses = new List<Warehouse>();
         }
-        public long Quantity { get; set; }
+        public long? Quantity { get; set; }
         public List<Warehouse> Warehouses { get; set; }
     }
 }
