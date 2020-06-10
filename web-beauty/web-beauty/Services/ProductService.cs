@@ -7,7 +7,7 @@ using web_beauty.Repositories;
 
 namespace web_beauty.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         private readonly ProductRepository _productRepository;
         public ProductService(ProductRepository productRepository)

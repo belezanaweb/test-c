@@ -9,7 +9,7 @@ using web_beauty.Models;
 
 namespace web_beauty.Repositories
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly IContext _context;
         public ProductRepository(IContext context)
