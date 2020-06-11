@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ProductAPI</name>
+    </assembly>
+    <members>
+        <member name="M:ProductAPI.Controllers.ProductsController.Get">
+            <summary>
+            Lista os produtos cadastrados
+            </summary>
+            <returns>Lista de produtos cadastrados</returns>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductsController.Get(System.Int32)">
+            <summary>
+            Obtem o produto pelo seu sku
+            </summary>
+            <param name="sku"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductsController.Post(ProductAPI.Models.Product)">
+            <summary>
+            Inclui novo produto
+            </summary>
+            <param name="product"> Objeto Produto</param>
+            <returns>Retorna o objeto Produto incluído</returns>
+        </member>
+        <member name="M:ProductAPI.Controllers.ProductsController.Put(System.Int32,ProductAPI.Models.Product)">
+            <summary>
+            Inclui novo produto
+            </summary>
+            <param name="sku"> sku do produto a ser alterado</param>
+            <param name="product"> Objeto Produto</param>
+            <returns>Retorna o objeto Produto incluído</returns>
+        </member>
+    </members>
+</doc>
