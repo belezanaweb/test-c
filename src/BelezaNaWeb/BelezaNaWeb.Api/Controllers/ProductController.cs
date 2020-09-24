@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using BelezaNaWeb.Api.Contracts.Responses;
+using BelezaNaWeb.Framework.Data.Repositories;
 
 namespace BelezaNaWeb.Api.Controllers
 {
@@ -27,9 +28,12 @@ namespace BelezaNaWeb.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List([FromServices] IProductRepository repository)
         {
-            return Ok("ok");
+
+            var collection = await repository.GetAll();
+
+            return Ok(collection);
         }
 
 
