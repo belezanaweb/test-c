@@ -2,12 +2,12 @@
 using System.Net;
 using System.Linq;
 using FluentValidation;
+using BelezaNaWeb.Api.Dtos;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using BelezaNaWeb.Api.Extensions;
 using Microsoft.Extensions.Logging;
 using BelezaNaWeb.Framework.Helpers;
-using BelezaNaWeb.Api.Contracts.Responses;
 
 namespace BelezaNaWeb.Api.Infrastructure.Middlewares
 {
@@ -50,31 +50,31 @@ namespace BelezaNaWeb.Api.Infrastructure.Middlewares
 
         private Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
         {
-            var response = default(ErrorResponse);
+            var response = default(ErrorResponseDto);
             httpContext.Response.ContentType = "application/json";
 
             if (exception is ArgumentNullException || exception is ArgumentException)
             {
                 httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                response = ErrorResponse.DefaultBadRequestResponse();
+                response = ErrorResponseDto.DefaultBadRequestResponse();
             }
             else if (exception is ValidationException)
             {
                 httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
 
-                response = ErrorResponse.DefaultBadRequestResponse();
+                response = ErrorResponseDto.DefaultBadRequestResponse();
                 response.Details = (exception as ValidationException).Errors
-                    .Select(x => new ErrorField(field: x.PropertyName, value: x.ErrorMessage));
+                    .Select(x => new ErrorFieldDto(field: x.PropertyName, value: x.ErrorMessage));
             }
             else
             {
                 httpContext.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
-                response = ErrorResponse.DefaultInternalServerErrorResponse();
+                response = ErrorResponseDto.DefaultInternalServerErrorResponse();
             }
 
             if (!response.Details.Any() && exception.GetInnerExceptions().Any())
                 response.Details = exception.GetInnerExceptions()
-                    .Select(x => new ErrorField(field: null, value: x.Message))
+                    .Select(x => new ErrorFieldDto(field: null, value: x.Message))
                     .ToList();
 
             _logger.LogError(exception, response.Message);

@@ -1,15 +1,13 @@
-﻿using AutoMapper;
-using BelezaNaWeb.Api.Contracts.Responses;
-using BelezaNaWeb.Api.Extensions;
-using BelezaNaWeb.Domain.Commands;
-using BelezaNaWeb.Framework.Data.Repositories;
-using MediatR;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging;
-using System;
+﻿using MediatR;
+using AutoMapper;
+using BelezaNaWeb.Api.Dtos;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using BelezaNaWeb.Api.Extensions;
+using BelezaNaWeb.Domain.Queries;
+using BelezaNaWeb.Domain.Commands;
+using Microsoft.Extensions.Logging;
 
 namespace BelezaNaWeb.Api.Controllers
 {
@@ -34,39 +32,31 @@ namespace BelezaNaWeb.Api.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> List()
         {
-
-            var collection = await _repository.GetAll(
-                include: x => x
-                    .Include(p => p.Warehouses)
-            );
-
-            return Ok(collection);
+            var result = await _mediator.Send(new ListProductQuery(1, 10));
+            return Ok(result);
         }
 
         [HttpGet("{sku:long}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Get([FromRoute]long sku)
         {
-            var result = await _repository.Get(sku);
-            if (result == null)
-                return NotFound(ErrorResponse.DefaultNotFoundResponse());
-
+            var result = await _mediator.Send(new GetProductQuery(sku));
             return Ok(result);
         }
 
         [HttpPost]
         [ProducesResponseType(typeof(CreateProductResult), StatusCodes.Status201Created)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Create(ApiVersion apiVersion, [FromBody] CreateProductCommand cmd)
         {
             if (ModelState.IsValid)
@@ -80,10 +70,10 @@ namespace BelezaNaWeb.Api.Controllers
 
         [HttpPut("{sku:long}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Edit([FromRoute] long sku, [FromBody] EditProductCommand cmd)
         {
             if (ModelState.IsValid)
@@ -97,10 +87,10 @@ namespace BelezaNaWeb.Api.Controllers
 
         [HttpDelete("{sku:long}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status404NotFound)]
-        [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ErrorResponseDto), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Delete([FromRoute] long sku)
         {
             await _mediator.Send(new DeleteProductCommand(sku));

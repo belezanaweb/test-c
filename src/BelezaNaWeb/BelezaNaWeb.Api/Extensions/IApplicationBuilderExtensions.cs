@@ -1,10 +1,10 @@
 ﻿using System.Net;
 using System.Globalization;
 using Microsoft.AspNetCore.Http;
+using BelezaNaWeb.Api.Dtos;
 using Microsoft.AspNetCore.Builder;
 using BelezaNaWeb.Framework.Helpers;
 using Microsoft.AspNetCore.Localization;
-using BelezaNaWeb.Api.Contracts.Responses;
 using BelezaNaWeb.Api.Infrastructure.Middlewares;
 
 namespace BelezaNaWeb.Api.Extensions
@@ -54,28 +54,28 @@ namespace BelezaNaWeb.Api.Extensions
                 switch (res.StatusCode)
                 {
                     case (int)HttpStatusCode.Unauthorized:
-                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponse.DefaultUnauthorizedResponse()));
+                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponseDto.DefaultUnauthorizedResponse()));
                         break;
                     case (int)HttpStatusCode.Forbidden:
-                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponse.DefaultForbiddenResponse()));
+                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponseDto.DefaultForbiddenResponse()));
                         break;
                     case (int)HttpStatusCode.NotFound:
-                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponse.DefaultNotFoundResponse()));
+                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponseDto.DefaultNotFoundResponse()));
                         break;
                     case (int)HttpStatusCode.BadRequest:
-                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponse.DefaultBadRequestResponse()));
+                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponseDto.DefaultBadRequestResponse()));
                         break;
                     case (int)HttpStatusCode.MethodNotAllowed:
-                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponse.DefaultMethodNotAllowedResponse()));
+                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponseDto.DefaultMethodNotAllowedResponse()));
                         break;
                     case (int)HttpStatusCode.RequestTimeout:
-                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponse.DefaultRequestTimeoutResponse()));
+                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponseDto.DefaultRequestTimeoutResponse()));
                         break;
                     case (int)HttpStatusCode.InternalServerError:
-                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponse.DefaultInternalServerErrorResponse()));
+                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponseDto.DefaultInternalServerErrorResponse()));
                         break;
                     default:
-                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponse.DefaultInternalServerErrorResponse()));
+                        await res.WriteAsync(SerializationHelper.SerializeToJson(ErrorResponseDto.DefaultInternalServerErrorResponse()));
                         break;
                 }
             });

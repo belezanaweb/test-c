@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using BelezaNaWeb.Domain.Dtos;
+using System.Collections.Generic;
 
 namespace BelezaNaWeb.Domain.Queries
 {
@@ -6,10 +8,10 @@ namespace BelezaNaWeb.Domain.Queries
     {
         #region Public Properties
 
-        [JsonProperty]
+        [JsonProperty("page")]
         public int Page { get; } = 1;
 
-        [JsonProperty]
+        [JsonProperty("offset")]
         public int Offset { get; } = 10;
 
         #endregion
@@ -28,6 +30,11 @@ namespace BelezaNaWeb.Domain.Queries
 
     public sealed class ListProductResult
     {
+        #region Public Properties
 
+        [JsonProperty("data")]
+        public IEnumerable<ProductDto> Data { get; set; }
+
+        #endregion
     }
 }
