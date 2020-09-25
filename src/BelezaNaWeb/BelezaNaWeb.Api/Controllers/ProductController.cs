@@ -1,4 +1,5 @@
 ﻿using System;
+using MediatR;
 using AutoMapper;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using BelezaNaWeb.Api.Contracts.Requests;
 using BelezaNaWeb.Api.Contracts.Responses;
 using BelezaNaWeb.Framework.Data.Repositories;
+using BelezaNaWeb.Api.Commands;
 
 namespace BelezaNaWeb.Api.Controllers
 {
@@ -28,9 +30,10 @@ namespace BelezaNaWeb.Api.Controllers
         #region Constructors
 
         public ProductController(ILogger<ProductController> logger, IMapper mapper
+            , IMediator mediator
             , IProductRepository repository
         )
-            : base(logger, mapper)
+            : base(logger, mapper, mediator)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
@@ -69,21 +72,37 @@ namespace BelezaNaWeb.Api.Controllers
             return Ok(result);
         }
 
+        //[HttpPost]
+        //[ProducesResponseType(StatusCodes.Status201Created)]
+        //[ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
+        //[ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
+        //[ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
+        //public async Task<IActionResult> Create(ApiVersion apiVersion, [FromBody] CreateProductRequest model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var entity = Mapper.ConvertRequestToEntity<Product>(model);
+
+        //        await _repository.Create(entity);
+        //        await _repository.CompleteAsync();
+
+        //        return CreatedAtAction(nameof(Get), new { version = apiVersion.ToString(), sku = entity.Sku }, entity);
+        //    }
+
+        //    return BadRequest(ModelState.ToErrorResponse());
+        //}
+
         [HttpPost]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(CreateProductResult), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ErrorResponse), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Create(ApiVersion apiVersion, [FromBody] CreateProductRequest model)
+        public async Task<IActionResult> Create(ApiVersion apiVersion, [FromBody] CreateProductCommand cmd)
         {
             if (ModelState.IsValid)
             {
-                var entity = Mapper.ConvertRequestToEntity<Product>(model);
-                
-                await _repository.Create(entity);
-                await _repository.CompleteAsync();
-
-                return CreatedAtAction(nameof(Get), new { version = apiVersion.ToString(), sku = entity.Sku }, entity);
+                var result = await _mediator.Send(cmd);
+                return CreatedAtAction(nameof(Get), new { version = apiVersion.ToString(), sku = result.Sku }, result);
             }
 
             return BadRequest(ModelState.ToErrorResponse());

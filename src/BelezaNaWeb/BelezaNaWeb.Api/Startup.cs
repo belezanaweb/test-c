@@ -1,4 +1,6 @@
 using Serilog;
+using MediatR;
+using System.Reflection;
 using BelezaNaWeb.Api.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,10 +39,11 @@ namespace BelezaNaWeb.Api
                 .AddSingleton(WebHostingEnvironment);
             
             services
-                .AddCors()                
+                .AddCors()
                 .AddControllers();
 
             services
+                .AddMediatR(Assembly.GetExecutingAssembly())
                 .AddFrameworkDependencies(enableSensitiveData: WebHostingEnvironment.IsDevelopment());
 
             services
