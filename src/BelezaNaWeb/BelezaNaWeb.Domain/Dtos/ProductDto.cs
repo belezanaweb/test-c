@@ -2,7 +2,7 @@
 
 namespace BelezaNaWeb.Domain.Dtos
 {
-    public sealed class ProductDto
+    public class ProductDto
     {
         #region Public Properties
 

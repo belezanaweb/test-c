@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using BelezaNaWeb.Domain.Dtos;
 using System.ComponentModel.DataAnnotations;
 
 namespace BelezaNaWeb.Domain.Queries
@@ -22,16 +23,6 @@ namespace BelezaNaWeb.Domain.Queries
         #endregion
     }
 
-    public sealed class GetProductResult
-    {
-        #region Public Properties
-
-        [JsonProperty("sku")]
-        public long Sku { get; set; }
-
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        #endregion
-    }
+    public sealed class GetProductResult : ProductDto
+    { }
 }

@@ -11,7 +11,7 @@ namespace BelezaNaWeb.Domain.Dtos
         [JsonProperty("quantity")]
         public int Quantity => Warehouses.Sum(x => x.Quantity);
 
-        [JsonProperty("quantity")]
+        [JsonProperty("isMarketable")]
         public bool IsMarketable => Quantity > 0;
 
         [JsonProperty("warehouses")]
