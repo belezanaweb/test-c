@@ -1,29 +1,34 @@
 ﻿using System;
 using MediatR;
-using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-namespace BelezaNaWeb.Api.Controllers
+namespace BelezaNaWeb.Framework.Handlers
 {
-    public class GenericController : ControllerBase
+    public abstract class GenericHandler<TRequest, TResult> : IRequestHandler<TRequest, TResult>
+        where TRequest : IRequest<TResult>        
     {
         #region Protected Read-Only Fields
 
         protected readonly ILogger _logger;
-        protected readonly IMapper _mapper;
         protected readonly IMediator _mediator;
 
         #endregion
 
         #region Constructors
 
-        public GenericController(ILogger logger, IMapper mapper, IMediator mediator)
+        public GenericHandler(ILogger logger, IMediator mediator)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
+
+        #endregion
+
+        #region Public Abstract Methods
+
+        public abstract Task<TResult> Handle(TRequest request, CancellationToken cancellationToken);
 
         #endregion
     }

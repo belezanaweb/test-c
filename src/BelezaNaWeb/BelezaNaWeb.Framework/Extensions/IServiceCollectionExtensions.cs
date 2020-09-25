@@ -1,4 +1,4 @@
-﻿using FluentValidation;
+﻿using MediatR;
 using System.Reflection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +24,7 @@ namespace BelezaNaWeb.Framework.Extensions
                     options.UseInMemoryDatabase(databaseName: nameof(ApiContext));
                 });
 
+            services.AddMediatR(Assembly.GetExecutingAssembly());
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
