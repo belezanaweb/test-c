@@ -190,5 +190,9 @@ namespace BelezaNaWeb.Framework.Data.Repositories.Impl
         }
 
         #endregion
+
+        public virtual int Complete() => _dbContext.SaveChanges();
+
+        public async Task<int> CompleteAsync() => await _dbContext.SaveChangesAsync();
     }
 }

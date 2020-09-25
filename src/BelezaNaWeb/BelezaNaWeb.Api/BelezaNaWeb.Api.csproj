@@ -36,9 +36,5 @@
     <ProjectReference Include="..\BelezaNaWeb.Framework\BelezaNaWeb.Framework.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Contracts\Requests\" />
-  </ItemGroup>
-
 
 </Project>
