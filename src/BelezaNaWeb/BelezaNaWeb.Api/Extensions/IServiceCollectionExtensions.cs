@@ -8,11 +8,10 @@ using System.IO.Compression;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
+using BelezaNaWeb.Domain.Constants;
 using Microsoft.AspNetCore.Builder;
 using Newtonsoft.Json.Serialization;
-using BelezaNaWeb.Framework.Helpers;
 using Microsoft.AspNetCore.Localization;
-using BelezaNaWeb.Api.Infrastructure.Config;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.ResponseCompression;
 
@@ -131,20 +130,18 @@ namespace BelezaNaWeb.Api.Extensions
         private static IServiceCollection ConfigureSwagger(this IServiceCollection services)
         {
             var availableScopes = new Dictionary<string, string>();
-
-            ConfigHelper.TryGet<SwaggerConfig>(nameof(SwaggerConfig), out var swaggerConfig);            
-
+            
             services.AddSwaggerDocument(config =>
             {
-                config.Title = swaggerConfig.Title;
-                config.Version = swaggerConfig.Version;
-                config.Description = swaggerConfig.Description;
+                config.Title = SwaggerConstants.Title;
+                config.Version = SwaggerConstants.Version;
+                config.Description = SwaggerConstants.Description;
 
                 config.PostProcess = document =>
                 {
-                    document.Info.Title = swaggerConfig.Title;
-                    document.Info.Version = $"v{swaggerConfig.Version}";
-                    document.Info.Description = swaggerConfig.Description;
+                    document.Info.Title = SwaggerConstants.Title;
+                    document.Info.Version = $"v{SwaggerConstants.Version}";
+                    document.Info.Description = SwaggerConstants.Description;
                     document.Schemes = new OpenApiSchema[] { OpenApiSchema.Https };
                 };
             });
