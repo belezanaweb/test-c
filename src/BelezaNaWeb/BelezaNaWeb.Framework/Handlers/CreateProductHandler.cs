@@ -6,12 +6,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using BelezaNaWeb.Domain.Dtos;
 using BelezaNaWeb.Domain.Commands;
-using BelezaNaWeb.Domain.Entities;
 using Microsoft.Extensions.Logging;
 using BelezaNaWeb.Domain.Constants;
 using BelezaNaWeb.Domain.Exceptions;
-using BelezaNaWeb.Framework.Data.Repositories;
 using BelezaNaWeb.Framework.Business;
+using BelezaNaWeb.Domain.Entities.Impl;
+using BelezaNaWeb.Framework.Data.Repositories;
 
 namespace BelezaNaWeb.Framework.Handlers
 {

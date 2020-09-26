@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BelezaNaWeb.Domain.Interfaces.Entities
+namespace BelezaNaWeb.Domain.Entities
 {
     public interface IPagedListEntity<TEntity>
             where TEntity : class, IEntity

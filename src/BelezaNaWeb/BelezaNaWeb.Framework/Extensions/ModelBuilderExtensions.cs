@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
+using BelezaNaWeb.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using BelezaNaWeb.Domain.Interfaces.Entities;
 using BelezaNaWeb.Framework.Data.Configurations;
 
 namespace BelezaNaWeb.Framework.Extensions

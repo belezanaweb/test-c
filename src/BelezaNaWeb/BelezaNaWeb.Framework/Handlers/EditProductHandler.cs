@@ -5,11 +5,11 @@ using FluentValidation;
 using System.Threading;
 using System.Threading.Tasks;
 using BelezaNaWeb.Domain.Commands;
-using BelezaNaWeb.Domain.Entities;
 using BelezaNaWeb.Domain.Constants;
 using Microsoft.Extensions.Logging;
 using BelezaNaWeb.Domain.Exceptions;
 using BelezaNaWeb.Framework.Business;
+using BelezaNaWeb.Domain.Entities.Impl;
 using BelezaNaWeb.Framework.Data.Repositories;
 
 namespace BelezaNaWeb.Framework.Handlers

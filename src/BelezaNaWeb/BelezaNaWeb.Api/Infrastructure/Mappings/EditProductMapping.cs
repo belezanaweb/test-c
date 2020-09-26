@@ -1,6 +1,6 @@
 ﻿using BelezaNaWeb.Api.Requests;
 using BelezaNaWeb.Domain.Commands;
-using BelezaNaWeb.Domain.Entities;
+using BelezaNaWeb.Domain.Entities.Impl;
 
 namespace BelezaNaWeb.Api.Infrastructure.Mappings
 {

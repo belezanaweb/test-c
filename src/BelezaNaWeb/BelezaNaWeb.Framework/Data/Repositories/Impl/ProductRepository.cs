@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using BelezaNaWeb.Domain.Entities;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using BelezaNaWeb.Domain.Entities.Impl;
 using BelezaNaWeb.Framework.Data.Contexts;
 
 namespace BelezaNaWeb.Framework.Data.Repositories.Impl

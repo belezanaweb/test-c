@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using BelezaNaWeb.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using BelezaNaWeb.Domain.Entities.Impl;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BelezaNaWeb.Framework.Data.Configurations

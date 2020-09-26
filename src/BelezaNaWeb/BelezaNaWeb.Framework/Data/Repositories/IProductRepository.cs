@@ -1,4 +1,4 @@
-﻿using BelezaNaWeb.Domain.Entities;
+﻿using BelezaNaWeb.Domain.Entities.Impl;
 
 namespace BelezaNaWeb.Framework.Data.Repositories
 {

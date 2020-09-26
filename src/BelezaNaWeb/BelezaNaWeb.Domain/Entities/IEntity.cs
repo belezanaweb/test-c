@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BelezaNaWeb.Domain.Interfaces.Entities
+namespace BelezaNaWeb.Domain.Entities
 {
     public interface IEntity : ICloneable
     {

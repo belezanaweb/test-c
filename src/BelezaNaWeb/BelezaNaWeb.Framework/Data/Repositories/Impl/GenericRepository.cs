@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using BelezaNaWeb.Domain.Entities;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using BelezaNaWeb.Domain.Entities.Impl;
 using Microsoft.EntityFrameworkCore.Query;
 using BelezaNaWeb.Framework.Data.Contexts;
-using BelezaNaWeb.Domain.Interfaces.Entities;
 
 namespace BelezaNaWeb.Framework.Data.Repositories.Impl
 {
@@ -128,8 +128,10 @@ namespace BelezaNaWeb.Framework.Data.Repositories.Impl
             if (predicate != null)
                 query = query.Where(predicate);
 
-            var output = new PagedListEntity<TEntity>(pageIndex, pageSize);
-            output.Total = await query.CountAsync();
+            var output = new PagedListEntity<TEntity>(pageIndex, pageSize)
+            {
+                Total = await query.CountAsync()
+            };
 
             if (orderBy != null)
                 output.Collection = await orderBy(query)

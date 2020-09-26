@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
-using BelezaNaWeb.Domain.Interfaces.Entities;
 
-namespace BelezaNaWeb.Domain.Entities
+namespace BelezaNaWeb.Domain.Entities.Impl
 {
     [Serializable]
     [DataContract]

@@ -3,8 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using System.Collections.Generic;
+using BelezaNaWeb.Domain.Entities;
 using Microsoft.EntityFrameworkCore.Query;
-using BelezaNaWeb.Domain.Interfaces.Entities;
 
 namespace BelezaNaWeb.Framework.Data.Repositories
 {
