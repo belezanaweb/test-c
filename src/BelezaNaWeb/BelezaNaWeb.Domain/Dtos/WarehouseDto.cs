@@ -6,13 +6,13 @@ namespace BelezaNaWeb.Domain.Dtos
     {
         #region Public Properties
 
-        [JsonProperty("locality")]
+        [JsonProperty("locality", Order = 0)]
         public string Locality { get; set; }
 
-        [JsonProperty("quantity")]
+        [JsonProperty("quantity", Order = 1)]
         public int Quantity { get; set; }
 
-        [JsonProperty("type")]
+        [JsonProperty("type", Order = 2)]
         public string Type { get; set; }
 
         #endregion

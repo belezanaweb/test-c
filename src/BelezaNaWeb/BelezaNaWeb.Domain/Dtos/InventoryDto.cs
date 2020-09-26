@@ -8,13 +8,13 @@ namespace BelezaNaWeb.Domain.Dtos
     {
         #region Public Properties
         
-        [JsonProperty("quantity")]
+        [JsonProperty("quantity", Order = 0)]
         public int Quantity => Warehouses.Sum(x => x.Quantity);
 
-        [JsonProperty("isMarketable")]
+        [JsonProperty("isMarketable", Order = 2)]
         public bool IsMarketable => Quantity > 0;
 
-        [JsonProperty("warehouses")]
+        [JsonProperty("warehouses", Order = 1)]
         public IEnumerable<WarehouseDto> Warehouses { get; set; } = new List<WarehouseDto>();
 
         #endregion
