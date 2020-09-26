@@ -156,7 +156,7 @@ namespace BelezaNaWeb.Framework.Data.Repositories.Impl
 
             if (existing != null)
             {
-                _dbContext.Entry(existing).CurrentValues.SetValues(entity);
+                _dbContext.Entry(existing).CurrentValues.SetValues(entity);                
             }
         }
 
