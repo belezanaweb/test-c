@@ -28,12 +28,17 @@ namespace BelezaNaWeb.Domain.Queries
         #endregion
     }
 
-    public sealed class ListProductResult
+    public sealed class ListProductResult : PaginatedResult<ProductDto>
     {
-        #region Public Properties
+        #region Constructors
 
-        [JsonProperty("data")]
-        public IEnumerable<ProductDto> Data { get; set; }
+        public ListProductResult(int page, int offset, int total)
+            : base(page, offset, total, data: null)
+        { }
+
+        public ListProductResult(int page, int offset, int total, IEnumerable<ProductDto> data)
+            : base(page, offset, total, data)
+        { }
 
         #endregion
     }

@@ -35,9 +35,9 @@ namespace BelezaNaWeb.Api.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> List()
+        public async Task<IActionResult> List([FromQuery] int page = 1, [FromQuery] int offset = 10)
         {
-            var result = await _mediator.Send(new ListProductQuery(1, 10));
+            var result = await _mediator.Send(new ListProductQuery(page, offset));
             return Ok(result);
         }
 

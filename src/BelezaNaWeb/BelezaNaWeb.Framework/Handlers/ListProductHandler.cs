@@ -36,14 +36,14 @@ namespace BelezaNaWeb.Framework.Handlers
 
         public override async Task<ListProductResult> Handle(ListProductQuery request, CancellationToken cancellationToken)
         {
-            var products = await _productRepository.GetAll(
+            var products = await _productRepository.PagedList(pageIndex: request.Page, pageSize: request.Offset,
                 orderBy: x => x.OrderBy(p => p.Name),
                 include: x => x.Include(p => p.Warehouses)
             );
 
-            return new ListProductResult
+            return new ListProductResult(page: request.Page, offset: request.Offset, total: products.Total)
             {
-                Data = products.Select(x => new ProductDto
+                Data = products.Collection.Select(x => new ProductDto
                 {
                     Sku = x.Sku,
                     Name = x.Name,
