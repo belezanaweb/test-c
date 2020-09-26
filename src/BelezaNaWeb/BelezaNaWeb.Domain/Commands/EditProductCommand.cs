@@ -9,15 +9,6 @@ namespace BelezaNaWeb.Domain.Commands
         
         public long Sku { get; set; }
         public string Name { get; set; }
-        public EditProductInventoryCommand Inventory { get; set; }
-
-        #endregion
-    }
-
-    public sealed class EditProductInventoryCommand
-    {
-        #region Public Properties
-
         public IEnumerable<EditProductWarehouseCommand> Warehouses { get; set; }
 
         #endregion

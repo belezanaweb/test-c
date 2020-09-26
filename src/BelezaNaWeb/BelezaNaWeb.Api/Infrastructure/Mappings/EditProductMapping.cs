@@ -18,8 +18,9 @@ namespace BelezaNaWeb.Api.Infrastructure.Mappings
 
         public override void Configure()
         {
-            CreateMap<EditProductRequest, EditProductCommand>();
-            CreateMap<EditProductInventoryRequest, EditProductInventoryCommand>();
+            CreateMap<EditProductRequest, EditProductCommand>()
+                .ForMember(dest => dest.Warehouses, opts => opts.MapFrom(src => src.Inventory.Warehouses));
+
             CreateMap<EditProductWarehouseRequest, EditProductWarehouseCommand>();
         }
 

@@ -44,7 +44,7 @@ namespace BelezaNaWeb.Framework.Handlers
             var product = new Product(
                   sku: request.Sku
                 , name: request.Name
-                , warehouses: request.Inventory.Warehouses
+                , warehouses: request.Warehouses
                     .Select(x => new Warehouse(sku: request.Sku, quantity: x.Quantity, locality: x.Locality, type: x.Type))
                     .ToList()
             );

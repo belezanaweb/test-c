@@ -10,15 +10,6 @@ namespace BelezaNaWeb.Domain.Commands
 
         public long Sku { get; set;  }
         public string Name { get; set; }
-        public CreateProductInventoryCommand Inventory { get; set; }
-
-        #endregion
-    }
-
-    public sealed class CreateProductInventoryCommand
-    {
-        #region Public Properties
-
         public IEnumerable<CreateProductWarehouseCommand> Warehouses { get; set; }
 
         #endregion
