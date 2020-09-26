@@ -39,7 +39,7 @@ namespace BelezaNaWeb.Framework.Validators
 
             RuleFor(p => p.Warehouses)
                 .Must(BeUniqueWarehouses)
-                    .WithMessage("The warehouse must be unique")
+                    .WithMessage("The warehouse must be unique.")
                     .WithState(p => new ValidationFailure(nameof(p.Warehouses), "The warehouse must be unique."));
         }
 

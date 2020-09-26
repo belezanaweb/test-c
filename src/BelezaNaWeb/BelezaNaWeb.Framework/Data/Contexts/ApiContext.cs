@@ -20,8 +20,7 @@ namespace BelezaNaWeb.Framework.Data.Contexts
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.HasDefaultSchema("dbo");            
-            modelBuilder.LoadAllConfigurations();
-            modelBuilder.RemoveCascadeDeleteConvention();
+            modelBuilder.LoadAllConfigurations();         
         }
 
         #endregion

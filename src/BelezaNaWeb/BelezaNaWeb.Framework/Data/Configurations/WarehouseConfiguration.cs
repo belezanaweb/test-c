@@ -20,7 +20,7 @@ namespace BelezaNaWeb.Framework.Data.Configurations
             builder.Property(p => p.Type).IsRequired();
 
             builder.HasOne(p => p.Product)
-                .WithMany(p => p.Warehouses).OnDelete(DeleteBehavior.Restrict);
+                .WithMany(p => p.Warehouses).OnDelete(DeleteBehavior.Cascade);
         }
 
         public override IEnumerable<Warehouse> Seed()

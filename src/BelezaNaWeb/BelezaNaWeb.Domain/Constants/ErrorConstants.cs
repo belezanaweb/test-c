@@ -8,42 +8,49 @@ namespace BelezaNaWeb.Domain.Constants
         
         public static class Forbidden
         {
+            public const int Code = (int)HttpStatusCode.Forbidden;
             public const string Name = "FORBIDDEN";
             public const string Message = "The server declined a request.";
         }
 
         public static class Unauthorized
         {
+            public const int Code = (int)HttpStatusCode.Unauthorized;
             public const string Name = "UNAUTHORIZED";
             public const string Message = "The requested resource requires authentication.";
         }
 
         public static class NotFound
         {
+            public const int Code = (int)HttpStatusCode.NotFound;
             public const string Name = "NOT_FOUND";
             public const string Message = "The requested resource was not found on the server.";
         }
 
         public static class BadRequest
         {
+            public const int Code = (int)HttpStatusCode.BadRequest;
             public const string Name = "BAD_REQUEST";
             public const string Message = "The server was unable to understand the request.";
         }
 
         public static class MethodNotAllowed
         {
+            public const int Code = (int)HttpStatusCode.MethodNotAllowed;
             public const string Name = "METHOD_NOT_ALLOWED";
             public const string Message = "The request method is not allowed for the requested resource.";
         }
 
         public static class RequestTimeout
         {
+            public const int Code = (int)HttpStatusCode.RequestTimeout;
             public const string Name = "REQUEST_TIMEOUT";
             public const string Message = "The server timed out the request.";
         }
 
         public static class InternalServerError
         {
+            public const int Code = (int)HttpStatusCode.InternalServerError;
             public const string Name = "INTERNAL_SERVER_ERROR";
             public const string Message = "A generic server error has occurred.";
         }
