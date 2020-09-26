@@ -1,30 +1,35 @@
-﻿using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
+﻿using BelezaNaWeb.Domain.Enums;
+using System.Collections.Generic;
 
 namespace BelezaNaWeb.Domain.Commands
 {
     public sealed class EditProductCommand : CommandBase<bool>
     {
         #region Public Properties
-
-        [Required]
-        [JsonProperty("sku")]
+        
         public long Sku { get; set; }
-
-        [Required]
-        [JsonProperty("name")]
-        public string Name { get; }
+        public string Name { get; set; }
+        public EditProductInventoryCommand Inventory { get; set; }
 
         #endregion
+    }
 
-        #region Constructors
+    public sealed class EditProductInventoryCommand
+    {
+        #region Public Properties
 
-        [JsonConstructor]
-        public EditProductCommand(long sku, string name)
-        {
-            Sku = sku;
-            Name = name;
-        }
+        public IEnumerable<EditProductWarehouseCommand> Warehouses { get; set; }
+
+        #endregion
+    }
+
+    public sealed class EditProductWarehouseCommand
+    {
+        #region Public Properties
+
+        public int Quantity { get; set; }
+        public string Locality { get; set; }
+        public WarehouseTypes Type { get; set; }
 
         #endregion
     }

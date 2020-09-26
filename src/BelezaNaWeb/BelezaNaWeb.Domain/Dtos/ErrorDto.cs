@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using BelezaNaWeb.Domain.Constants;
 
-namespace BelezaNaWeb.Api.Dtos
+namespace BelezaNaWeb.Domain.Dtos
 {
     [Serializable]
     [DataContract]
-    public sealed class ErrorResponseDto
+    public sealed class ErrorDto
     {
         #region Public Properties
 
@@ -41,11 +41,11 @@ namespace BelezaNaWeb.Api.Dtos
 
         #region Constructors
 
-        public ErrorResponseDto(string name, string message, int statusCode)
+        public ErrorDto(string name, string message, int statusCode)
             : this(name, message, statusCode, details: null)
         { }
 
-        public ErrorResponseDto(string name, string message, int statusCode, IEnumerable<ErrorFieldDto> details)
+        public ErrorDto(string name, string message, int statusCode, IEnumerable<ErrorFieldDto> details)
         {
             Name = name;
             Message = message;
@@ -59,26 +59,26 @@ namespace BelezaNaWeb.Api.Dtos
 
         #region Public Static Methods
 
-        public static ErrorResponseDto DefaultUnauthorizedResponse()
-            => new ErrorResponseDto(ErrorConstants.Unauthorized.Name, ErrorConstants.Unauthorized.Message, (int)HttpStatusCode.Unauthorized);
+        public static ErrorDto DefaultUnauthorizedResponse()
+            => new ErrorDto(ErrorConstants.Unauthorized.Name, ErrorConstants.Unauthorized.Message, (int)HttpStatusCode.Unauthorized);
 
-        public static ErrorResponseDto DefaultForbiddenResponse()
-            => new ErrorResponseDto(ErrorConstants.Forbidden.Name, ErrorConstants.Forbidden.Message, (int)HttpStatusCode.Forbidden);
+        public static ErrorDto DefaultForbiddenResponse()
+            => new ErrorDto(ErrorConstants.Forbidden.Name, ErrorConstants.Forbidden.Message, (int)HttpStatusCode.Forbidden);
 
-        public static ErrorResponseDto DefaultNotFoundResponse()
-            => new ErrorResponseDto(ErrorConstants.NotFound.Name, ErrorConstants.NotFound.Message, (int)HttpStatusCode.NotFound);
+        public static ErrorDto DefaultNotFoundResponse()
+            => new ErrorDto(ErrorConstants.NotFound.Name, ErrorConstants.NotFound.Message, (int)HttpStatusCode.NotFound);
 
-        public static ErrorResponseDto DefaultBadRequestResponse()
-            => new ErrorResponseDto(ErrorConstants.BadRequest.Name, ErrorConstants.BadRequest.Message, (int)HttpStatusCode.BadRequest);
+        public static ErrorDto DefaultBadRequestResponse()
+            => new ErrorDto(ErrorConstants.BadRequest.Name, ErrorConstants.BadRequest.Message, (int)HttpStatusCode.BadRequest);
 
-        public static ErrorResponseDto DefaultMethodNotAllowedResponse()
-            => new ErrorResponseDto(ErrorConstants.MethodNotAllowed.Name, ErrorConstants.MethodNotAllowed.Message, (int)HttpStatusCode.MethodNotAllowed);
+        public static ErrorDto DefaultMethodNotAllowedResponse()
+            => new ErrorDto(ErrorConstants.MethodNotAllowed.Name, ErrorConstants.MethodNotAllowed.Message, (int)HttpStatusCode.MethodNotAllowed);
 
-        public static ErrorResponseDto DefaultRequestTimeoutResponse()
-            => new ErrorResponseDto(ErrorConstants.RequestTimeout.Name, ErrorConstants.RequestTimeout.Message, (int)HttpStatusCode.RequestTimeout);
+        public static ErrorDto DefaultRequestTimeoutResponse()
+            => new ErrorDto(ErrorConstants.RequestTimeout.Name, ErrorConstants.RequestTimeout.Message, (int)HttpStatusCode.RequestTimeout);
 
-        public static ErrorResponseDto DefaultInternalServerErrorResponse()
-            => new ErrorResponseDto(ErrorConstants.InternalServerError.Name, ErrorConstants.InternalServerError.Message, (int)HttpStatusCode.InternalServerError);
+        public static ErrorDto DefaultInternalServerErrorResponse()
+            => new ErrorDto(ErrorConstants.InternalServerError.Name, ErrorConstants.InternalServerError.Message, (int)HttpStatusCode.InternalServerError);
 
         #endregion
     }

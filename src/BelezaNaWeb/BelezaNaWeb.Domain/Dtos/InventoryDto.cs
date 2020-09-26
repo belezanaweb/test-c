@@ -7,7 +7,7 @@ namespace BelezaNaWeb.Domain.Dtos
     public sealed class InventoryDto
     {
         #region Public Properties
-
+        
         [JsonProperty("quantity")]
         public int Quantity => Warehouses.Sum(x => x.Quantity);
 

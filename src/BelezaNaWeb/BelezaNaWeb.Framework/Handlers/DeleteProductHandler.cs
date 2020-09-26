@@ -3,7 +3,9 @@ using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
 using BelezaNaWeb.Domain.Commands;
+using BelezaNaWeb.Domain.Constants;
 using Microsoft.Extensions.Logging;
+using BelezaNaWeb.Domain.Exceptions;
 using BelezaNaWeb.Framework.Data.Repositories;
 
 namespace BelezaNaWeb.Framework.Handlers
@@ -35,7 +37,7 @@ namespace BelezaNaWeb.Framework.Handlers
         {
             var product = await _productRepository.Get(request.Sku);
             if (product == null)
-                throw new ArgumentException($"O produto({request.Sku}) pesquisado não existe.");
+                throw new ApiException(ErrorConstants.ProductNotFound.Name, ErrorConstants.ProductNotFound.Message, ErrorConstants.ProductNotFound.Code);
 
             _productRepository.Delete(product);
             _productRepository.Complete();

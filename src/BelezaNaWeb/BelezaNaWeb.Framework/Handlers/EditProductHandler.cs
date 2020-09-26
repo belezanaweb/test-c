@@ -1,10 +1,13 @@
 ﻿using System;
 using MediatR;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using BelezaNaWeb.Domain.Commands;
 using BelezaNaWeb.Domain.Entities;
+using BelezaNaWeb.Domain.Constants;
 using Microsoft.Extensions.Logging;
+using BelezaNaWeb.Domain.Exceptions;
 using BelezaNaWeb.Framework.Data.Repositories;
 
 namespace BelezaNaWeb.Framework.Handlers
@@ -34,11 +37,17 @@ namespace BelezaNaWeb.Framework.Handlers
 
         public override async Task<bool> Handle(EditProductCommand request, CancellationToken cancellationToken)
         {
-            var result = await _productRepository.Get(request.Sku);
-            if (result == null)
-                throw new ArgumentException($"O produto({request.Sku}) pesquisado não existe.");
+            var exists = await _productRepository.Any(x => x.Sku.Equals(request.Sku));
+            if (!exists)
+                throw new ApiException(ErrorConstants.ProductNotFound.Name, ErrorConstants.ProductNotFound.Message, ErrorConstants.ProductNotFound.Code);
 
-            var product = new Product(sku: request.Sku, name: request.Name);
+            var product = new Product(
+                  sku: request.Sku
+                , name: request.Name
+                , warehouses: request.Inventory.Warehouses
+                    .Select(x => new Warehouse(sku: request.Sku, quantity: x.Quantity, locality: x.Locality, type: x.Type))
+                    .ToList()
+            );
 
             await _productRepository.Update(request.Sku, product);
             await _productRepository.CompleteAsync();

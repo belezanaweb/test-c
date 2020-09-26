@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using BelezaNaWeb.Api.Dtos;
+using BelezaNaWeb.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace BelezaNaWeb.Api.Extensions
@@ -8,9 +8,9 @@ namespace BelezaNaWeb.Api.Extensions
     {
         #region Extension Methods
 
-        public static ErrorResponseDto ToErrorResponse(this ModelStateDictionary modelState)
+        public static ErrorDto ToErrorResponse(this ModelStateDictionary modelState)
         {
-            var output = ErrorResponseDto.DefaultBadRequestResponse();
+            var output = ErrorDto.DefaultBadRequestResponse();
 
             output.Details = modelState.SelectMany(x => x.Value.Errors)
                 .Select(x => new ErrorFieldDto(field: "", value: x.ErrorMessage))

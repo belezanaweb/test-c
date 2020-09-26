@@ -27,9 +27,14 @@ namespace BelezaNaWeb.Domain.Entities
         { }
 
         public Product(long sku, string name)
+            : this(sku, name, null)
+        { }
+
+        public Product(long sku, string name, ICollection<Warehouse> warehouses)
         {
             Sku = sku;
             Name = name;
+            Warehouses = warehouses;
         }
 
         #endregion

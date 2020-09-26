@@ -5,7 +5,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using BelezaNaWeb.Domain.Dtos;
 using BelezaNaWeb.Domain.Queries;
+using BelezaNaWeb.Domain.Constants;
 using Microsoft.Extensions.Logging;
+using BelezaNaWeb.Domain.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using BelezaNaWeb.Framework.Extensions;
 using BelezaNaWeb.Framework.Data.Repositories;
@@ -43,7 +45,7 @@ namespace BelezaNaWeb.Framework.Handlers
             );
 
             if (product == null)
-                throw new ArgumentException($"O produto({request.Sku}) pesquisado não existe.");
+                throw new ApiException(ErrorConstants.ProductNotFound.Name, ErrorConstants.ProductNotFound.Message, ErrorConstants.ProductNotFound.Code);
 
             return new GetProductResult
             {

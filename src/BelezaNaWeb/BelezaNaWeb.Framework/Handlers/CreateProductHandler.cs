@@ -1,10 +1,15 @@
 ﻿using System;
 using MediatR;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using BelezaNaWeb.Domain.Dtos;
 using BelezaNaWeb.Domain.Commands;
 using BelezaNaWeb.Domain.Entities;
 using Microsoft.Extensions.Logging;
+using BelezaNaWeb.Domain.Constants;
+using BelezaNaWeb.Domain.Exceptions;
+using BelezaNaWeb.Framework.Extensions;
 using BelezaNaWeb.Framework.Data.Repositories;
 
 namespace BelezaNaWeb.Framework.Handlers
@@ -34,7 +39,17 @@ namespace BelezaNaWeb.Framework.Handlers
 
         public override async Task<CreateProductResult> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
-            var product = new Product(sku: request.Sku, name: request.Name);
+            var exists = await _productRepository.Any(x => x.Sku.Equals(request.Sku));
+            if (exists)
+                throw new ApiException(ErrorConstants.ProductAlreadyExists.Name, ErrorConstants.ProductAlreadyExists.Message, ErrorConstants.ProductAlreadyExists.Code);
+            
+            var product = new Product(
+                  sku: request.Sku
+                , name: request.Name
+                , warehouses: request.Inventory.Warehouses
+                    .Select(x => new Warehouse(sku: request.Sku, quantity: x.Quantity, locality: x.Locality, type: x.Type))
+                    .ToList()
+            );
 
             await _productRepository.Create(product);
             await _productRepository.CompleteAsync();
@@ -42,7 +57,16 @@ namespace BelezaNaWeb.Framework.Handlers
             return new CreateProductResult
             {
                 Sku = product.Sku,
-                Name = product.Name
+                Name = product.Name,
+                Inventory = new InventoryDto
+                {
+                    Warehouses = product.Warehouses.Select(x => new WarehouseDto
+                    {
+                        Locality = x.Locality,
+                        Quantity = x.Quantity,
+                        Type = x.Type.ToDescription()
+                    })
+                }
             };
         }
 
