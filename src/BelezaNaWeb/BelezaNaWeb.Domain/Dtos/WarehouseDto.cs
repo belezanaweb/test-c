@@ -16,5 +16,16 @@ namespace BelezaNaWeb.Domain.Dtos
         public string Type { get; set; }
 
         #endregion
+
+        #region Constructors
+
+        public WarehouseDto(string locality, int quantity, string type)
+        {
+            Type = type;
+            Locality = locality;
+            Quantity = quantity;
+        }
+
+        #endregion
     }
 }

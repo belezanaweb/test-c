@@ -53,12 +53,7 @@ namespace BelezaNaWeb.Framework.Handlers
                 Name = product.Name,
                 Inventory = new InventoryDto
                 {
-                    Warehouses = product.Warehouses.Select(x => new WarehouseDto
-                    {
-                        Locality = x.Locality,
-                        Quantity = x.Quantity,
-                        Type = x.Type.ToDescription().ToUpper()
-                    })
+                    Warehouses = product.Warehouses.Select(x => new WarehouseDto(x.Locality, x.Quantity, x.Type))
                 }
             };
         }

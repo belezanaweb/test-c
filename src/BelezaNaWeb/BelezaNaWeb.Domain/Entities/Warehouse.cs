@@ -1,5 +1,4 @@
 ﻿using System;
-using BelezaNaWeb.Domain.Enums;
 using System.Runtime.Serialization;
 
 namespace BelezaNaWeb.Domain.Entities
@@ -20,7 +19,7 @@ namespace BelezaNaWeb.Domain.Entities
         public string Locality { get; set; }
 
         [DataMember]
-        public WarehouseTypes Type { get; set; }
+        public string Type { get; set; }
 
         #endregion
 
@@ -35,7 +34,7 @@ namespace BelezaNaWeb.Domain.Entities
         public Warehouse()
         { }
 
-        public Warehouse(long sku, int quantity, string locality, WarehouseTypes type)
+        public Warehouse(long sku, int quantity, string locality, string type)
         {
             Sku = sku;
             Type = type;

@@ -7,7 +7,6 @@ using BelezaNaWeb.Domain.Dtos;
 using BelezaNaWeb.Domain.Queries;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
-using BelezaNaWeb.Framework.Extensions;
 using BelezaNaWeb.Framework.Data.Repositories;
 
 namespace BelezaNaWeb.Framework.Handlers
@@ -50,12 +49,7 @@ namespace BelezaNaWeb.Framework.Handlers
                     Name = x.Name,
                     Inventory = new InventoryDto
                     {
-                        Warehouses = x.Warehouses.Select(x => new WarehouseDto
-                        {
-                            Locality = x.Locality,
-                            Quantity = x.Quantity,
-                            Type = x.Type.ToDescription().ToUpper()
-                        })
+                        Warehouses = x.Warehouses.Select(x => new WarehouseDto(x.Locality, x.Quantity, x.Type))
                     }
                 })
             };

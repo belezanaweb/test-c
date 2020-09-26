@@ -6,6 +6,7 @@ using BelezaNaWeb.Domain.Commands;
 using BelezaNaWeb.Domain.Constants;
 using Microsoft.Extensions.Logging;
 using BelezaNaWeb.Domain.Exceptions;
+using BelezaNaWeb.Framework.Business;
 using BelezaNaWeb.Framework.Data.Repositories;
 
 namespace BelezaNaWeb.Framework.Handlers
@@ -14,6 +15,7 @@ namespace BelezaNaWeb.Framework.Handlers
     {
         #region Private Read-Only Fields
 
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IProductRepository _productRepository;
 
         #endregion
@@ -22,10 +24,12 @@ namespace BelezaNaWeb.Framework.Handlers
 
         public DeleteProductHandler(ILogger<DeleteProductHandler> logger
             , IMediator mediator
+            , IUnitOfWork unitOfWork
             , IProductRepository productRepository
         )
             : base(logger, mediator)
         {
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
             _productRepository = productRepository ?? throw new ArgumentNullException(nameof(productRepository));
         }
 
@@ -40,7 +44,7 @@ namespace BelezaNaWeb.Framework.Handlers
                 throw new ApiException(ErrorConstants.ProductNotFound.Name, ErrorConstants.ProductNotFound.Message, ErrorConstants.ProductNotFound.Code);
 
             _productRepository.Delete(product);
-            _productRepository.Complete();
+            _unitOfWork.Complete();
 
             return await Task.FromResult(true);
         }

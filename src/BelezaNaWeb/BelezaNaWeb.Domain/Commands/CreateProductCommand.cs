@@ -1,5 +1,4 @@
 ﻿using BelezaNaWeb.Domain.Dtos;
-using BelezaNaWeb.Domain.Enums;
 using System.Collections.Generic;
 
 namespace BelezaNaWeb.Domain.Commands
@@ -21,7 +20,7 @@ namespace BelezaNaWeb.Domain.Commands
 
         public int Quantity { get; set; }
         public string Locality { get; set; }
-        public WarehouseTypes Type { get; set; }
+        public string Type { get; set; }
 
         #endregion
     }

@@ -1,6 +1,5 @@
 ﻿using MediatR;
 using Newtonsoft.Json;
-using BelezaNaWeb.Domain.Enums;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -67,16 +66,16 @@ namespace BelezaNaWeb.Api.Requests
 
         [Required]
         [JsonProperty("type")]
-        public WarehouseTypes Type { get; }
+        public string Type { get; }
 
         #endregion
 
         #region Constructors
 
         [JsonConstructor]
-        public EditProductWarehouseRequest(int quantity, string locality, WarehouseTypes warehouseTypes)
+        public EditProductWarehouseRequest(int quantity, string locality, string type)
         {
-            Type = Type;
+            Type = type;
             Quantity = quantity;
             Locality = locality;
         }

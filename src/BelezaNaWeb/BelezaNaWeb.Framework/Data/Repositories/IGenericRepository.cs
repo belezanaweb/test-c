@@ -58,9 +58,5 @@ namespace BelezaNaWeb.Framework.Data.Repositories
         Task<int> Count(Expression<Func<TEntity, bool>> predicate = null);
 
         #endregion
-
-
-        int Complete();
-        Task<int> CompleteAsync();
     }
 }

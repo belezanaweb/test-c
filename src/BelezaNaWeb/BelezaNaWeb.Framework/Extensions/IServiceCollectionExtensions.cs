@@ -1,7 +1,9 @@
 ﻿using MediatR;
+using FluentValidation;
 using System.Reflection;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using BelezaNaWeb.Framework.Business;
 using Microsoft.AspNetCore.Mvc.Routing;
 using BelezaNaWeb.Framework.Data.Contexts;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -40,6 +42,12 @@ namespace BelezaNaWeb.Framework.Extensions
                     .AddClasses(c => c.AssignableTo(typeof(IGenericRepository<>)))
                         .AsImplementedInterfaces()
                         .WithScopedLifetime()
+                .AddClasses(c => c.AssignableTo(typeof(IValidator<>)))
+                        .AsImplementedInterfaces()
+                        .WithScopedLifetime()
+                .AddClasses(c => c.AssignableTo<IUnitOfWork>())
+                    .AsImplementedInterfaces()
+                    .WithScopedLifetime()
                 );
 
             return services;
