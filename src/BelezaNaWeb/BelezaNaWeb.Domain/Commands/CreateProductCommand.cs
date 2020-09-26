@@ -7,7 +7,7 @@ namespace BelezaNaWeb.Domain.Commands
     {
         #region Public Properties
 
-        public long Sku { get; set;  }
+        public int Sku { get; set;  }
         public string Name { get; set; }
         public IEnumerable<CreateProductWarehouseCommand> Warehouses { get; set; }
 

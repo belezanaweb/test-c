@@ -7,13 +7,13 @@ namespace BelezaNaWeb.Domain.Commands
         #region Public Properties
 
         [JsonProperty("sku")]
-        public long Sku { get; }
+        public int Sku { get; }
 
         #endregion
 
         #region Constructors
 
-        public DeleteProductCommand(long sku)
+        public DeleteProductCommand(int sku)
             => Sku = sku;
 
         #endregion

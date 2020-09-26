@@ -10,14 +10,14 @@ namespace BelezaNaWeb.Domain.Queries
 
         [Required]
         [JsonProperty("sku")]
-        public long Sku { get; }
+        public int Sku { get; }
 
         #endregion
 
         #region Constructors
 
         [JsonConstructor]
-        public GetProductQuery(long sku)
+        public GetProductQuery(int sku)
             => Sku = sku;
 
         #endregion

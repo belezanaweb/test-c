@@ -25,9 +25,9 @@ namespace BelezaNaWeb.Framework.Validators
                 .GreaterThan(0)
                     .WithMessage("Sku code must be greater than zero.")
                     .WithState(p => new ValidationFailure(nameof(p.Sku), "Sku code must be greater than zero."))
-                .LessThanOrEqualTo(long.MaxValue)
-                    .WithMessage($"Sku code must be less than or equal to {long.MaxValue}.")
-                    .WithState(p => new ValidationFailure(nameof(p.Sku), $"Sku code must be less than or equal to {long.MaxValue}."));
+                .LessThanOrEqualTo(int.MaxValue)
+                    .WithMessage($"Sku code must be less than or equal to {int.MaxValue}.")
+                    .WithState(p => new ValidationFailure(nameof(p.Sku), $"Sku code must be less than or equal to {int.MaxValue}."));
 
             RuleFor(p => p.Name)
                 .NotNull()

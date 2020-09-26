@@ -9,7 +9,6 @@ using BelezaNaWeb.Domain.Constants;
 using Microsoft.Extensions.Logging;
 using BelezaNaWeb.Domain.Exceptions;
 using Microsoft.EntityFrameworkCore;
-using BelezaNaWeb.Framework.Extensions;
 using BelezaNaWeb.Framework.Data.Repositories;
 
 namespace BelezaNaWeb.Framework.Handlers
@@ -39,6 +38,9 @@ namespace BelezaNaWeb.Framework.Handlers
 
         public override async Task<GetProductResult> Handle(GetProductQuery request, CancellationToken cancellationToken)
         {
+            if (request.Sku <= 0)
+                throw new ApiException(ErrorConstants.ProductInvalidSku.Name, ErrorConstants.ProductInvalidSku.Message, ErrorConstants.ProductInvalidSku.Code);
+
             var product = await _productRepository.Find(
                 predicate: x => x.Sku.Equals(request.Sku)
                 , include: x => x.Include(p => p.Warehouses)

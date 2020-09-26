@@ -41,13 +41,13 @@ namespace BelezaNaWeb.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet("{sku:long}")]
+        [HttpGet("{sku:int}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Get([FromRoute]long sku)
+        public async Task<IActionResult> Get([FromRoute]int sku)
         {
             var result = await _mediator.Send(new GetProductQuery(sku));
             return Ok(result);
@@ -71,13 +71,13 @@ namespace BelezaNaWeb.Api.Controllers
             return BadRequest(ModelState.ToErrorResponse());
         }
 
-        [HttpPut("{sku:long}")]
+        [HttpPut("{sku:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Edit([FromRoute] long sku, [FromBody] EditProductRequest model)
+        public async Task<IActionResult> Edit([FromRoute] int sku, [FromBody] EditProductRequest model)
         {
             if (ModelState.IsValid)
             {
@@ -92,13 +92,13 @@ namespace BelezaNaWeb.Api.Controllers
             return BadRequest(ModelState.ToErrorResponse());
         }
 
-        [HttpDelete("{sku:long}")]
+        [HttpDelete("{sku:int}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ErrorDto), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Delete([FromRoute] long sku)
+        public async Task<IActionResult> Delete([FromRoute] int sku)
         {
             await _mediator.Send(new DeleteProductCommand(sku));
             return NoContent();

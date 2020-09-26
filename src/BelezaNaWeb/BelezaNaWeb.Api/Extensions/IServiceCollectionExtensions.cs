@@ -22,7 +22,29 @@ namespace BelezaNaWeb.Api.Extensions
     {
         #region Extension Methods
 
-        public static IServiceCollection ConfigureAutoMapper(this IServiceCollection services)
+        public static IServiceCollection AddApiDependencies(this IServiceCollection services)
+        {
+            services
+                .AddCors()                
+                .AddControllers();
+            
+            services
+                .AddLogging()
+                .ConfigureCulture()
+                .ConfigureCaching()
+                .ConfigureCompression()
+                .ConfigureMvc()
+                .ConfigureAutoMapper()
+                .ConfigureApiVersion()
+                .ConfigureSwagger();
+
+            return services;
+        }
+        #endregion
+
+        #region Private Methods
+
+        private static IServiceCollection ConfigureAutoMapper(this IServiceCollection services)
         {
             var config = new MapperConfiguration(options =>
             {
@@ -36,7 +58,7 @@ namespace BelezaNaWeb.Api.Extensions
             return services;
         }
 
-        public static IServiceCollection ConfigureCaching(this IServiceCollection services)
+        private static IServiceCollection ConfigureCaching(this IServiceCollection services)
         {
             services.AddMemoryCache();
             services.AddResponseCaching();
@@ -44,7 +66,7 @@ namespace BelezaNaWeb.Api.Extensions
             return services;
         }
 
-        public static IServiceCollection ConfigureCulture(this IServiceCollection services)
+        private static IServiceCollection ConfigureCulture(this IServiceCollection services)
         {
             services.Configure<RequestLocalizationOptions>(options =>
             {
@@ -56,7 +78,7 @@ namespace BelezaNaWeb.Api.Extensions
             return services;
         }
 
-        public static IServiceCollection ConfigureCompression(this IServiceCollection services)
+        private static IServiceCollection ConfigureCompression(this IServiceCollection services)
         {
             services
                 .Configure<GzipCompressionProviderOptions>(x => x.Level = CompressionLevel.Optimal)
@@ -73,7 +95,7 @@ namespace BelezaNaWeb.Api.Extensions
             return services;
         }
 
-        public static IServiceCollection ConfigureMvc(this IServiceCollection services)
+        private static IServiceCollection ConfigureMvc(this IServiceCollection services)
         {
             services
                 .AddMvcCore(options =>
@@ -106,7 +128,7 @@ namespace BelezaNaWeb.Api.Extensions
             return services;
         }
 
-        public static IServiceCollection ConfigureSwagger(this IServiceCollection services)
+        private static IServiceCollection ConfigureSwagger(this IServiceCollection services)
         {
             var availableScopes = new Dictionary<string, string>();
 
@@ -130,7 +152,7 @@ namespace BelezaNaWeb.Api.Extensions
             return services;
         }
 
-        public static IServiceCollection ConfigureApiVersion(this IServiceCollection services)
+        private static IServiceCollection ConfigureApiVersion(this IServiceCollection services)
         {
             services.AddVersionedApiExplorer(options =>
             {

@@ -11,7 +11,7 @@ namespace BelezaNaWeb.Domain.Entities.Impl
         #region Public Properties
 
         [DataMember]
-        public long Sku { get; set; }
+        public int Sku { get; set; }
 
         [DataMember]
         public string Name { get; set; }
@@ -26,11 +26,11 @@ namespace BelezaNaWeb.Domain.Entities.Impl
         public Product()
         { }
 
-        public Product(long sku, string name)
+        public Product(int sku, string name)
             : this(sku, name, null)
         { }
 
-        public Product(long sku, string name, ICollection<Warehouse> warehouses)
+        public Product(int sku, string name, ICollection<Warehouse> warehouses)
         {
             Sku = sku;
             Name = name;

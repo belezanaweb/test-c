@@ -7,7 +7,7 @@ namespace BelezaNaWeb.Domain.Dtos
         #region Public Properties
 
         [JsonProperty("sku", Order = 0)]
-        public long Sku { get; set; }
+        public int Sku { get; set; }
 
         [JsonProperty("name", Order = 1)]
         public string Name { get; set; }

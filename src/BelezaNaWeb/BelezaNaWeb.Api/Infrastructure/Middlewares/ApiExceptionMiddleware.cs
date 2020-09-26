@@ -41,7 +41,7 @@ namespace BelezaNaWeb.Api.Infrastructure.Middlewares
             }
             catch (Exception ex)
             {
-                await HandleExceptionAsync(httpContext, ex);
+                await HandleExceptionAsync(httpContext, ex);                
             }
         }
 
@@ -87,7 +87,7 @@ namespace BelezaNaWeb.Api.Infrastructure.Middlewares
                         .ToList();
             }
 
-            _logger.LogError(exception, response.Message);
+            _logger.LogError(exception, response.Message);            
             return httpContext.Response.WriteAsync(SerializationHelper.SerializeToJson(response));
         }
 

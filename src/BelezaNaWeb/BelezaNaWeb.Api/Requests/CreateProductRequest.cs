@@ -11,7 +11,7 @@ namespace BelezaNaWeb.Api.Requests
 
         [Required]
         [JsonProperty("sku")]
-        public long Sku { get; }
+        public int Sku { get; }
 
         [Required]
         [JsonProperty("name")]
@@ -26,7 +26,7 @@ namespace BelezaNaWeb.Api.Requests
         #region Constructors
 
         [JsonConstructor]
-        public CreateProductRequest(long sku, string name, CreateProductInventoryRequest inventory)
+        public CreateProductRequest(int sku, string name, CreateProductInventoryRequest inventory)
         {
             Sku = sku;
             Name = name;

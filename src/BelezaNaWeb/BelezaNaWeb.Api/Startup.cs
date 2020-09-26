@@ -37,20 +37,8 @@ namespace BelezaNaWeb.Api
                 .AddSingleton(WebHostingEnvironment);
             
             services
-                .AddCors()
-                .AddControllers();
-
-            services
+                .AddApiDependencies()
                 .AddFrameworkDependencies(enableSensitiveData: WebHostingEnvironment.IsDevelopment());
-
-            services
-                .ConfigureCulture()
-                .ConfigureCaching()
-                .ConfigureCompression()
-                .ConfigureMvc()
-                .ConfigureAutoMapper()
-                .ConfigureApiVersion()                                            
-                .ConfigureSwagger();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

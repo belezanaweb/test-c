@@ -52,6 +52,13 @@ namespace BelezaNaWeb.Domain.Constants
 
         #region Custom Constants
 
+        public static class ProductInvalidSku
+        {
+            public const int Code = (int)HttpStatusCode.BadRequest;
+            public const string Name = "PRODUCT_INVALID_SKU";
+            public const string Message = "Invalid SKU code.";
+        }
+
         public static class ProductNotFound
         {
             public const int Code = (int)HttpStatusCode.NotFound;
