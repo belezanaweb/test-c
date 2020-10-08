@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticário", "Boticário\Boticário.csproj", "{604DEF3B-C99E-47D6-BB15-08C5E71CA958}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "..\API\API.csproj", "{5DB46BF9-29E5-4756-ADE2-08A6B702BDB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{604DEF3B-C99E-47D6-BB15-08C5E71CA958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{604DEF3B-C99E-47D6-BB15-08C5E71CA958}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{604DEF3B-C99E-47D6-BB15-08C5E71CA958}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{604DEF3B-C99E-47D6-BB15-08C5E71CA958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DB46BF9-29E5-4756-ADE2-08A6B702BDB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DB46BF9-29E5-4756-ADE2-08A6B702BDB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DB46BF9-29E5-4756-ADE2-08A6B702BDB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DB46BF9-29E5-4756-ADE2-08A6B702BDB9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {6B962B3C-527D-4165-A10B-E3FF04A1EC6F}
+		SolutionGuid = {16AE7A54-DED6-4A1D-95C9-C1F194B48CDB}
 	EndGlobalSection
 EndGlobal
