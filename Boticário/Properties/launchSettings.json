@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:55428",
-      "sslPort": 44344
+      "applicationUrl": "http://localhost:55406",
+      "sslPort": 44342
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "API": {
+    "Boticário": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

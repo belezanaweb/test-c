@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace API.ViewModel
+namespace Business.ViewModel
 {
     public class ProductViewModel
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace API
+namespace Business.Entity
 {
     public class ProductWarehouse
     {
