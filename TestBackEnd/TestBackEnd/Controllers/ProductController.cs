@@ -40,7 +40,7 @@ namespace BackendTest.Controllers
             await _backEndTestContext.Products.AddAsync(product);
             await _backEndTestContext.SaveChangesAsync();
             
-            return Created(string.Empty,string.Format("Product {0} was successfully created", product.Sku));
+            return Created(string.Empty,string.Format("Product with sku {0} was successfully created", product.Sku));
         }
 
         [HttpPut]
@@ -57,7 +57,7 @@ namespace BackendTest.Controllers
 
             _backEndTestContext.Products.Update(product);
             await _backEndTestContext.SaveChangesAsync();
-            return Ok(string.Format("Product {0} was successfully edited", product.Sku));
+            return Ok(string.Format("Product with sku {0} was successfully edited", product.Sku));
         }
 
         [HttpDelete]
@@ -72,7 +72,7 @@ namespace BackendTest.Controllers
 
             _backEndTestContext.Products.Remove(product);
             await _backEndTestContext.SaveChangesAsync();
-            return Ok(string.Format("The product {0} was successfully deleted", product.Sku));
+            return Ok(string.Format("The product with sku  {0} was successfully deleted", product.Sku));
         }
 
         [HttpGet("{sku}", Name = "GetProduct")]
