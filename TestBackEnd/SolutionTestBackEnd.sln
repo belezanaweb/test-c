@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectWebApiBackEndTest", "TestBackEnd\ProjectWebApiBackEndTest.csproj", "{CCA09055-0AC9-40B6-807E-0BB1AE92C295}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectTestBackEndWebApi", "ApiTestBackEnd\ProjectTestBackEndWebApi.csproj", "{3E11198D-C0EA-49D6-8306-3031F21EAB8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectBackEndWebApiTest", "ApiTestBackEnd\ProjectBackEndWebApiTest.csproj", "{3E11198D-C0EA-49D6-8306-3031F21EAB8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

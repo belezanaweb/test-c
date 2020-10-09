@@ -5,6 +5,11 @@ namespace BackendTest.Entities
 {
     public class Product
     {
+        public Product()
+        {
+            Inventory = new Inventory();
+        }        
+        
         [JsonPropertyName("sku")]
         public int Sku { get; set; }
         [JsonPropertyName("name")]

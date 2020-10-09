@@ -6,6 +6,7 @@ namespace BackendTest.Entities
 {
     public class Inventory    
     {
+        
         [JsonIgnore]
         public int Id { get; set; }
 
@@ -21,9 +22,13 @@ namespace BackendTest.Entities
         [JsonIgnore]
         public int Quantity { get; private set; }
 
-        public void CalculeteQuantity()
+        public void CalculeteQuantity()       
         {
-            Quantity = WareHouses.Sum(s => s.Quantity);
+           Quantity = WareHouses.Any() ? WareHouses.Sum(s => s.Quantity) : 0; 
+        }
+        public Inventory()
+        {
+            WareHouses = new List<WareHouse>();
         }
     }
 }
