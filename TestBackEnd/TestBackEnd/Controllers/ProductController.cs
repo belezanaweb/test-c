@@ -72,7 +72,7 @@ namespace BackendTest.Controllers
 
             _backEndTestContext.Products.Remove(product);
             await _backEndTestContext.SaveChangesAsync();
-            return Ok(string.Format("The product with sku  {0} was successfully deleted", product.Sku));
+            return Ok(string.Format("The product with sku {0} was successfully deleted", product.Sku));
         }
 
         [HttpGet("{sku}", Name = "GetProduct")]
