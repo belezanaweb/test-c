@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json.Serialization;
 
 namespace BackendTest.Entities
@@ -22,7 +23,7 @@ namespace BackendTest.Entities
 
         public void CalculeteQuantity()
         {
-            Quantity = WareHouses.Count;
+            Quantity = WareHouses.Sum(s => s.Quantity);
         }
     }
 }
