@@ -33,14 +33,14 @@ namespace BackendTest.Controllers
             var productfind = await _backEndTestContext.Products.FindAsync(product.Sku);
 
             if (productfind != null)
-                return Ok("The informed product exist in the database.");
+                return Ok("The informed Product exist in the database.");
 
              CallBehaviors(product);
 
             await _backEndTestContext.Products.AddAsync(product);
             await _backEndTestContext.SaveChangesAsync();
             
-            return Created(string.Empty,string.Format("Product with sku {0} was successfully created", product.Sku));
+            return Created(string.Empty,string.Format("The Product with sku {0} was successfully created", product.Sku));
         }
 
         [HttpPut]
@@ -49,7 +49,7 @@ namespace BackendTest.Controllers
             var productFind = await _backEndTestContext.Products.FindAsync(product.Sku);
 
             if (productFind == null)
-                return Ok("The informed product does not exist in the database, it is not possible to edit it.");
+                return Ok("The informed Product does not exist in the database, it is not possible to edit it.");
 
             _backEndTestContext.Entry(productFind).State = EntityState.Detached;
 
