@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteBoticario", "TesteBoticario\TesteBoticario.csproj", "{8E3DCBB6-4681-4567-8893-755DA1EC4006}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{921ABA05-0540-4E04-BE5D-4A63BC6E730A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{076A1152-F334-41B3-B237-55F35175F7FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E3DCBB6-4681-4567-8893-755DA1EC4006}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E3DCBB6-4681-4567-8893-755DA1EC4006}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E3DCBB6-4681-4567-8893-755DA1EC4006}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E3DCBB6-4681-4567-8893-755DA1EC4006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{921ABA05-0540-4E04-BE5D-4A63BC6E730A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921ABA05-0540-4E04-BE5D-4A63BC6E730A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921ABA05-0540-4E04-BE5D-4A63BC6E730A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921ABA05-0540-4E04-BE5D-4A63BC6E730A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076A1152-F334-41B3-B237-55F35175F7FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076A1152-F334-41B3-B237-55F35175F7FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076A1152-F334-41B3-B237-55F35175F7FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076A1152-F334-41B3-B237-55F35175F7FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E66C5B7E-FB86-4D0A-84FA-1A4B34060103}
+	EndGlobalSection
+EndGlobal

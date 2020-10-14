@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TesteBoticario</name>
+    </assembly>
+    <members>
+        <member name="M:TesteBoticario.Controllers.SkuController.Get(System.Nullable{System.Int32})">
+            <summary>
+            Gets sku details
+            </summary>
+            <param name="sku">sku number</param>
+            <returns>StockKeepingUnit</returns>
+        </member>
+        <member name="M:TesteBoticario.Controllers.SkuController.Post(Domain.Model.StockKeepingUnit)">
+            <summary>
+            Adds sku
+            </summary>
+            <param name="sku"></param>
+            <returns>Added sku</returns>
+        </member>
+        <member name="M:TesteBoticario.Controllers.SkuController.Put(Domain.Model.StockKeepingUnit)">
+            <summary>
+            Alter sku
+            </summary>
+            <param name="sku"></param>
+            <returns>Altered sku</returns>
+        </member>
+        <member name="M:TesteBoticario.Controllers.SkuController.Delete(System.Int32)">
+            <summary>
+            Remove sku
+            </summary>
+            <param name="sku">sku number</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

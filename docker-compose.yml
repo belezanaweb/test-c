@@ -1,0 +1,5 @@
+services:
+    dotnet:
+        build: ./dotnet/
+        ports:
+            - "80:80"
