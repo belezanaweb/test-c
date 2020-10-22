@@ -2,7 +2,7 @@
 
 namespace Boticario.Backend.Modules.Inventory.Services
 {
-    public interface IDeleteProductInventoryService
+    public interface IDeleteInventoryService
     {
         Task Execute(int sku);
     }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Boticario.Backend.Modules.Inventory.Services
 {
-    interface ISaveProductInventoryService
+    interface ISaveInventoryService
     {
         Task Execute(int sku, IList<IInventory> inventories);
     }
