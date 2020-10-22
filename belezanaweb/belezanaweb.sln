@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{DF70A72B-5B97-49DE-AFAE-72C4C734F454}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Services", "{15D571A8-2466-46C9-994D-CFD280D3613A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Application", "3 - Application", "{043E1DD4-AE29-429C-849C-CEEB482FA28E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Domain", "4 - Domain", "{283A789F-D019-4C02-928D-1D1E63EDFCF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Infra", "5 - Infra", "{5CC2D164-CD96-41E7-89BC-7F002399E76E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6 - Tests", "6 - Tests", "{F9AB79E4-F701-4F12-851D-58B9D93A836C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "belezanaweb.WebApi", "belezanaweb.WebApi\belezanaweb.WebApi.csproj", "{0E616E5A-0FA9-4B06-BC78-6BF7EB25A1AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "belezanaweb.Domain", "belezanaweb.Domain\belezanaweb.Domain.csproj", "{BE16F7D2-AD81-4D66-AC22-BDD9620D7EE6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.1 - Data", "5.1 - Data", "{A9AB99CD-BAD9-4AB0-B4B1-12CA8F316315}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.2 - CrossCutting", "5.2 - CrossCutting", "{F814A78B-3873-4EBB-82A4-A4569CF8FFFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "belezanaweb.Infra.Data", "belezanaweb.Infra.Data\belezanaweb.Infra.Data.csproj", "{1B084ABB-E868-4D28-BCED-AAE650A5479C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "belezanaweb.CrossCutting.IoC", "belezanaweb.CrossCutting.IoC\belezanaweb.CrossCutting.IoC.csproj", "{FFDF656E-310B-46C3-91D5-8E2298D12E92}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "belezanaweb.Appliction", "belezanaweb.Appliction\belezanaweb.Appliction.csproj", "{999733D7-4675-4A03-9901-72CD8DF497A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "belezanaweb.Tests", "belezanaweb.Tests\belezanaweb.Tests.csproj", "{994E7A44-A314-45AA-9441-2530452CB637}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E616E5A-0FA9-4B06-BC78-6BF7EB25A1AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E616E5A-0FA9-4B06-BC78-6BF7EB25A1AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E616E5A-0FA9-4B06-BC78-6BF7EB25A1AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E616E5A-0FA9-4B06-BC78-6BF7EB25A1AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE16F7D2-AD81-4D66-AC22-BDD9620D7EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE16F7D2-AD81-4D66-AC22-BDD9620D7EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE16F7D2-AD81-4D66-AC22-BDD9620D7EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE16F7D2-AD81-4D66-AC22-BDD9620D7EE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B084ABB-E868-4D28-BCED-AAE650A5479C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B084ABB-E868-4D28-BCED-AAE650A5479C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B084ABB-E868-4D28-BCED-AAE650A5479C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B084ABB-E868-4D28-BCED-AAE650A5479C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFDF656E-310B-46C3-91D5-8E2298D12E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFDF656E-310B-46C3-91D5-8E2298D12E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFDF656E-310B-46C3-91D5-8E2298D12E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFDF656E-310B-46C3-91D5-8E2298D12E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{999733D7-4675-4A03-9901-72CD8DF497A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999733D7-4675-4A03-9901-72CD8DF497A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999733D7-4675-4A03-9901-72CD8DF497A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999733D7-4675-4A03-9901-72CD8DF497A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{994E7A44-A314-45AA-9441-2530452CB637}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{994E7A44-A314-45AA-9441-2530452CB637}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{994E7A44-A314-45AA-9441-2530452CB637}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{994E7A44-A314-45AA-9441-2530452CB637}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E616E5A-0FA9-4B06-BC78-6BF7EB25A1AB} = {15D571A8-2466-46C9-994D-CFD280D3613A}
+		{BE16F7D2-AD81-4D66-AC22-BDD9620D7EE6} = {283A789F-D019-4C02-928D-1D1E63EDFCF5}
+		{A9AB99CD-BAD9-4AB0-B4B1-12CA8F316315} = {5CC2D164-CD96-41E7-89BC-7F002399E76E}
+		{F814A78B-3873-4EBB-82A4-A4569CF8FFFA} = {5CC2D164-CD96-41E7-89BC-7F002399E76E}
+		{1B084ABB-E868-4D28-BCED-AAE650A5479C} = {A9AB99CD-BAD9-4AB0-B4B1-12CA8F316315}
+		{FFDF656E-310B-46C3-91D5-8E2298D12E92} = {F814A78B-3873-4EBB-82A4-A4569CF8FFFA}
+		{999733D7-4675-4A03-9901-72CD8DF497A1} = {043E1DD4-AE29-429C-849C-CEEB482FA28E}
+		{994E7A44-A314-45AA-9441-2530452CB637} = {F9AB79E4-F701-4F12-851D-58B9D93A836C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FF3A417-D50C-41AA-965A-9E550218A9C3}
+	EndGlobalSection
+EndGlobal

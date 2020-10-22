@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\belezanaweb.Appliction\belezanaweb.Appliction.csproj" />
+    <ProjectReference Include="..\belezanaweb.Infra.Data\belezanaweb.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
