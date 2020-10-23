@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Connection\Boticario.Backend.Data.Connection\Boticario.Backend.Data.Connection.csproj" />
+    <ProjectReference Include="..\Boticario.Backend.Data.UnitOfWork\Boticario.Backend.Data.UnitOfWork.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -19,6 +19,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Connection\Boticario.Backend.Data.Connection.Implementation\Boticario.Backend.Data.Connection.Implementation.csproj" />
+    <ProjectReference Include="..\..\Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork.Implementation\Boticario.Backend.Data.UnitOfWork.Implementation.csproj" />
+    <ProjectReference Include="..\..\Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork\Boticario.Backend.Data.UnitOfWork.csproj" />
   </ItemGroup>
 
 

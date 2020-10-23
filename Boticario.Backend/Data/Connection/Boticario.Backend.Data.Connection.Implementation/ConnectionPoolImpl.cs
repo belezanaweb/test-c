@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Threading;
 
 namespace Boticario.Backend.Data.Connection.Implementation
@@ -8,7 +7,7 @@ namespace Boticario.Backend.Data.Connection.Implementation
     {
         private readonly IConnectionFactory connectionFactory;
         private readonly ConcurrentQueue<IConnection> connectionQueue;
-        private int activeConnections;
+        private long activeConnections;
 
         public ConnectionPoolImpl(IConnectionFactory connectionFactory)
         {
@@ -43,15 +42,15 @@ namespace Boticario.Backend.Data.Connection.Implementation
             return newInstance;
         }
 
-        public int ActiveConnections
+        public long ActiveConnections
         {
             get
             {
-                return this.activeConnections;
+                return Interlocked.Read(ref this.activeConnections);
             }
         }
 
-        public int AvailableConnections
+        public long AvailableConnections
         {
             get { return this.connectionQueue.Count; }
         }

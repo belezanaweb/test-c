@@ -7,6 +7,5 @@ namespace Boticario.Backend.Data.UnitOfWork
     {
         bool InTransaction { get; }
         Task Execute(Func<Task> function);
-        Task Execute(Action action);
     }
 }
