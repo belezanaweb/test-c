@@ -6,6 +6,6 @@ namespace Boticario.Backend.Modules.Products.Services
 {
     public interface IGetProductService
     {
-        Task<IList<IProduct>> Execute(int sku);
+        Task<IList<IProduct>> Get(int sku);
     }
 }

@@ -6,6 +6,6 @@ namespace Boticario.Backend.Modules.Inventory.Services
 {
     interface ISaveInventoryService
     {
-        Task Execute(int sku, IList<IInventory> inventories);
+        Task Save(int sku, IList<IInventory> inventories);
     }
 }

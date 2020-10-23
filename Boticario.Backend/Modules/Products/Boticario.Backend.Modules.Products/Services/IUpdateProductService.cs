@@ -5,6 +5,6 @@ namespace Boticario.Backend.Modules.Products.Services
 {
     public interface IUpdateProductService
     {
-        Task Execute(IProduct product);
+        Task Update(int sku, string name);
     }
 }

@@ -4,6 +4,6 @@ namespace Boticario.Backend.Modules.Inventory.Services
 {
     public interface IDeleteInventoryService
     {
-        Task Execute(int sku);
+        Task Delete(int sku);
     }
 }

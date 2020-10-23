@@ -5,6 +5,6 @@ namespace Boticario.Backend.Modules.Products.Services
 {
     public interface ICreateProductService
     {
-        Task Execute(IProduct product);
+        Task Create(int sku, string name);
     }
 }
