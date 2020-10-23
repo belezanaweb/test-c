@@ -1,3 +1,4 @@
+using Boticario.Backend.Controllers.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +34,7 @@ namespace Boticario.Backend.Controllers
                 c.IncludeXmlComments(xmlPath);
             });
 
+            new IocConfiguration(services).Config();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

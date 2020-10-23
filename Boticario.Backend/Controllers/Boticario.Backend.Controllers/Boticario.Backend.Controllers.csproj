@@ -17,5 +17,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Data\Connection\Boticario.Backend.Data.Connection.Implementation\Boticario.Backend.Data.Connection.Implementation.csproj" />
+  </ItemGroup>
+
 
 </Project>

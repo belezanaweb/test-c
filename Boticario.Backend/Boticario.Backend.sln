@@ -24,21 +24,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{5F01D6F2-15AC-4543-AD50-A5230E5272CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Data.UnitOfWork", "Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork\Boticario.Backend.Data.UnitOfWork.csproj", "{B1A0B729-FD72-4546-845C-106EE5C4FA65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.UnitOfWork", "Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork\Boticario.Backend.Data.UnitOfWork.csproj", "{B1A0B729-FD72-4546-845C-106EE5C4FA65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnifOfWork", "UnifOfWork", "{3DA25D04-B10A-4F3F-9E90-2C94325AA062}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseContext", "DatabaseContext", "{8CB0B4A8-6AF4-4439-A7CB-B1E84EAEF269}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Data.DatabaseContext", "Data\DatabaseContext\Boticario.Backend.Data.DatabaseContext\Boticario.Backend.Data.DatabaseContext.csproj", "{CFDEEE8D-6A91-42E6-A19B-C4049C10CB48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.DatabaseContext", "Data\DatabaseContext\Boticario.Backend.Data.DatabaseContext\Boticario.Backend.Data.DatabaseContext.csproj", "{CFDEEE8D-6A91-42E6-A19B-C4049C10CB48}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Connection", "Connection", "{E61F2E33-B728-4D67-BB66-3D914ED0E293}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Data.Connection", "Data\Connection\Boticario.Backend.Data.Connection\Boticario.Backend.Data.Connection.csproj", "{71B91225-678D-459C-ACE6-2FEFC7281DF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.Connection", "Data\Connection\Boticario.Backend.Data.Connection\Boticario.Backend.Data.Connection.csproj", "{71B91225-678D-459C-ACE6-2FEFC7281DF5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Command", "Command", "{7E07EAFD-5779-47AD-B290-D8FE2F45B8B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Data.Commands", "Data\Commands\Boticario.Backend.Data.Commands\Boticario.Backend.Data.Commands.csproj", "{2DB8A5FB-FCD0-4961-BDAB-802975DC93B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.Commands", "Data\Commands\Boticario.Backend.Data.Commands\Boticario.Backend.Data.Commands.csproj", "{2DB8A5FB-FCD0-4961-BDAB-802975DC93B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.Connection.Implementation", "Data\Connection\Boticario.Backend.Data.Connection.Implementation\Boticario.Backend.Data.Connection.Implementation.csproj", "{727B4AA3-9572-44ED-9C23-DB9E866480B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Data.Connection.Tests", "Data\Connection\Boticario.Backend.Data.Connection.Tests\Boticario.Backend.Data.Connection.Tests.csproj", "{FBBB844F-8B67-42A4-A6AC-E9B0568C2B9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,6 +78,14 @@ Global
 		{2DB8A5FB-FCD0-4961-BDAB-802975DC93B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DB8A5FB-FCD0-4961-BDAB-802975DC93B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DB8A5FB-FCD0-4961-BDAB-802975DC93B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{727B4AA3-9572-44ED-9C23-DB9E866480B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727B4AA3-9572-44ED-9C23-DB9E866480B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727B4AA3-9572-44ED-9C23-DB9E866480B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{727B4AA3-9572-44ED-9C23-DB9E866480B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBB844F-8B67-42A4-A6AC-E9B0568C2B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBB844F-8B67-42A4-A6AC-E9B0568C2B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBB844F-8B67-42A4-A6AC-E9B0568C2B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBB844F-8B67-42A4-A6AC-E9B0568C2B9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +104,8 @@ Global
 		{71B91225-678D-459C-ACE6-2FEFC7281DF5} = {E61F2E33-B728-4D67-BB66-3D914ED0E293}
 		{7E07EAFD-5779-47AD-B290-D8FE2F45B8B1} = {5F01D6F2-15AC-4543-AD50-A5230E5272CE}
 		{2DB8A5FB-FCD0-4961-BDAB-802975DC93B7} = {7E07EAFD-5779-47AD-B290-D8FE2F45B8B1}
+		{727B4AA3-9572-44ED-9C23-DB9E866480B6} = {E61F2E33-B728-4D67-BB66-3D914ED0E293}
+		{FBBB844F-8B67-42A4-A6AC-E9B0568C2B9C} = {E61F2E33-B728-4D67-BB66-3D914ED0E293}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {38766208-2119-433D-85C2-8B481A4F238E}
