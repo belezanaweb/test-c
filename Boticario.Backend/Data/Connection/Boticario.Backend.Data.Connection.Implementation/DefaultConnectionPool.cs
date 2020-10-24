@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.Connection.Implementation
 {
-    public class ConnectionPoolImpl : IConnectionPool
+    public class DefaultConnectionPool : IConnectionPool
     {
         private readonly IConnectionFactory connectionFactory;
         private readonly ConcurrentQueue<IConnection> connectionQueue;
         private long activeConnections;
 
-        public ConnectionPoolImpl(IConnectionFactory connectionFactory)
+        public DefaultConnectionPool(IConnectionFactory connectionFactory)
         {
             this.connectionFactory = connectionFactory;
             this.connectionQueue = new ConcurrentQueue<IConnection>();

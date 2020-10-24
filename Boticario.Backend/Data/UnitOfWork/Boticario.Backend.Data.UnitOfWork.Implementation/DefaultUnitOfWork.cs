@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.UnitOfWork.Implementation
 {
-    public class UnitOfWorkImpl : IUnitOfWork
+    public class DefaultUnitOfWork : IUnitOfWork
     {
         public readonly ConcurrentQueue<IWriterCommand> commandQueue;        
         public readonly ConcurrentQueue<string> transactionQueue;
 
-        public UnitOfWorkImpl()
+        public DefaultUnitOfWork()
         {
             this.commandQueue = new ConcurrentQueue<IWriterCommand>();
             this.transactionQueue = new ConcurrentQueue<string>();

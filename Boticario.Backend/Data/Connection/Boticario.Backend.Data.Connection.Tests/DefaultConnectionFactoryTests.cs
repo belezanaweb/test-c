@@ -4,14 +4,14 @@ using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.Connection.Tests
 {
-    public class ConnectionFactoryImplTests
+    public class DefaultConnectionFactoryTests
     {
-        private ConnectionFactoryImpl connectionFactory;
+        private DefaultConnectionFactory connectionFactory;
 
         [SetUp]
         public void Setup()
         {
-            this.connectionFactory = new ConnectionFactoryImpl();
+            this.connectionFactory = new DefaultConnectionFactory();
         }
 
         [Test]

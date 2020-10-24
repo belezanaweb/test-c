@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.DatabaseContext.Implementation
 {
-    public class DatabaseContextImpl : IDatabaseContext
+    public class DefaultDatabaseContext : IDatabaseContext
     {
         private readonly IUnitOfWork unitOfwork;
 
-        public DatabaseContextImpl(IUnitOfWork unitOfwork)
+        public DefaultDatabaseContext(IUnitOfWork unitOfwork)
         {
             this.unitOfwork = unitOfwork;
         }

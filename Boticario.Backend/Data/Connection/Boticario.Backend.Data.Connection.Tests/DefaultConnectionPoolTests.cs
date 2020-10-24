@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.Connection.Tests
 {
-    public class ConnectionPoolImplTests
+    public class DefaultConnectionPoolTests
     {
-        private ConnectionPoolImpl connectionPool;
+        private DefaultConnectionPool connectionPool;
 
         [SetUp]
         public void Setup()
         {
-            this.connectionPool = new ConnectionPoolImpl(new ConnectionFactoryMock());
+            this.connectionPool = new DefaultConnectionPool(new ConnectionFactoryMock());
         }
 
         [Test]

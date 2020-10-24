@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.UnitOfWork.Tests
 {
-    public class UnitOfWorkImplTests
+    public class DefaultUnitOfWorkTests
     {
-        private UnitOfWorkImpl unitOfWork;
+        private DefaultUnitOfWork unitOfWork;
 
         [SetUp]
         public void Setup()
         {
-            this.unitOfWork = new UnitOfWorkImpl();
+            this.unitOfWork = new DefaultUnitOfWork();
         }
 
         [Test]

@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.DatabaseContext.Tests
 {
-    public class DatabaseContextImplTests
+    public class DefaultDatabaseContextTests
     {
         private UnifOfWorkMock unifOfWork;
-        private DatabaseContextImpl databaseContext;
+        private DefaultDatabaseContext databaseContext;
 
         [SetUp]
         public void Setup()
         {
             this.unifOfWork = new UnifOfWorkMock();
-            this.databaseContext = new DatabaseContextImpl(this.unifOfWork);
+            this.databaseContext = new DefaultDatabaseContext(this.unifOfWork);
         }
 
         [Test]
