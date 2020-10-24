@@ -76,7 +76,7 @@ namespace Boticario.Backend.Data.UnitOfWork.Tests
         [Test]
         public void When_Enqueue1Command_Should_Have1CommandInQueue()
         {
-            this.unitOfWork.EnqueueCommand(new CommandMock());
+            this.unitOfWork.EnqueueCommand(new WriterCommandMock());
 
             Assert.AreEqual(1, this.unitOfWork.commandQueue.Count);
         }
@@ -84,7 +84,7 @@ namespace Boticario.Backend.Data.UnitOfWork.Tests
         [Test]
         public async Task When_CommitTransactionWith1Command_Should_CommandQueueBeEmpty()
         {
-            this.unitOfWork.commandQueue.Enqueue(new CommandMock());
+            this.unitOfWork.commandQueue.Enqueue(new WriterCommandMock());
 
             await this.unitOfWork.CommitTransaction();
 
@@ -94,11 +94,11 @@ namespace Boticario.Backend.Data.UnitOfWork.Tests
         [Test]
         public async Task When_CommitTransactionWith10Commands_Should_ExecuteWholeCommands()
         {
-            List<CommandMock> commands = new List<CommandMock>(10);
+            List<WriterCommandMock> commands = new List<WriterCommandMock>(10);
 
             for (int i = 0; i < 10; i++)
             {
-                CommandMock command = new CommandMock();
+                WriterCommandMock command = new WriterCommandMock();
 
                 commands.Add(command);
                 this.unitOfWork.commandQueue.Enqueue(command);
@@ -112,7 +112,7 @@ namespace Boticario.Backend.Data.UnitOfWork.Tests
         [Test]
         public void When_RollbackTransactionWith1Command_Should_CommandQueueBeEmpty()
         {
-            this.unitOfWork.commandQueue.Enqueue(new CommandMock());
+            this.unitOfWork.commandQueue.Enqueue(new WriterCommandMock());
 
             this.unitOfWork.RollbackTransaction();
 
@@ -122,11 +122,11 @@ namespace Boticario.Backend.Data.UnitOfWork.Tests
         [Test]
         public void When_RollbackTransactionWith10Commands_Should_NotExecuteCommands()
         {
-            List<CommandMock> commands = new List<CommandMock>(10);
+            List<WriterCommandMock> commands = new List<WriterCommandMock>(10);
 
             for (int i = 0; i < 10; i++)
             {
-                CommandMock command = new CommandMock();
+                WriterCommandMock command = new WriterCommandMock();
 
                 commands.Add(command);
                 this.unitOfWork.commandQueue.Enqueue(command);

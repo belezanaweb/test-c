@@ -1,4 +1,5 @@
 ﻿using Boticario.Backend.Data.Commands;
+using Boticario.Backend.Data.UnitOfWork;
 using System;
 using System.Threading.Tasks;
 
@@ -6,6 +7,13 @@ namespace Boticario.Backend.Data.DatabaseContext.Implementation
 {
     public class DatabaseContextImpl : IDatabaseContext
     {
+        private readonly IUnitOfWork unitOfwork;
+
+        public DatabaseContextImpl(IUnitOfWork unitOfwork)
+        {
+            this.unitOfwork = unitOfwork;
+        }
+
         public async Task<T> ExecuteReader<T>(IReaderCommand<T> command)
         {
             if (command == null)
@@ -16,14 +24,21 @@ namespace Boticario.Backend.Data.DatabaseContext.Implementation
             return await command.Execute();
         }
 
-        public Task ExecuteWriter(IWriterCommand command)
+        public async Task ExecuteWriter(IWriterCommand command)
         {
             if (command == null)
             {
                 throw new NullReferenceException("WriterCommand is Null!");
             }
 
-            throw new NotImplementedException();
+            if (this.unitOfwork.InTransaction)
+            {
+                this.unitOfwork.EnqueueCommand(command);
+            }
+            else
+            {
+                await command.Execute();
+            }
         }
     }
 }

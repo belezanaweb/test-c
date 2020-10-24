@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.UnitOfWork.Tests.Mocks
 {
-    internal class CommandMock : IWriterCommand
+    internal class WriterCommandMock : IWriterCommand
     {
         public bool Executed { get; private set; }
 

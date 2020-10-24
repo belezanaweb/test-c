@@ -8,12 +8,14 @@ namespace Boticario.Backend.Data.DatabaseContext.Tests
 {
     public class DatabaseContextImplTests
     {
+        private UnifOfWorkMock unifOfWork;
         private DatabaseContextImpl databaseContext;
 
         [SetUp]
         public void Setup()
         {
-            this.databaseContext = new DatabaseContextImpl();
+            this.unifOfWork = new UnifOfWorkMock();
+            this.databaseContext = new DatabaseContextImpl(this.unifOfWork);
         }
 
         [Test]
@@ -40,9 +42,7 @@ namespace Boticario.Backend.Data.DatabaseContext.Tests
         [Test]
         public async Task When_ExecuteReaderWithUnitOfWork_Should_ExecuteCommand()
         {
-            UnifOfWorkMock unifOfWork = new UnifOfWorkMock();
-
-            await unifOfWork.Execute(async() =>
+            await this.unifOfWork.Execute(async() =>
             {
                 ReaderCommandMock command = new ReaderCommandMock("ABCDEF");
 
@@ -61,6 +61,29 @@ namespace Boticario.Backend.Data.DatabaseContext.Tests
             });
 
             Assert.AreEqual("WriterCommand is Null!", exception.Message);
+        }
+
+        [Test]
+        public async Task When_ExecuteWriterWithoutUnitOfWork_Should_ExecuteCommand()
+        {
+            WriterCommandMock command = new WriterCommandMock();
+
+            await this.databaseContext.ExecuteWriter(command);
+
+            Assert.IsTrue(command.Executed);
+        }
+
+        [Test]
+        public async Task When_ExecuteWriterWithUnitOfWork_Should_NotExecuteCommand()
+        {
+            await this.unifOfWork.Execute(async () =>
+            {
+                WriterCommandMock command = new WriterCommandMock();
+
+                await this.databaseContext.ExecuteWriter(command);
+
+                Assert.IsFalse(command.Executed);
+            });
         }
     }
 }

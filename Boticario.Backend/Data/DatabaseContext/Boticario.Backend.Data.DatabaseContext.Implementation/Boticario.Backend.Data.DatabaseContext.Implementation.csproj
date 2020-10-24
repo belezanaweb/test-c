@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\UnitOfWork\Boticario.Backend.Data.UnitOfWork\Boticario.Backend.Data.UnitOfWork.csproj" />
     <ProjectReference Include="..\Boticario.Backend.Data.DatabaseContext\Boticario.Backend.Data.DatabaseContext.csproj" />
   </ItemGroup>
 
