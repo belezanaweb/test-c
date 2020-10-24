@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.Connection.Implementation
 {
@@ -16,7 +17,7 @@ namespace Boticario.Backend.Data.Connection.Implementation
             this.activeConnections = 0;
         }
 
-        public IConnection Pop()
+        public async Task<IConnection> Pop()
         {
             if (this.connectionQueue.TryDequeue(out IConnection existingRedisConnection))
             {
@@ -24,7 +25,7 @@ namespace Boticario.Backend.Data.Connection.Implementation
             }
             else
             {
-                return this.CreateConnection();
+                return await this.CreateConnection();
             }
         }
 
@@ -33,9 +34,9 @@ namespace Boticario.Backend.Data.Connection.Implementation
             this.connectionQueue.Enqueue(connection);
         }
 
-        private IConnection CreateConnection()
+        public async Task<IConnection> CreateConnection()
         {
-            IConnection newInstance = this.connectionFactory.Create();
+            IConnection newInstance = await this.connectionFactory.Create();
 
             Interlocked.Increment(ref this.activeConnections);
 

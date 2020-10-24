@@ -1,8 +1,10 @@
-﻿namespace Boticario.Backend.Data.Connection
+﻿using System.Threading.Tasks;
+
+namespace Boticario.Backend.Data.Connection
 {
     public interface IConnectionPool
     {
-        IConnection Pop();
+        Task<IConnection> Pop();
         void Push(IConnection connection);
     }
 }

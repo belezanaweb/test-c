@@ -1,7 +1,9 @@
-﻿namespace Boticario.Backend.Data.Connection
+﻿using System.Threading.Tasks;
+
+namespace Boticario.Backend.Data.Connection
 {
     public interface IConnectionFactory
     {
-        IConnection Create();
+        Task<IConnection> Create();
     }
 }
