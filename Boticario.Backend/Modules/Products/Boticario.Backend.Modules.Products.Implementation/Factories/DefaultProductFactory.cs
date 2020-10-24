@@ -1,6 +1,7 @@
 ﻿using Boticario.Backend.Modules.Products.Factories;
+using Boticario.Backend.Modules.Products.Implementation.Exceptions;
+using Boticario.Backend.Modules.Products.Implementation.Models;
 using Boticario.Backend.Modules.Products.Models;
-using System;
 
 namespace Boticario.Backend.Modules.Products.Implementation.Factories
 {
@@ -8,7 +9,21 @@ namespace Boticario.Backend.Modules.Products.Implementation.Factories
     {
         public IProduct Create(int sku, string name)
         {
-            throw new NotImplementedException();
+            if (sku < 1)
+            {
+                throw new ProductValidationException("SKU invalid!");
+            }
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                throw new ProductValidationException("Name is missing!");
+            }
+
+            return new Product()
+            {
+                Sku = sku,
+                Name = name.Trim()
+            };
         }
     }
 }
