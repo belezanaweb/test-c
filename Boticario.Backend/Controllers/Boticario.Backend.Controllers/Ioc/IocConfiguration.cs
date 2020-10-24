@@ -4,6 +4,8 @@ using Boticario.Backend.Data.DatabaseContext;
 using Boticario.Backend.Data.DatabaseContext.Implementation;
 using Boticario.Backend.Data.UnitOfWork;
 using Boticario.Backend.Data.UnitOfWork.Implementation;
+using Boticario.Backend.Modules.Inventory.Repositories;
+using Boticario.Backend.Modules.Products.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Boticario.Backend.Controllers.Ioc
@@ -20,6 +22,7 @@ namespace Boticario.Backend.Controllers.Ioc
         public void Config()
         {
             this.AddConnectionObjects();
+            this.AddRepositories();
         }
 
         private void AddConnectionObjects()
@@ -29,6 +32,12 @@ namespace Boticario.Backend.Controllers.Ioc
             
             this.services.AddScoped<IUnitOfWork, DefaultUnitOfWork>();
             this.services.AddScoped<IDatabaseContext, DefaultDatabaseContext>();
+        }
+
+        private void AddRepositories()
+        {
+            this.services.AddSingleton<IProductRepository, ProductRepository>();
+            this.services.AddSingleton<IInventoryRepository, InventoryRepository>();
         }
     }
 }
