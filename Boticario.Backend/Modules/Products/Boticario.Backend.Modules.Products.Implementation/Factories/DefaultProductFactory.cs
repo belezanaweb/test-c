@@ -11,7 +11,7 @@ namespace Boticario.Backend.Modules.Products.Implementation.Factories
         {
             if (sku < 1)
             {
-                throw new ProductValidationException("SKU invalid!");
+                throw new ProductValidationException("SKU is invalid!");
             }
 
             if (string.IsNullOrWhiteSpace(name))
@@ -19,7 +19,7 @@ namespace Boticario.Backend.Modules.Products.Implementation.Factories
                 throw new ProductValidationException("Name is missing!");
             }
 
-            return new Product()
+            return new DefaultProduct()
             {
                 Sku = sku,
                 Name = name.Trim()

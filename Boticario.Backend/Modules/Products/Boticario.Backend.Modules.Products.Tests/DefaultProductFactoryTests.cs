@@ -21,10 +21,10 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             Exception exception = Assert.Throws<ProductValidationException>(() =>
             {
-                this.productFactory.Create(0, "AAA");
+                this.productFactory.Create(0, "Abc");
             });
 
-            Assert.AreEqual("SKU invalid!", exception.Message);
+            Assert.AreEqual("SKU is invalid!", exception.Message);
         }
 
         [Test]
@@ -52,7 +52,6 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             IProduct product = this.productFactory.Create(1, " Abc ");
 
-            Assert.AreEqual(1, product.Sku);
             Assert.AreEqual("Abc", product.Name);
         }
     }

@@ -58,6 +58,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Modules.I
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Modules.Products.Tests", "Modules\Products\Boticario.Backend.Modules.Products.Tests\Boticario.Backend.Modules.Products.Tests.csproj", "{C796FE53-AA4E-49A1-ABBC-DBD7C10A7EB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Modules.Inventory.Tests", "Modules\Inventory\Boticario.Backend.Modules.Inventory.Tests\Boticario.Backend.Modules.Inventory.Tests.csproj", "{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -128,6 +130,10 @@ Global
 		{C796FE53-AA4E-49A1-ABBC-DBD7C10A7EB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C796FE53-AA4E-49A1-ABBC-DBD7C10A7EB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C796FE53-AA4E-49A1-ABBC-DBD7C10A7EB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -155,6 +161,7 @@ Global
 		{6CE4416F-70CA-417C-909A-F19F67E59679} = {841A4AEA-A406-47E0-B680-262167000711}
 		{CB1EA215-7A7C-484C-8940-3710DBB1CE0E} = {1B7992F1-0689-4DEE-ABE1-58A6837F78E8}
 		{C796FE53-AA4E-49A1-ABBC-DBD7C10A7EB1} = {841A4AEA-A406-47E0-B680-262167000711}
+		{8921209D-12A0-4EEC-9E3F-7925A4AED2DD} = {1B7992F1-0689-4DEE-ABE1-58A6837F78E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {38766208-2119-433D-85C2-8B481A4F238E}
