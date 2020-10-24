@@ -1,15 +1,16 @@
 ﻿using Boticario.Backend.Modules.Inventory.Models;
+using Boticario.Backend.Modules.Inventory.Repositories;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Boticario.Backend.Modules.Inventory.Repositories
+namespace Boticario.Backend.Modules.Inventory.Implementation.Repositories
 {
-    public class InventoryRepository : IInventoryRepository
+    public class MemoryInventoryRepository : IInventoryRepository
     {
         private readonly ConcurrentDictionary<int, IList<IInventory>> database;
 
-        public InventoryRepository()
+        public MemoryInventoryRepository()
         {
             this.database = new ConcurrentDictionary<int, IList<IInventory>>();
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Boticario.Backend.Modules.Products.Exceptions
+namespace Boticario.Backend.Modules.Products.Implementation.Exceptions
 {
     public class ProductAlreadyExistsException : Exception
     {

@@ -4,7 +4,13 @@ using Boticario.Backend.Data.DatabaseContext;
 using Boticario.Backend.Data.DatabaseContext.Implementation;
 using Boticario.Backend.Data.UnitOfWork;
 using Boticario.Backend.Data.UnitOfWork.Implementation;
+using Boticario.Backend.Modules.Inventory.Factories;
+using Boticario.Backend.Modules.Inventory.Implementation.Factories;
+using Boticario.Backend.Modules.Inventory.Implementation.Repositories;
 using Boticario.Backend.Modules.Inventory.Repositories;
+using Boticario.Backend.Modules.Products.Factories;
+using Boticario.Backend.Modules.Products.Implementation.Factories;
+using Boticario.Backend.Modules.Products.Implementation.Repositories;
 using Boticario.Backend.Modules.Products.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,6 +29,7 @@ namespace Boticario.Backend.Controllers.Ioc
         {
             this.AddConnectionObjects();
             this.AddRepositories();
+            this.AddFactories();
         }
 
         private void AddConnectionObjects()
@@ -36,8 +43,14 @@ namespace Boticario.Backend.Controllers.Ioc
 
         private void AddRepositories()
         {
-            this.services.AddSingleton<IProductRepository, ProductRepository>();
-            this.services.AddSingleton<IInventoryRepository, InventoryRepository>();
+            this.services.AddSingleton<IProductRepository, MemoryProductRepository>();
+            this.services.AddSingleton<IInventoryRepository, MemoryInventoryRepository>();
+        }
+
+        private void AddFactories()
+        {
+            this.services.AddSingleton<IProductFactory, DefaultProductFactory>();
+            this.services.AddSingleton<IInventoryFactory, DefaultInventoryFactory>();
         }
     }
 }

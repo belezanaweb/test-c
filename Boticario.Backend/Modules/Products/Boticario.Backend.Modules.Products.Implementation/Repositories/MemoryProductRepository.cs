@@ -1,16 +1,17 @@
-﻿using Boticario.Backend.Modules.Products.Exceptions;
+﻿using Boticario.Backend.Modules.Products.Implementation.Exceptions;
 using Boticario.Backend.Modules.Products.Models;
+using Boticario.Backend.Modules.Products.Repositories;
 using System;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
 
-namespace Boticario.Backend.Modules.Products.Repositories
+namespace Boticario.Backend.Modules.Products.Implementation.Repositories
 {
-    public class ProductRepository : IProductRepository
+    public class MemoryProductRepository : IProductRepository
     {
         private readonly ConcurrentDictionary<int, IProduct> database;
 
-        public ProductRepository()
+        public MemoryProductRepository()
         {
             this.database = new ConcurrentDictionary<int, IProduct>();
         }
