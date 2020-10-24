@@ -51,7 +51,7 @@ namespace Boticario.Backend.Data.UnitOfWork.Tests
 
             await Task.WhenAll(tasks);            
 
-            Assert.AreEqual(50, this.unitOfWork.transactions.Count);
+            Assert.AreEqual(50, this.unitOfWork.transactionQueue.Count);
         }
 
         [Test]
@@ -59,7 +59,15 @@ namespace Boticario.Backend.Data.UnitOfWork.Tests
         {
             this.unitOfWork.DequeueTransaction();
             
-            Assert.AreEqual(0, this.unitOfWork.transactions.Count);
+            Assert.AreEqual(0, this.unitOfWork.transactionQueue.Count);
+        }
+
+        [Test]
+        public void When_Enqueue1Command_Should_Have1CommandInQueue()
+        {
+            this.unitOfWork.EnqueueCommand(new CommandMock());
+
+            Assert.AreEqual(1, this.unitOfWork.commandQueue.Count);
         }
 
         [Test]

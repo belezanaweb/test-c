@@ -44,9 +44,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.Conn
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.Connection.Tests", "Data\Connection\Boticario.Backend.Data.Connection.Tests\Boticario.Backend.Data.Connection.Tests.csproj", "{FBBB844F-8B67-42A4-A6AC-E9B0568C2B9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Data.UnitOfWork.Implementation", "Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork.Implementation\Boticario.Backend.Data.UnitOfWork.Implementation.csproj", "{818F16B0-8B4E-427D-8F75-0964E1F5749D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.UnitOfWork.Implementation", "Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork.Implementation\Boticario.Backend.Data.UnitOfWork.Implementation.csproj", "{818F16B0-8B4E-427D-8F75-0964E1F5749D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Data.UnitOfWork.Tests", "Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork.Tests\Boticario.Backend.Data.UnitOfWork.Tests.csproj", "{D95C2319-B7CE-4806-829B-5A180CEAF60E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.UnitOfWork.Tests", "Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork.Tests\Boticario.Backend.Data.UnitOfWork.Tests.csproj", "{D95C2319-B7CE-4806-829B-5A180CEAF60E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Data.DatabaseContext.Implementation", "Data\DatabaseContext\Boticario.Backend.Data.DatabaseContext.Implementation\Boticario.Backend.Data.DatabaseContext.Implementation.csproj", "{73E53784-9262-40AE-94EF-ECA8D9B2DACB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -98,6 +100,10 @@ Global
 		{D95C2319-B7CE-4806-829B-5A180CEAF60E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D95C2319-B7CE-4806-829B-5A180CEAF60E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D95C2319-B7CE-4806-829B-5A180CEAF60E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73E53784-9262-40AE-94EF-ECA8D9B2DACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73E53784-9262-40AE-94EF-ECA8D9B2DACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73E53784-9262-40AE-94EF-ECA8D9B2DACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73E53784-9262-40AE-94EF-ECA8D9B2DACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,6 +126,7 @@ Global
 		{FBBB844F-8B67-42A4-A6AC-E9B0568C2B9C} = {E61F2E33-B728-4D67-BB66-3D914ED0E293}
 		{818F16B0-8B4E-427D-8F75-0964E1F5749D} = {3DA25D04-B10A-4F3F-9E90-2C94325AA062}
 		{D95C2319-B7CE-4806-829B-5A180CEAF60E} = {3DA25D04-B10A-4F3F-9E90-2C94325AA062}
+		{73E53784-9262-40AE-94EF-ECA8D9B2DACB} = {8CB0B4A8-6AF4-4439-A7CB-B1E84EAEF269}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {38766208-2119-433D-85C2-8B481A4F238E}

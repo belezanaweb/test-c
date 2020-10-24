@@ -9,20 +9,25 @@ namespace Boticario.Backend.Data.UnitOfWork.Implementation
     public class UnitOfWorkImpl : IUnitOfWork
     {
         public readonly ConcurrentQueue<IWriterCommand> commandQueue;        
-        public readonly ConcurrentQueue<string> transactions;
+        public readonly ConcurrentQueue<string> transactionQueue;
 
         public UnitOfWorkImpl()
         {
             this.commandQueue = new ConcurrentQueue<IWriterCommand>();
-            this.transactions = new ConcurrentQueue<string>();
+            this.transactionQueue = new ConcurrentQueue<string>();
         }
 
         public bool InTransaction
         {
             get
             {
-                return this.transactions.Count > 0;
+                return this.transactionQueue.Count > 0;
             }
+        }
+
+        public void EnqueueCommand(IWriterCommand command)
+        {
+            this.commandQueue.Enqueue(command);
         }
 
         public async Task Execute(Func<Task> function)
@@ -49,12 +54,12 @@ namespace Boticario.Backend.Data.UnitOfWork.Implementation
 
         public void EnqueueTransaction()
         {
-            this.transactions.Enqueue(string.Empty);
+            this.transactionQueue.Enqueue(string.Empty);
         }
 
         public void DequeueTransaction()
         {
-            this.transactions.TryDequeue(out _);
+            this.transactionQueue.TryDequeue(out _);
         }
 
         public async Task CommitTransaction()
@@ -72,7 +77,7 @@ namespace Boticario.Backend.Data.UnitOfWork.Implementation
         public void RollbackTransaction()
         {
             this.commandQueue.Clear();
-            this.transactions.Clear();
+            this.transactionQueue.Clear();
         }
     }
 }
