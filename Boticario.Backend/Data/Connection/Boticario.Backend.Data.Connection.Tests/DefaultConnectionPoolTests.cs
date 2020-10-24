@@ -47,7 +47,7 @@ namespace Boticario.Backend.Data.Connection.Tests
         }
 
         [Test]
-        public async Task When_1ConnectionWasBorrewedAndReturnedManyTimes_Should_UseTheSameObject()
+        public async Task When_1ConnectionWasBorrewedAndReturnedManyTimes_Should_UseSameObject()
         {
             IConnection connection1 = await this.connectionPool.Pop();
             this.connectionPool.Push(connection1);
