@@ -1,5 +1,6 @@
 using Boticario.Backend.Data.Connection.Implementation;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.Connection.Tests
 {
@@ -14,9 +15,11 @@ namespace Boticario.Backend.Data.Connection.Tests
         }
 
         [Test]
-        public void When_CreateIsCalled_Should_ReturnNewConnection()
+        public async Task When_CreateIsCalled_Should_ReturnNewConnection()
         {
-            Assert.IsNotNull(this.connectionFactory.Create());
+            IConnection connection = await this.connectionFactory.Create();
+
+            Assert.IsNotNull(connection);
         }
     }
 }
