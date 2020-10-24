@@ -5,6 +5,7 @@ namespace Boticario.Backend.Data.DatabaseContext
 {
     public interface IDatabaseContext
     {
-        Task<T> ExecuteCommand<T>(ICommand<T> command);
+        Task<T> ExecuteReader<T>(IReaderCommand<T> command);
+        Task ExecuteWriter(IWriterCommand command);
     }
 }

@@ -6,8 +6,23 @@ namespace Boticario.Backend.Data.DatabaseContext.Implementation
 {
     public class DatabaseContextImpl : IDatabaseContext
     {
-        public Task<T> ExecuteCommand<T>(ICommand<T> command)
+        public async Task<T> ExecuteReader<T>(IReaderCommand<T> command)
         {
+            if (command == null)
+            {
+                throw new NullReferenceException("ReaderCommand is Null!");
+            }
+
+            return await command.Execute();
+        }
+
+        public Task ExecuteWriter(IWriterCommand command)
+        {
+            if (command == null)
+            {
+                throw new NullReferenceException("WriterCommand is Null!");
+            }
+
             throw new NotImplementedException();
         }
     }
