@@ -1,5 +1,6 @@
 ﻿using Boticario.Backend.Modules.Products.Exceptions;
 using Boticario.Backend.Modules.Products.Models;
+using System;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
 
@@ -12,14 +13,6 @@ namespace Boticario.Backend.Modules.Products.Repositories
         public ProductRepository()
         {
             this.database = new ConcurrentDictionary<int, IProduct>();
-        }
-
-        public async Task<bool> Exists(int sku)
-        {
-            return await Task.Run(() =>
-            {
-                return this.database.ContainsKey(sku);
-            });
         }
 
         public async Task<IProduct> Get(int sku)
@@ -37,13 +30,31 @@ namespace Boticario.Backend.Modules.Products.Repositories
             });
         }
 
-        public async Task Save(IProduct product)
+        public async Task Insert(IProduct product)
         {
             await Task.Run(() =>
             {
                 if (!this.database.TryAdd(product.Sku, product))
                 {
                     throw new ProductAlreadyExistsException();
+                }
+            });
+        }
+
+        public async Task Update(IProduct product)
+        {
+            await Task.Run(() =>
+            {
+                if (this.database.TryGetValue(product.Sku, out IProduct actualProduct))
+                {
+                    if (!this.database.TryUpdate(product.Sku, product, actualProduct))
+                    {
+                        throw new InvalidOperationException("Product not updated!");
+                    }
+                }
+                else
+                {
+                    throw new ProductNotFoundException();
                 }
             });
         }
