@@ -63,6 +63,17 @@ namespace Boticario.Backend.Data.UnitOfWork.Tests
         }
 
         [Test]
+        public void When_EnqueueNullCommand_Should_ThrowException()
+        {
+            Exception exception = Assert.Throws<NullReferenceException>(() =>
+            {
+                this.unitOfWork.EnqueueCommand(null);
+            });
+
+            Assert.AreEqual("WriterCommand is Null!", exception.Message);
+        }
+
+        [Test]
         public void When_Enqueue1Command_Should_Have1CommandInQueue()
         {
             this.unitOfWork.EnqueueCommand(new CommandMock());

@@ -27,6 +27,11 @@ namespace Boticario.Backend.Data.UnitOfWork.Implementation
 
         public void EnqueueCommand(IWriterCommand command)
         {
+            if (command == null)
+            {
+                throw new NullReferenceException("WriterCommand is Null!");
+            }
+
             this.commandQueue.Enqueue(command);
         }
 
