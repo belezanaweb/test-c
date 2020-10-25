@@ -1,8 +1,11 @@
+using Boticario.Backend.Modules.Inventory.Models;
 using Boticario.Backend.Modules.Products.Implementation.Exceptions;
 using Boticario.Backend.Modules.Products.Implementation.Factories;
 using Boticario.Backend.Modules.Products.Models;
+using Boticario.Backend.Modules.Products.Tests.Mocks;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace Boticario.Backend.Modules.Products.Tests
 {
@@ -21,7 +24,7 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             Exception exception = Assert.Throws<ProductValidationException>(() =>
             {
-                this.productFactory.Create(0, "Abc");
+                this.productFactory.CreateEntity(0, "Abc");
             });
 
             Assert.AreEqual("SKU is invalid!", exception.Message);
@@ -32,7 +35,7 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             Exception exception = Assert.Throws<ProductValidationException>(() =>
             {
-                this.productFactory.Create(1, string.Empty);
+                this.productFactory.CreateEntity(1, string.Empty);
             });
 
             Assert.AreEqual("Name is missing!", exception.Message);
@@ -41,7 +44,7 @@ namespace Boticario.Backend.Modules.Products.Tests
         [Test]
         public void When_ParametersAreValid_Should_ReturnObject()
         {
-            IProductEntity product = this.productFactory.Create(1, "Abc");
+            IProductEntity product = this.productFactory.CreateEntity(1, "Abc");
          
             Assert.AreEqual(1, product.Sku);
             Assert.AreEqual("Abc", product.Name);
@@ -50,9 +53,34 @@ namespace Boticario.Backend.Modules.Products.Tests
         [Test]
         public void When_NameHasExtraSpaces_Should_ReturnNameTrimed()
         {
-            IProductEntity product = this.productFactory.Create(1, " Abc ");
+            IProductEntity product = this.productFactory.CreateEntity(1, " Abc ");
 
             Assert.AreEqual("Abc", product.Name);
+        }
+
+        [Test]
+        public void When_CreateDetailsObject_Should_ReturnSameValuesInformed()
+        {
+            IProductEntity entity = new ProductEntityMock() { Sku = 1, Name = "Abc" };
+
+            IList<IInventoryEntity> inventories = new List<IInventoryEntity>()
+            {
+                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA" },
+                new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB" },
+            };
+
+            IProductDetails product = this.productFactory.CreateProductDetails(entity, inventories);
+
+            Assert.AreEqual(1, product.Sku);
+            Assert.AreEqual("Abc", product.Name);
+
+            Assert.AreEqual("A", product.Inventory.Warehouses[0].Locality);
+            Assert.AreEqual(10, product.Inventory.Warehouses[0].Quantity);
+            Assert.AreEqual("AA", product.Inventory.Warehouses[0].Type);
+
+            Assert.AreEqual("B", product.Inventory.Warehouses[1].Locality);
+            Assert.AreEqual(20, product.Inventory.Warehouses[1].Quantity);
+            Assert.AreEqual("BB", product.Inventory.Warehouses[1].Type);
         }
     }
 }
