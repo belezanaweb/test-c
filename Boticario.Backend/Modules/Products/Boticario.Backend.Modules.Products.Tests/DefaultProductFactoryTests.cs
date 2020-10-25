@@ -41,7 +41,7 @@ namespace Boticario.Backend.Modules.Products.Tests
         [Test]
         public void When_ParametersAreValid_Should_ReturnObject()
         {
-            IProduct product = this.productFactory.Create(1, "Abc");
+            IProductEntity product = this.productFactory.Create(1, "Abc");
          
             Assert.AreEqual(1, product.Sku);
             Assert.AreEqual("Abc", product.Name);
@@ -50,7 +50,7 @@ namespace Boticario.Backend.Modules.Products.Tests
         [Test]
         public void When_NameHasExtraSpaces_Should_ReturnNameTrimed()
         {
-            IProduct product = this.productFactory.Create(1, " Abc ");
+            IProductEntity product = this.productFactory.Create(1, " Abc ");
 
             Assert.AreEqual("Abc", product.Name);
         }

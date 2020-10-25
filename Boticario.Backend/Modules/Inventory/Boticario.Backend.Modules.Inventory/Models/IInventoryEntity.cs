@@ -1,9 +1,9 @@
 ﻿namespace Boticario.Backend.Modules.Inventory.Models
 {
-    public interface IInventory
+    public interface IInventoryEntity
     {
         string Locality { get; }
-        int Quantity { get; }
+        long Quantity { get; }
         string Type { get; }
     }
 }

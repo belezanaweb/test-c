@@ -9,18 +9,18 @@ namespace Boticario.Backend.Modules.Products.Implementation.Repositories
 {
     public class MemoryProductRepository : IProductRepository
     {
-        private readonly ConcurrentDictionary<int, IProduct> database;
+        private readonly ConcurrentDictionary<int, IProductEntity> database;
 
         public MemoryProductRepository()
         {
-            this.database = new ConcurrentDictionary<int, IProduct>();
+            this.database = new ConcurrentDictionary<int, IProductEntity>();
         }
 
-        public async Task<IProduct> Get(int sku)
+        public async Task<IProductEntity> Get(int sku)
         {
             return await Task.Run(() =>
             {
-                if (this.database.TryGetValue(sku, out IProduct product))
+                if (this.database.TryGetValue(sku, out IProductEntity product))
                 {
                     return product;
                 }
@@ -31,7 +31,7 @@ namespace Boticario.Backend.Modules.Products.Implementation.Repositories
             });
         }
 
-        public async Task Insert(IProduct product)
+        public async Task Insert(IProductEntity product)
         {
             await Task.Run(() =>
             {
@@ -42,11 +42,11 @@ namespace Boticario.Backend.Modules.Products.Implementation.Repositories
             });
         }
 
-        public async Task Update(IProduct product)
+        public async Task Update(IProductEntity product)
         {
             await Task.Run(() =>
             {
-                if (this.database.TryGetValue(product.Sku, out IProduct actualProduct))
+                if (this.database.TryGetValue(product.Sku, out IProductEntity actualProduct))
                 {
                     if (!this.database.TryUpdate(product.Sku, product, actualProduct))
                     {

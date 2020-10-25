@@ -8,29 +8,29 @@ namespace Boticario.Backend.Modules.Inventory.Implementation.Repositories
 {
     public class MemoryInventoryRepository : IInventoryRepository
     {
-        private readonly ConcurrentDictionary<int, IList<IInventory>> database;
+        private readonly ConcurrentDictionary<int, IList<IInventoryEntity>> database;
 
         public MemoryInventoryRepository()
         {
-            this.database = new ConcurrentDictionary<int, IList<IInventory>>();
+            this.database = new ConcurrentDictionary<int, IList<IInventoryEntity>>();
         }
 
-        public async Task<IList<IInventory>> GetAll(int sku)
+        public async Task<IList<IInventoryEntity>> GetAll(int sku)
         {
             return await Task.Run(() =>
             {
-                if (this.database.TryGetValue(sku, out IList<IInventory> inventories))
+                if (this.database.TryGetValue(sku, out IList<IInventoryEntity> inventories))
                 {
                     return inventories;
                 }
                 else
                 {
-                    return new List<IInventory>(0);
+                    return new List<IInventoryEntity>(0);
                 }
             });
         }
 
-        public async Task SaveAll(int sku, IList<IInventory> inventories)
+        public async Task SaveAll(int sku, IList<IInventoryEntity> inventories)
         {
             await Task.Run(() =>
             {

@@ -52,7 +52,7 @@ namespace Boticario.Backend.Modules.Inventory.Tests
         [Test]
         public void When_ParametersAreValid_Should_ReturnObject()
         {
-            IInventory inventory = this.inventoryFactory.Create("Abc", 1, "Def");
+            IInventoryEntity inventory = this.inventoryFactory.Create("Abc", 1, "Def");
 
             Assert.AreEqual("Abc", inventory.Locality);
             Assert.AreEqual(1, inventory.Quantity);
@@ -62,7 +62,7 @@ namespace Boticario.Backend.Modules.Inventory.Tests
         [Test]
         public void When_LocalityHasExtraSpaces_Should_ReturnLocalityTrimed()
         {
-            IInventory inventory = this.inventoryFactory.Create(" Abc ", 1, "Def");
+            IInventoryEntity inventory = this.inventoryFactory.Create(" Abc ", 1, "Def");
 
             Assert.AreEqual("Abc", inventory.Locality);
         }
@@ -70,7 +70,7 @@ namespace Boticario.Backend.Modules.Inventory.Tests
         [Test]
         public void When_TypeHasExtraSpaces_Should_ReturnTypeTrimed()
         {
-            IInventory inventory = this.inventoryFactory.Create("Abc", 1, " Def ");
+            IInventoryEntity inventory = this.inventoryFactory.Create("Abc", 1, " Def ");
 
             Assert.AreEqual("Def", inventory.Type);
         }

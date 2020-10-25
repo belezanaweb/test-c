@@ -8,7 +8,7 @@ namespace Boticario.Backend.Modules.Inventory.Implementation.Factories
 {
     public class DefaultInventoryFactory : IInventoryFactory
     {
-        public IInventory Create(string locality, int quantity, string type)
+        public IInventoryEntity Create(string locality, long quantity, string type)
         {
             if (string.IsNullOrWhiteSpace(locality))
             {
@@ -25,7 +25,7 @@ namespace Boticario.Backend.Modules.Inventory.Implementation.Factories
                 throw new InventoryValidationException("Type is missing!");
             }
 
-            return new DefaultInventory()
+            return new InventoryEntity()
             {
                 Locality = locality.Trim(),
                 Quantity = quantity,

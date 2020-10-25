@@ -1,5 +1,5 @@
 ﻿using Boticario.Backend.Controllers.Dto.Inputs;
-using Boticario.Backend.Controllers.Dto.Outputs;
+using Boticario.Backend.Modules.Products.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -19,7 +19,7 @@ namespace Boticario.Backend.Controllers.Controllers
         /// <response code="400">Invalid Parameter.</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpGet("{sku}")]
-        public Task<ProductOutputDto> Get(int sku)
+        public Task<IProductDetails> Get(int sku)
         {
             throw new NotImplementedException();
         }

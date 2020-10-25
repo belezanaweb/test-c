@@ -2,10 +2,10 @@
 
 namespace Boticario.Backend.Modules.Inventory.Implementation.Models
 {
-    internal class DefaultInventory : IInventory
+    internal class InventoryEntity : IInventoryEntity
     {
         public string Locality { get; set; }
-        public int Quantity { get; set; }
+        public long Quantity { get; set; }
         public string Type { get; set; }
     }
 }

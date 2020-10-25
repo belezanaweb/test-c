@@ -5,9 +5,9 @@ namespace Boticario.Backend.Modules.Products.Repositories
 {
     public interface IProductRepository
     {
-        Task<IProduct> Get(int sku);
-        Task Insert(IProduct product);
-        Task Update(IProduct product);
+        Task<IProductEntity> Get(int sku);
+        Task Insert(IProductEntity product);
+        Task Update(IProductEntity product);
         Task Delete(int sku);
     }
 }

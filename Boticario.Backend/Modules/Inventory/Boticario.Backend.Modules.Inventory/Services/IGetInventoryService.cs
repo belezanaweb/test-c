@@ -6,6 +6,6 @@ namespace Boticario.Backend.Modules.Inventory.Services
 {
     public interface IGetInventoryService
     {
-        Task<IList<IInventory>> Delete(int sku);
+        Task<IList<IInventoryEntity>> Delete(int sku);
     }
 }

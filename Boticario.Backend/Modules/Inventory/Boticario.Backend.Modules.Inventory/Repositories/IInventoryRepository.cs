@@ -6,8 +6,8 @@ namespace Boticario.Backend.Modules.Inventory.Repositories
 {
     public interface IInventoryRepository
     {
-        Task<IList<IInventory>> GetAll(int sku);
+        Task<IList<IInventoryEntity>> GetAll(int sku);
         Task DeleteAll(int sku);
-        Task SaveAll(int sku, IList<IInventory> inventories);
+        Task SaveAll(int sku, IList<IInventoryEntity> inventories);
     }
 }

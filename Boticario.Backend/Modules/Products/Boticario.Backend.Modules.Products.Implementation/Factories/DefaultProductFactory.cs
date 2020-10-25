@@ -7,7 +7,7 @@ namespace Boticario.Backend.Modules.Products.Implementation.Factories
 {
     public class DefaultProductFactory : IProductFactory
     {
-        public IProduct Create(int sku, string name)
+        public IProductEntity Create(int sku, string name)
         {
             if (sku < 1)
             {
@@ -19,7 +19,7 @@ namespace Boticario.Backend.Modules.Products.Implementation.Factories
                 throw new ProductValidationException("Name is missing!");
             }
 
-            return new DefaultProduct()
+            return new ProductEntity()
             {
                 Sku = sku,
                 Name = name.Trim()

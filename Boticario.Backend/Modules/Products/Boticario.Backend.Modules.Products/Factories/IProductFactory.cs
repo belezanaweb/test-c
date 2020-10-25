@@ -4,6 +4,6 @@ namespace Boticario.Backend.Modules.Products.Factories
 {
     public interface IProductFactory
     {
-        IProduct Create(int sku, string name);
+        IProductEntity Create(int sku, string name);
     }
 }
