@@ -74,9 +74,27 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
             await Task.WhenAll(tasks);
         }
 
-        public Task Update(ProductOperationDto product)
+        public async Task Update(ProductOperationDto product)
         {
-            throw new NotImplementedException();
+            if (product == null)
+            {
+                throw new NullReferenceException("Product is Null!");
+            }
+
+            Task[] tasks = new Task[]
+            {
+                Task.Run(async() =>
+                {
+                    IProductEntity productEntity = this.productFactory.CreateEntity(product.Sku, product.Name);
+                    await this.productRepository.Update(productEntity);
+                }),
+                Task.Run(async() =>
+                {
+                    await this.inventoryServices.SaveAll(product.Sku, product.Inventory);
+                }),
+            };
+
+            await Task.WhenAll(tasks);
         }
 
         public Task Delete(int sku)

@@ -106,5 +106,73 @@ namespace Boticario.Backend.Modules.Products.Tests
             Assert.IsNull(this.productRepository.Database);
             Assert.IsTrue(this.inventoryService.SaveAllWasCalled);
         }
+
+        [Test]
+        public async Task When_UpdateAnExistingProduct_Should_PersistObject()
+        {
+            this.productRepository.Database = new ProductEntityMock() { Sku = 1, Name = "Abc" };
+
+            this.inventoryService.Inventories = new List<IInventoryEntity>()
+            {
+                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA"},
+                new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB"}
+            };
+
+            await this.productServices.Update(new ProductOperationDto()
+            {
+                Sku = 1,
+                Name = "Def",
+                Inventory = new InventoryOperationDto()
+                {
+                    Warehouses = new List<InventoryWarehouseOperationDto>()
+                    {
+                        new InventoryWarehouseOperationDto()
+                        {
+                            Locality = "A",
+                            Quantity = 100,
+                            Type = "AA"
+                        },
+                        new InventoryWarehouseOperationDto()
+                        {
+                            Locality = "B",
+                            Quantity = 200,
+                            Type = "BB"
+                        }
+                    }
+                }
+            });
+
+            Assert.AreEqual(1, this.productRepository.Database.Sku);
+            Assert.AreEqual("Def", this.productRepository.Database.Name);
+            Assert.IsTrue(this.inventoryService.SaveAllWasCalled);
+        }
+
+        [Test]
+        public void When_UpdateAnExistingProductWithNullObject_Should_ThrowException()
+        {
+            Exception exception = Assert.ThrowsAsync<NullReferenceException>(async () =>
+            {
+                await this.productServices.Update(null);
+            });
+
+            Assert.AreEqual("Product is Null!", exception.Message);
+        }
+
+        [Test]
+        public void When_ThrowExceptionMeanwhileUpdateAnExistingProduct_Should_NotPersistObject()
+        {
+            Assert.ThrowsAsync<ProductValidationException>(async () =>
+            {
+                await this.productServices.Update(new ProductOperationDto()
+                {
+                    Sku = 0,
+                    Name = string.Empty,
+                    Inventory = new InventoryOperationDto()
+                });
+            });
+
+            Assert.IsNull(this.productRepository.Database);
+            Assert.IsTrue(this.inventoryService.SaveAllWasCalled);
+        }
     }
 }
