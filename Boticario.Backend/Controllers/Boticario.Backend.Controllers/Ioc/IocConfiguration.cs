@@ -7,7 +7,9 @@ using Boticario.Backend.Data.UnitOfWork.Implementation;
 using Boticario.Backend.Modules.Inventory.Factories;
 using Boticario.Backend.Modules.Inventory.Implementation.Factories;
 using Boticario.Backend.Modules.Inventory.Implementation.Repositories;
+using Boticario.Backend.Modules.Inventory.Implementation.Services;
 using Boticario.Backend.Modules.Inventory.Repositories;
+using Boticario.Backend.Modules.Inventory.Services;
 using Boticario.Backend.Modules.Products.Factories;
 using Boticario.Backend.Modules.Products.Implementation.Factories;
 using Boticario.Backend.Modules.Products.Implementation.Repositories;
@@ -30,6 +32,7 @@ namespace Boticario.Backend.Controllers.Ioc
             this.AddConnectionObjects();
             this.AddRepositories();
             this.AddFactories();
+            this.AddServices();
         }
 
         private void AddConnectionObjects()
@@ -51,6 +54,11 @@ namespace Boticario.Backend.Controllers.Ioc
         {
             this.services.AddSingleton<IProductFactory, DefaultProductFactory>();
             this.services.AddSingleton<IInventoryFactory, DefaultInventoryFactory>();
+        }
+
+        private void AddServices()
+        {
+            this.services.AddScoped<IInventoryServices, DefaultInventoryServices>();
         }
     }
 }

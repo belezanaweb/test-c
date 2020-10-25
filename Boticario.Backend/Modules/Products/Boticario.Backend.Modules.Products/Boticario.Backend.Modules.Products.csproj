@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Inventory\Boticario.Backend.Modules.Inventory\Boticario.Backend.Modules.Inventory.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,4 @@
-﻿using Boticario.Backend.Controllers.Dto.Inputs;
+﻿using Boticario.Backend.Modules.Products.Dto;
 using Boticario.Backend.Modules.Products.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -32,7 +32,7 @@ namespace Boticario.Backend.Controllers.Controllers
         /// <response code="400">Invalid Parameters.</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpPost()]
-        public Task Post([FromBody]ProductInputDto product)
+        public Task Post([FromBody]ProductOperationDto product)
         {
             throw new NotImplementedException();
         }
@@ -46,7 +46,7 @@ namespace Boticario.Backend.Controllers.Controllers
         /// <response code="404">Product not found.</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpPut()]
-        public Task Put([FromBody]ProductInputDto product)
+        public Task Put([FromBody]ProductOperationDto product)
         {
             throw new NotImplementedException();
         }
