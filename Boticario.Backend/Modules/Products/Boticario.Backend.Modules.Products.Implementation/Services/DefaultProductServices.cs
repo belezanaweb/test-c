@@ -26,14 +26,27 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
 
         public async Task<IProductDetails> Get(int sku)
         {
-            IProductEntity productEntity = await this.productRepository.Get(sku);
+            IProductEntity productEntity = null;
+            IList<IInventoryEntity> inventories = null;
+
+            Task[] tasks = new Task[]
+            {
+                Task.Run(async() =>
+                {
+                    productEntity = await this.productRepository.Get(sku);
+                }),
+                Task.Run(async() =>
+                {
+                    inventories = await this.inventoryServices.GetAll(sku);
+                }),
+            };
+
+            await Task.WhenAll(tasks);
 
             if (productEntity == null)
             {
                 return null;
-            }
-
-            IList<IInventoryEntity> inventories = await this.inventoryServices.GetAll(sku);
+            }            
 
             return this.productFactory.CreateProductDetails(productEntity, inventories);
         }
