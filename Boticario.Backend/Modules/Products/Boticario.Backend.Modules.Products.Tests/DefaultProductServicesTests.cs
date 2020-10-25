@@ -1,9 +1,13 @@
-﻿using Boticario.Backend.Modules.Inventory.Models;
+﻿using Boticario.Backend.Modules.Inventory.Dto;
+using Boticario.Backend.Modules.Inventory.Models;
+using Boticario.Backend.Modules.Products.Dto;
+using Boticario.Backend.Modules.Products.Implementation.Exceptions;
 using Boticario.Backend.Modules.Products.Implementation.Factories;
 using Boticario.Backend.Modules.Products.Implementation.Services;
 using Boticario.Backend.Modules.Products.Models;
 using Boticario.Backend.Modules.Products.Tests.Mocks;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,7 +18,7 @@ namespace Boticario.Backend.Modules.Products.Tests
         private ProductRepositoryMock productRepository;
         private InventoryServiceMock inventoryService;
         private DefaultProductFactory productFactory;
-        private DefaultProductServices productservices;
+        private DefaultProductServices productServices;
         
         [SetUp]
         public void Setup()
@@ -22,13 +26,13 @@ namespace Boticario.Backend.Modules.Products.Tests
             this.productRepository = new ProductRepositoryMock();
             this.inventoryService = new InventoryServiceMock();
             this.productFactory = new DefaultProductFactory();
-            this.productservices = new DefaultProductServices(this.productRepository, this.inventoryService, this.productFactory);
+            this.productServices = new DefaultProductServices(this.productRepository, this.inventoryService, this.productFactory);
         }
 
         [Test]
         public async Task When_ThereIsNotProductForSKU_Should_ReturnNull()
         {
-            IProductDetails result = await this.productservices.Get(0);
+            IProductDetails result = await this.productServices.Get(0);
 
             Assert.IsNull(result);
         }
@@ -44,9 +48,63 @@ namespace Boticario.Backend.Modules.Products.Tests
                 new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB"}
             };
 
-            IProductDetails result = await this.productservices.Get(0);
+            IProductDetails result = await this.productServices.Get(0);
 
             Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public async Task When_SaveNewProduct_Should_PersistObject()
+        {
+            await this.productServices.Create(new ProductOperationDto()
+            {
+                Sku = 1,
+                Name = "Abc",
+                Inventory = new InventoryOperationDto()
+                {
+                    Warehouses = new List<InventoryWarehouseOperationDto>()
+                    {
+                        new InventoryWarehouseOperationDto()
+                        {
+                            Locality = "A",
+                            Quantity = 10,
+                            Type = "AA"
+                        }
+                    }
+                }
+            });
+
+            Assert.AreEqual(1, this.productRepository.Database.Sku);
+            Assert.AreEqual("Abc", this.productRepository.Database.Name);
+            Assert.IsTrue(this.inventoryService.SaveAllWasCalled);
+        }
+
+        [Test]
+        public void When_SaveProductWithNullObject_Should_ThrowException()
+        {
+            Exception exception = Assert.ThrowsAsync<NullReferenceException>(async () =>
+            {
+                await this.productServices.Create(null);
+            });
+
+            Assert.AreEqual("Product is Null!", exception.Message);
+        }
+
+        [Test]
+        public void When_ThrowExceptionMeanwhileSaveNewProduct_Should_NotPersistObject()
+        {
+            Assert.ThrowsAsync<ProductValidationException>(async () =>
+            {
+                await this.productServices.Create(new ProductOperationDto()
+                {
+                    Sku = 0,
+                    Name = string.Empty,
+                    Inventory = new InventoryOperationDto()
+                });
+            });
+
+            Assert.IsNull(this.productRepository.Database);
+            Assert.IsTrue(this.inventoryService.SaveAllWasCalled);
         }
     }
 }

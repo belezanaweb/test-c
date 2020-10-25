@@ -16,9 +16,12 @@ namespace Boticario.Backend.Modules.Products.Tests.Mocks
             });
         }
 
-        public Task Insert(IProductEntity product)
+        public async Task Insert(IProductEntity product)
         {
-            throw new System.NotImplementedException();
+            await Task.Run(() =>
+            {
+                this.Database = product;
+            });            
         }
 
         public Task Update(IProductEntity product)
