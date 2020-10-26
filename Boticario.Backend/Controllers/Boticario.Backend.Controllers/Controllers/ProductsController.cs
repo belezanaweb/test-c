@@ -1,7 +1,7 @@
 ﻿using Boticario.Backend.Modules.Products.Dto;
 using Boticario.Backend.Modules.Products.Models;
+using Boticario.Backend.Modules.Products.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Threading.Tasks;
 
 namespace Boticario.Backend.Controllers.Controllers
@@ -10,6 +10,13 @@ namespace Boticario.Backend.Controllers.Controllers
     [Route("api/products")]
     public class ProductsController : ControllerBase
     {
+        private IProductServices productServices;
+
+        public ProductsController(IProductServices productServices)
+        {
+            this.productServices = productServices;
+        }
+
         /// <summary>
         /// Get one Product by its SKU.
         /// </summary>
@@ -19,9 +26,9 @@ namespace Boticario.Backend.Controllers.Controllers
         /// <response code="400">Invalid Parameter.</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpGet("{sku}")]
-        public Task<IProductDetails> Get(int sku)
+        public async Task<IProductDetails> Get(int sku)
         {
-            throw new NotImplementedException();
+            return await this.productServices.Get(sku);
         }
 
         /// <summary>
@@ -32,9 +39,9 @@ namespace Boticario.Backend.Controllers.Controllers
         /// <response code="400">Invalid Parameters.</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpPost()]
-        public Task Post([FromBody]ProductOperationDto product)
+        public async Task Post([FromBody]ProductOperationDto product)
         {
-            throw new NotImplementedException();
+            await this.productServices.Create(product);
         }
 
         /// <summary>
@@ -46,9 +53,9 @@ namespace Boticario.Backend.Controllers.Controllers
         /// <response code="404">Product not found.</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpPut()]
-        public Task Put([FromBody]ProductOperationDto product)
+        public async Task Put([FromBody]ProductOperationDto product)
         {
-            throw new NotImplementedException();
+            await this.productServices.Create(product);
         }
 
         /// <summary>
@@ -60,9 +67,9 @@ namespace Boticario.Backend.Controllers.Controllers
         /// <response code="404">Product not found.</response>
         /// <response code="500">Internal Server Error.</response>
         [HttpDelete("{sku}")]
-        public Task Delete(int sku)
+        public async Task Delete(int sku)
         {
-            throw new NotImplementedException();
+            await this.productServices.Delete(sku);
         }
     }
 }

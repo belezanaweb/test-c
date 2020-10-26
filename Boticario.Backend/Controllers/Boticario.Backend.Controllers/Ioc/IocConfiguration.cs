@@ -13,7 +13,9 @@ using Boticario.Backend.Modules.Inventory.Services;
 using Boticario.Backend.Modules.Products.Factories;
 using Boticario.Backend.Modules.Products.Implementation.Factories;
 using Boticario.Backend.Modules.Products.Implementation.Repositories;
+using Boticario.Backend.Modules.Products.Implementation.Services;
 using Boticario.Backend.Modules.Products.Repositories;
+using Boticario.Backend.Modules.Products.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Boticario.Backend.Controllers.Ioc
@@ -59,6 +61,7 @@ namespace Boticario.Backend.Controllers.Ioc
         private void AddServices()
         {
             this.services.AddScoped<IInventoryServices, DefaultInventoryServices>();
+            this.services.AddScoped<IProductServices, DefaultProductServices>();
         }
     }
 }
