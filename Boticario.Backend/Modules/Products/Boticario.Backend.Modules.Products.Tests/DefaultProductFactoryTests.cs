@@ -65,6 +65,7 @@ namespace Boticario.Backend.Modules.Products.Tests
 
             IInventoryDetails inventoryDetails = new InventoryDetailsMock()
             {
+                Quantity = 30,
                 Warehouses = new List<IInventoryWarehouse>() {
                     new InventoryWarehouseMock() { Locality = "A", Quantity = 10, Type = "AA" },
                     new InventoryWarehouseMock() { Locality = "B", Quantity = 20, Type = "BB" }
@@ -75,6 +76,8 @@ namespace Boticario.Backend.Modules.Products.Tests
 
             Assert.AreEqual(1, product.Sku);
             Assert.AreEqual("Abc", product.Name);
+
+            Assert.IsTrue(product.IsMarketable);
 
             Assert.AreEqual("A", product.Inventory.Warehouses[0].Locality);
             Assert.AreEqual(10, product.Inventory.Warehouses[0].Quantity);
