@@ -29,27 +29,14 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
 
         public async Task<IProductDetails> Get(int sku)
         {
-            IProductEntity productEntity = null;
-            IList<IInventoryEntity> inventories = null;
-
-            Task[] tasks = new Task[]
-            {
-                Task.Run(async() =>
-                {
-                    productEntity = await this.productRepository.Get(sku);
-                }),
-                Task.Run(async() =>
-                {
-                    inventories = await this.inventoryServices.GetAll(sku);
-                }),
-            };
-
-            await Task.WhenAll(tasks);
+            IProductEntity productEntity = await this.productRepository.Get(sku);
 
             if (productEntity == null)
             {
                 return null;
             }
+
+            IList<IInventoryEntity> inventories = await this.inventoryServices.GetAll(sku);
 
             return this.productFactory.CreateProductDetails(productEntity, inventories);
         }
@@ -63,21 +50,10 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
 
             await this.unitOfWork.Execute(async () =>
             {
-                List<Task> tasks = new List<Task>()
-                {
-                    Task.Run(async() =>
-                    {
-                        IProductEntity productEntity = this.productFactory.CreateEntity(product.Sku, product.Name);
-                        await this.productRepository.Insert(productEntity);
-                    }),
+                IProductEntity productEntity = this.productFactory.CreateEntity(product.Sku, product.Name);
+                await this.productRepository.Insert(productEntity);
 
-                    Task.Run(async() =>
-                    {
-                        await this.inventoryServices.SaveAll(product.Sku, product.Inventory);
-                    })
-                };
-
-                await Task.WhenAll(tasks);
+                await this.inventoryServices.SaveAll(product.Sku, product.Inventory);
             });
         }
 
@@ -90,21 +66,10 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
 
             await this.unitOfWork.Execute(async () =>
             {
-                List<Task> tasks = new List<Task>()
-                {
-                    Task.Run(async() =>
-                    {
-                        IProductEntity productEntity = this.productFactory.CreateEntity(product.Sku, product.Name);
-                        await this.productRepository.Update(productEntity);
-                    }),
+                IProductEntity productEntity = this.productFactory.CreateEntity(product.Sku, product.Name);
+                await this.productRepository.Update(productEntity);
 
-                    Task.Run(async() =>
-                    {
-                        await this.inventoryServices.SaveAll(product.Sku, product.Inventory);
-                    })
-                };
-
-                await Task.WhenAll(tasks);
+                await this.inventoryServices.SaveAll(product.Sku, product.Inventory);
             });
         }
 
@@ -112,20 +77,9 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
         {
             await this.unitOfWork.Execute(async () =>
             {
-                List<Task> tasks = new List<Task>()
-                {
-                    Task.Run(async() =>
-                    {
-                        await this.productRepository.Delete(sku);
-                    }),
+                await this.productRepository.Delete(sku);
 
-                    Task.Run(async() =>
-                    {
-                        await this.inventoryServices.DeleteAll(sku);
-                    })
-                };
-
-                await Task.WhenAll(tasks);
+                await this.inventoryServices.DeleteAll(sku);
             });
         }
     }
