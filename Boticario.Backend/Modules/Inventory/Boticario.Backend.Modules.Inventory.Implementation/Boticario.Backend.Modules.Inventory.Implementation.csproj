@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\Boticario.Backend.Common.Exceptions\Boticario.Backend.Common.Exceptions.csproj" />
     <ProjectReference Include="..\Boticario.Backend.Modules.Inventory\Boticario.Backend.Modules.Inventory.csproj" />
   </ItemGroup>
 

@@ -64,7 +64,7 @@ namespace Boticario.Backend.Modules.Products.Implementation.Repositories
         {
             await Task.Run(() =>
             {
-                if (this.database.TryRemove(sku, out _))
+                if (!this.database.TryRemove(sku, out _))
                 {
                     throw new ProductNotFoundException();
                 }

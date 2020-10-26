@@ -55,7 +55,7 @@ namespace Boticario.Backend.Controllers.Controllers
         [HttpPut()]
         public async Task Put([FromBody]ProductOperationDto product)
         {
-            await this.productServices.Create(product);
+            await this.productServices.Update(product);
         }
 
         /// <summary>

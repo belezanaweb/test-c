@@ -52,13 +52,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.Data
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Data.DatabaseContext.Tests", "Data\DatabaseContext\Boticario.Backend.Data.DatabaseContext.Tests\Boticario.Backend.Data.DatabaseContext.Tests.csproj", "{6975C4EF-C284-4C5B-BAE3-0032E36F7500}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Modules.Products.Implementation", "Modules\Products\Boticario.Backend.Modules.Products.Implementation\Boticario.Backend.Modules.Products.Implementation.csproj", "{6CE4416F-70CA-417C-909A-F19F67E59679}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Modules.Products.Implementation", "Modules\Products\Boticario.Backend.Modules.Products.Implementation\Boticario.Backend.Modules.Products.Implementation.csproj", "{6CE4416F-70CA-417C-909A-F19F67E59679}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Modules.Inventory.Implementation", "Modules\Inventory\Boticario.Backend.Modules.Inventory.Implementation\Boticario.Backend.Modules.Inventory.Implementation.csproj", "{CB1EA215-7A7C-484C-8940-3710DBB1CE0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Modules.Inventory.Implementation", "Modules\Inventory\Boticario.Backend.Modules.Inventory.Implementation\Boticario.Backend.Modules.Inventory.Implementation.csproj", "{CB1EA215-7A7C-484C-8940-3710DBB1CE0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Modules.Products.Tests", "Modules\Products\Boticario.Backend.Modules.Products.Tests\Boticario.Backend.Modules.Products.Tests.csproj", "{C796FE53-AA4E-49A1-ABBC-DBD7C10A7EB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Modules.Products.Tests", "Modules\Products\Boticario.Backend.Modules.Products.Tests\Boticario.Backend.Modules.Products.Tests.csproj", "{C796FE53-AA4E-49A1-ABBC-DBD7C10A7EB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Modules.Inventory.Tests", "Modules\Inventory\Boticario.Backend.Modules.Inventory.Tests\Boticario.Backend.Modules.Inventory.Tests.csproj", "{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Boticario.Backend.Modules.Inventory.Tests", "Modules\Inventory\Boticario.Backend.Modules.Inventory.Tests\Boticario.Backend.Modules.Inventory.Tests.csproj", "{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{55B26267-1320-4B4C-9800-6B71B404BC0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Backend.Common.Exceptions", "Common\Boticario.Backend.Common.Exceptions\Boticario.Backend.Common.Exceptions.csproj", "{B682D96C-AE0E-438A-A49E-FB4CFC2162F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -134,6 +138,10 @@ Global
 		{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8921209D-12A0-4EEC-9E3F-7925A4AED2DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B682D96C-AE0E-438A-A49E-FB4CFC2162F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B682D96C-AE0E-438A-A49E-FB4CFC2162F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B682D96C-AE0E-438A-A49E-FB4CFC2162F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B682D96C-AE0E-438A-A49E-FB4CFC2162F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -162,6 +170,7 @@ Global
 		{CB1EA215-7A7C-484C-8940-3710DBB1CE0E} = {1B7992F1-0689-4DEE-ABE1-58A6837F78E8}
 		{C796FE53-AA4E-49A1-ABBC-DBD7C10A7EB1} = {841A4AEA-A406-47E0-B680-262167000711}
 		{8921209D-12A0-4EEC-9E3F-7925A4AED2DD} = {1B7992F1-0689-4DEE-ABE1-58A6837F78E8}
+		{B682D96C-AE0E-438A-A49E-FB4CFC2162F1} = {55B26267-1320-4B4C-9800-6B71B404BC0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {38766208-2119-433D-85C2-8B481A4F238E}
