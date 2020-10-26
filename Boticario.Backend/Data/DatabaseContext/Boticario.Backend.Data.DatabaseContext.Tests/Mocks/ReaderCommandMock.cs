@@ -1,4 +1,5 @@
 ﻿using Boticario.Backend.Data.Commands;
+using Boticario.Backend.Data.Connection;
 using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.DatabaseContext.Tests.Mocks
@@ -12,7 +13,7 @@ namespace Boticario.Backend.Data.DatabaseContext.Tests.Mocks
             this.desiredResult = desiredResult;
         }
 
-        public async Task<string> Execute()
+        public async Task<string> Execute(IConnection connection)
         {
             return await Task.Run(() =>
             {

@@ -15,7 +15,7 @@ namespace Boticario.Backend.Data.UnitOfWork.Tests
         [SetUp]
         public void Setup()
         {
-            this.unitOfWork = new DefaultUnitOfWork();
+            this.unitOfWork = new DefaultUnitOfWork(new ConnectionPoolMock());
         }
 
         [Test]

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Commands\Boticario.Backend.Data.Commands\Boticario.Backend.Data.Commands.csproj" />
+    <ProjectReference Include="..\..\Connection\Boticario.Backend.Data.Connection\Boticario.Backend.Data.Connection.csproj" />
   </ItemGroup>
 
 </Project>

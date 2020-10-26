@@ -1,4 +1,5 @@
 ﻿using Boticario.Backend.Data.Commands;
+using Boticario.Backend.Data.Connection;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -8,11 +9,14 @@ namespace Boticario.Backend.Data.UnitOfWork.Implementation
 {
     public class DefaultUnitOfWork : IUnitOfWork
     {
+        private readonly IConnectionPool connectionPool;
+
         public readonly ConcurrentQueue<IWriterCommand> commandQueue;        
         public readonly ConcurrentQueue<string> transactionQueue;
 
-        public DefaultUnitOfWork()
+        public DefaultUnitOfWork(IConnectionPool connectionPool)
         {
+            this.connectionPool = connectionPool;
             this.commandQueue = new ConcurrentQueue<IWriterCommand>();
             this.transactionQueue = new ConcurrentQueue<string>();
         }
@@ -69,14 +73,23 @@ namespace Boticario.Backend.Data.UnitOfWork.Implementation
 
         public async Task CommitTransaction()
         {
-            List<Task<bool>> commandTasks = new List<Task<bool>>(this.commandQueue.Count);
+            IConnection connection = await this.connectionPool.Pop();
 
-            while (this.commandQueue.TryDequeue(out IWriterCommand command))
+            try
             {
-                commandTasks.Add(command.Execute());
-            }
+                List<Task<bool>> commandTasks = new List<Task<bool>>(this.commandQueue.Count);
 
-            await Task.WhenAll(commandTasks);
+                while (this.commandQueue.TryDequeue(out IWriterCommand command))
+                {
+                    commandTasks.Add(command.Execute(connection));
+                }
+
+                await Task.WhenAll(commandTasks);
+            }
+            finally
+            {
+                this.connectionPool.Push(connection);
+            }
         }
 
         public void RollbackTransaction()

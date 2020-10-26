@@ -6,6 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Common\Boticario.Backend.Common.Exceptions\Boticario.Backend.Common.Exceptions.csproj" />
+    <ProjectReference Include="..\..\..\Data\DatabaseContext\Boticario.Backend.Data.DatabaseContext\Boticario.Backend.Data.DatabaseContext.csproj" />
+    <ProjectReference Include="..\..\..\Data\Database\Boticario.Backend.Data.Database\Boticario.Backend.Data.Database.csproj" />
     <ProjectReference Include="..\Boticario.Backend.Modules.Inventory\Boticario.Backend.Modules.Inventory.csproj" />
   </ItemGroup>
 

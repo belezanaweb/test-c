@@ -21,6 +21,7 @@
     <ProjectReference Include="..\..\Data\Connection\Boticario.Backend.Data.Connection.Implementation\Boticario.Backend.Data.Connection.Implementation.csproj" />
     <ProjectReference Include="..\..\Data\DatabaseContext\Boticario.Backend.Data.DatabaseContext.Implementation\Boticario.Backend.Data.DatabaseContext.Implementation.csproj" />
     <ProjectReference Include="..\..\Data\DatabaseContext\Boticario.Backend.Data.DatabaseContext\Boticario.Backend.Data.DatabaseContext.csproj" />
+    <ProjectReference Include="..\..\Data\Database\Boticario.Backend.Data.Database.Implementation\Boticario.Backend.Data.Database.Implementation.csproj" />
     <ProjectReference Include="..\..\Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork.Implementation\Boticario.Backend.Data.UnitOfWork.Implementation.csproj" />
     <ProjectReference Include="..\..\Data\UnitOfWork\Boticario.Backend.Data.UnitOfWork\Boticario.Backend.Data.UnitOfWork.csproj" />
     <ProjectReference Include="..\..\Modules\Inventory\Boticario.Backend.Modules.Inventory.Implementation\Boticario.Backend.Modules.Inventory.Implementation.csproj" />

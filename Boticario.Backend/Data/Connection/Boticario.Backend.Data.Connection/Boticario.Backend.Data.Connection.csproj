@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Commands\Boticario.Backend.Data.Commands\Boticario.Backend.Data.Commands.csproj" />
+    <ProjectReference Include="..\..\Database\Boticario.Backend.Data.Database\Boticario.Backend.Data.Database.csproj" />
   </ItemGroup>
 
 </Project>

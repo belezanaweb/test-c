@@ -1,4 +1,5 @@
 using Boticario.Backend.Data.Connection.Implementation;
+using Boticario.Backend.Data.Database.Implementation;
 using NUnit.Framework;
 using System.Threading.Tasks;
 
@@ -11,7 +12,7 @@ namespace Boticario.Backend.Data.Connection.Tests
         [SetUp]
         public void Setup()
         {
-            this.connectionFactory = new DefaultConnectionFactory();
+            this.connectionFactory = new DefaultConnectionFactory(new MemoryDatabase());
         }
 
         [Test]

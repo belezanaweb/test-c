@@ -1,5 +1,7 @@
 ﻿using Boticario.Backend.Data.Connection;
 using Boticario.Backend.Data.Connection.Implementation;
+using Boticario.Backend.Data.Database;
+using Boticario.Backend.Data.Database.Implementation;
 using Boticario.Backend.Data.DatabaseContext;
 using Boticario.Backend.Data.DatabaseContext.Implementation;
 using Boticario.Backend.Data.UnitOfWork;
@@ -48,8 +50,10 @@ namespace Boticario.Backend.Controllers.Ioc
 
         private void AddRepositories()
         {
-            this.services.AddSingleton<IProductRepository, MemoryProductRepository>();
-            this.services.AddSingleton<IInventoryRepository, MemoryInventoryRepository>();
+            this.services.AddSingleton<IDatabase, MemoryDatabase>();
+
+            this.services.AddScoped<IProductRepository, ProductRepository>();
+            this.services.AddScoped<IInventoryRepository, InventoryRepository>();
         }
 
         private void AddFactories()

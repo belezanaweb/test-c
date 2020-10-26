@@ -1,0 +1,21 @@
+﻿using Boticario.Backend.Data.Connection;
+using System;
+using System.Threading.Tasks;
+
+namespace Boticario.Backend.Data.UnitOfWork.Tests.Mocks
+{
+    internal class ConnectionPoolMock : IConnectionPool
+    {
+        public async Task<IConnection> Pop()
+        {
+            return await Task.Run(() =>
+            {
+                return new ConnectionMock();
+            });
+        }
+
+        public void Push(IConnection connection)
+        {
+        }
+    }
+}

@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Database\Boticario.Backend.Data.Database.Implementation\Boticario.Backend.Data.Database.Implementation.csproj" />
     <ProjectReference Include="..\Boticario.Backend.Data.Connection.Implementation\Boticario.Backend.Data.Connection.Implementation.csproj" />
   </ItemGroup>
 
