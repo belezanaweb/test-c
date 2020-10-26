@@ -1,4 +1,5 @@
-﻿using Boticario.Backend.Modules.Inventory.Models;
+﻿using Boticario.Backend.Data.UnitOfWork;
+using Boticario.Backend.Modules.Inventory.Models;
 using Boticario.Backend.Modules.Inventory.Services;
 using Boticario.Backend.Modules.Products.Dto;
 using Boticario.Backend.Modules.Products.Factories;
@@ -16,12 +17,14 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
         private readonly IProductRepository productRepository;
         private readonly IInventoryServices inventoryServices;
         private readonly IProductFactory productFactory;
+        private readonly IUnitOfWork unitOfWork;
 
-        public DefaultProductServices(IProductRepository productRepository, IInventoryServices inventoryServices, IProductFactory productFactory)
+        public DefaultProductServices(IProductRepository productRepository, IInventoryServices inventoryServices, IProductFactory productFactory, IUnitOfWork unitOfWork)
         {
             this.productRepository = productRepository;
             this.inventoryServices = inventoryServices;
             this.productFactory = productFactory;
+            this.unitOfWork = unitOfWork;
         }
 
         public async Task<IProductDetails> Get(int sku)
@@ -46,7 +49,7 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
             if (productEntity == null)
             {
                 return null;
-            }            
+            }
 
             return this.productFactory.CreateProductDetails(productEntity, inventories);
         }
@@ -58,20 +61,24 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
                 throw new NullReferenceException("Product is Null!");
             }
 
-            Task[] tasks = new Task[]
+            await this.unitOfWork.Execute(async () =>
             {
-                Task.Run(async() =>
+                List<Task> tasks = new List<Task>()
                 {
-                    IProductEntity productEntity = this.productFactory.CreateEntity(product.Sku, product.Name);
-                    await this.productRepository.Insert(productEntity);
-                }),
-                Task.Run(async() =>
-                {
-                    await this.inventoryServices.SaveAll(product.Sku, product.Inventory);
-                }),
-            };
+                    Task.Run(async() =>
+                    {
+                        IProductEntity productEntity = this.productFactory.CreateEntity(product.Sku, product.Name);
+                        await this.productRepository.Insert(productEntity);
+                    }),
 
-            await Task.WhenAll(tasks);
+                    Task.Run(async() =>
+                    {
+                        await this.inventoryServices.SaveAll(product.Sku, product.Inventory);
+                    })
+                };
+
+                await Task.WhenAll(tasks);
+            });
         }
 
         public async Task Update(ProductOperationDto product)
@@ -81,25 +88,45 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
                 throw new NullReferenceException("Product is Null!");
             }
 
-            Task[] tasks = new Task[]
+            await this.unitOfWork.Execute(async () =>
             {
-                Task.Run(async() =>
+                List<Task> tasks = new List<Task>()
                 {
-                    IProductEntity productEntity = this.productFactory.CreateEntity(product.Sku, product.Name);
-                    await this.productRepository.Update(productEntity);
-                }),
-                Task.Run(async() =>
-                {
-                    await this.inventoryServices.SaveAll(product.Sku, product.Inventory);
-                }),
-            };
+                    Task.Run(async() =>
+                    {
+                        IProductEntity productEntity = this.productFactory.CreateEntity(product.Sku, product.Name);
+                        await this.productRepository.Update(productEntity);
+                    }),
 
-            await Task.WhenAll(tasks);
+                    Task.Run(async() =>
+                    {
+                        await this.inventoryServices.SaveAll(product.Sku, product.Inventory);
+                    })
+                };
+
+                await Task.WhenAll(tasks);
+            });
         }
 
-        public Task Delete(int sku)
+        public async Task Delete(int sku)
         {
-            throw new NotImplementedException();
+            await this.unitOfWork.Execute(async () =>
+            {
+                List<Task> tasks = new List<Task>()
+                {
+                    Task.Run(async() =>
+                    {
+                        await this.productRepository.Delete(sku);
+                    }),
+
+                    Task.Run(async() =>
+                    {
+                        await this.inventoryServices.DeleteAll(sku);
+                    })
+                };
+
+                await Task.WhenAll(tasks);
+            });
         }
     }
 }

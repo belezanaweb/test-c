@@ -1,7 +1,6 @@
 ﻿using Boticario.Backend.Modules.Inventory.Dto;
 using Boticario.Backend.Modules.Inventory.Models;
 using Boticario.Backend.Modules.Products.Dto;
-using Boticario.Backend.Modules.Products.Implementation.Exceptions;
 using Boticario.Backend.Modules.Products.Implementation.Factories;
 using Boticario.Backend.Modules.Products.Implementation.Services;
 using Boticario.Backend.Modules.Products.Models;
@@ -17,16 +16,16 @@ namespace Boticario.Backend.Modules.Products.Tests
     {
         private ProductRepositoryMock productRepository;
         private InventoryServiceMock inventoryService;
-        private DefaultProductFactory productFactory;
+        private UnitOfWorkMock unitOfWork;
         private DefaultProductServices productServices;
-        
+
         [SetUp]
         public void Setup()
         {
             this.productRepository = new ProductRepositoryMock();
             this.inventoryService = new InventoryServiceMock();
-            this.productFactory = new DefaultProductFactory();
-            this.productServices = new DefaultProductServices(this.productRepository, this.inventoryService, this.productFactory);
+            this.unitOfWork = new UnitOfWorkMock();
+            this.productServices = new DefaultProductServices(this.productRepository, this.inventoryService, new DefaultProductFactory(), this.unitOfWork);
         }
 
         [Test]
@@ -91,20 +90,27 @@ namespace Boticario.Backend.Modules.Products.Tests
         }
 
         [Test]
-        public void When_ThrowExceptionMeanwhileSaveNewProduct_Should_NotPersistObject()
+        public async Task When_SaveNewProduct_Should_UseUnitOfWork()
         {
-            Assert.ThrowsAsync<ProductValidationException>(async () =>
+            await this.productServices.Create(new ProductOperationDto()
             {
-                await this.productServices.Create(new ProductOperationDto()
+                Sku = 1,
+                Name = "Abc",
+                Inventory = new InventoryOperationDto()
                 {
-                    Sku = 0,
-                    Name = string.Empty,
-                    Inventory = new InventoryOperationDto()
-                });
+                    Warehouses = new List<InventoryWarehouseOperationDto>()
+                    {
+                        new InventoryWarehouseOperationDto()
+                        {
+                            Locality = "A",
+                            Quantity = 10,
+                            Type = "AA"
+                        }
+                    }
+                }
             });
 
-            Assert.IsNull(this.productRepository.Database);
-            Assert.IsTrue(this.inventoryService.SaveAllWasCalled);
+            Assert.IsTrue(this.unitOfWork.UsedUnifOfWork);
         }
 
         [Test]
@@ -159,20 +165,56 @@ namespace Boticario.Backend.Modules.Products.Tests
         }
 
         [Test]
-        public void When_ThrowExceptionMeanwhileUpdateAnExistingProduct_Should_NotPersistObject()
+        public async Task When_UpdateAnExistingProduct_Should_UseUnitOfWork()
         {
-            Assert.ThrowsAsync<ProductValidationException>(async () =>
+            this.productRepository.Database = new ProductEntityMock() { Sku = 1, Name = "Abc" };
+
+            this.inventoryService.Inventories = new List<IInventoryEntity>()
             {
-                await this.productServices.Update(new ProductOperationDto()
-                {
-                    Sku = 0,
-                    Name = string.Empty,
-                    Inventory = new InventoryOperationDto()
-                });
+                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA"},
+                new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB"}
+            };
+
+            await this.productServices.Update(new ProductOperationDto()
+            {
+                Sku = 1,
+                Name = "Def",
+                Inventory = new InventoryOperationDto()
             });
+
+            Assert.IsTrue(this.unitOfWork.UsedUnifOfWork);
+        }
+
+        [Test]
+        public async Task When_DeleteAnExistingProduct_Should_RemoveObject()
+        {
+            this.productRepository.Database = new ProductEntityMock() { Sku = 1, Name = "Abc" };
+
+            this.inventoryService.Inventories = new List<IInventoryEntity>()
+            {
+                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA"},
+                new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB"}
+            };
+
+            await this.productServices.Delete(1);
 
             Assert.IsNull(this.productRepository.Database);
             Assert.IsTrue(this.inventoryService.SaveAllWasCalled);
+        }
+
+        [Test]
+        public async Task When_DeleteAnExistingProduct_Should_UseUnitOfWork()
+        {
+            this.productRepository.Database = new ProductEntityMock() { Sku = 1, Name = "Abc" };
+
+            this.inventoryService.Inventories = new List<IInventoryEntity>()
+            {
+                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA"}
+            };
+
+            await this.productServices.Delete(1);
+
+            Assert.IsTrue(this.unitOfWork.UsedUnifOfWork);
         }
     }
 }

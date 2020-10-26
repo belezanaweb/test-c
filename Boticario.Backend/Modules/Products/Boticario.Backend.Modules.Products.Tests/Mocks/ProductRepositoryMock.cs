@@ -32,9 +32,12 @@ namespace Boticario.Backend.Modules.Products.Tests.Mocks
             });
         }
 
-        public Task Delete(int sku)
+        public async Task Delete(int sku)
         {
-            throw new System.NotImplementedException();
+            await Task.Run(() =>
+            {
+                this.Database = null;
+            });
         }
     }
 }
