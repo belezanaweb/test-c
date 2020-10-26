@@ -1,5 +1,4 @@
 ﻿using Boticario.Backend.Data.Connection;
-using System;
 using System.Threading.Tasks;
 
 namespace Boticario.Backend.Data.UnitOfWork.Tests.Mocks
