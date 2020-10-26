@@ -88,6 +88,8 @@ namespace Boticario.Backend.Modules.Inventory.Tests
 
             IInventoryDetails inventoryDetails = this.inventoryFactory.CreateDetails(inventories);
 
+            Assert.AreEqual(30, inventoryDetails.Quantity);
+
             Assert.AreEqual("A", inventoryDetails.Warehouses[0].Locality);
             Assert.AreEqual(10, inventoryDetails.Warehouses[0].Quantity);
             Assert.AreEqual("AA", inventoryDetails.Warehouses[0].Type);

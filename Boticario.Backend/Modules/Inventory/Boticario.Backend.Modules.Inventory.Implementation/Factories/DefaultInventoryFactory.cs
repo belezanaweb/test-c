@@ -1,8 +1,9 @@
-﻿using Boticario.Backend.Modules.Inventory.Factories;
+﻿using Boticario.Backend.Modules.Inventory.BusinessLogic;
+using Boticario.Backend.Modules.Inventory.Factories;
+using Boticario.Backend.Modules.Inventory.Implementation.BusinessLogic;
 using Boticario.Backend.Modules.Inventory.Implementation.Exceptions;
 using Boticario.Backend.Modules.Inventory.Implementation.Models;
 using Boticario.Backend.Modules.Inventory.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,6 +11,13 @@ namespace Boticario.Backend.Modules.Inventory.Implementation.Factories
 {
     public class DefaultInventoryFactory : IInventoryFactory
     {
+        private readonly IQuantityInventoryCalculator quantityInventoryCalculator; 
+
+        public DefaultInventoryFactory()
+        {
+            this.quantityInventoryCalculator = new DefaultQuantityInventoryCalculator();
+        }
+
         public IInventoryEntity CreateEntity(string locality, long quantity, string type)
         {
             if (string.IsNullOrWhiteSpace(locality))
@@ -39,6 +47,7 @@ namespace Boticario.Backend.Modules.Inventory.Implementation.Factories
         {
             return new InventoryDetails()
             {
+                Quantity = this.quantityInventoryCalculator.Calc(inventories),
                 Warehouses = inventories.Select(p => (IInventoryWarehouse)new InventoryWarehouse()
                 {
                     Locality = p.Locality,
