@@ -41,11 +41,8 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             this.productRepository.Database = new ProductEntityMock() { Sku = 1, Name = "Abc" };
 
-            this.inventoryService.Inventories = new List<IInventoryEntity>()
-            {
-                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA"},
-                new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB"}
-            };
+            this.inventoryService.InventoryDetails.Warehouses.Add(new InventoryWarehouseMock() { Locality = "A", Quantity = 10, Type = "AA" });
+            this.inventoryService.InventoryDetails.Warehouses.Add(new InventoryWarehouseMock() { Locality = "B", Quantity = 20, Type = "BB" });
 
             IProductDetails result = await this.productServices.Get(0);
 
@@ -118,11 +115,8 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             this.productRepository.Database = new ProductEntityMock() { Sku = 1, Name = "Abc" };
 
-            this.inventoryService.Inventories = new List<IInventoryEntity>()
-            {
-                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA"},
-                new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB"}
-            };
+            this.inventoryService.InventoryDetails.Warehouses.Add(new InventoryWarehouseMock() { Locality = "A", Quantity = 10, Type = "AA" });
+            this.inventoryService.InventoryDetails.Warehouses.Add(new InventoryWarehouseMock() { Locality = "B", Quantity = 20, Type = "BB" });
 
             await this.productServices.Update(new ProductOperationDto()
             {
@@ -169,11 +163,8 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             this.productRepository.Database = new ProductEntityMock() { Sku = 1, Name = "Abc" };
 
-            this.inventoryService.Inventories = new List<IInventoryEntity>()
-            {
-                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA"},
-                new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB"}
-            };
+            this.inventoryService.InventoryDetails.Warehouses.Add(new InventoryWarehouseMock() { Locality = "A", Quantity = 10, Type = "AA" });
+            this.inventoryService.InventoryDetails.Warehouses.Add(new InventoryWarehouseMock() { Locality = "B", Quantity = 20, Type = "BB" });
 
             await this.productServices.Update(new ProductOperationDto()
             {
@@ -190,11 +181,8 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             this.productRepository.Database = new ProductEntityMock() { Sku = 1, Name = "Abc" };
 
-            this.inventoryService.Inventories = new List<IInventoryEntity>()
-            {
-                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA"},
-                new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB"}
-            };
+            this.inventoryService.InventoryDetails.Warehouses.Add(new InventoryWarehouseMock() { Locality = "A", Quantity = 10, Type = "AA" });
+            this.inventoryService.InventoryDetails.Warehouses.Add(new InventoryWarehouseMock() { Locality = "B", Quantity = 20, Type = "BB" });
 
             await this.productServices.Delete(1);
 
@@ -207,11 +195,8 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             this.productRepository.Database = new ProductEntityMock() { Sku = 1, Name = "Abc" };
 
-            this.inventoryService.Inventories = new List<IInventoryEntity>()
-            {
-                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA"}
-            };
-
+            this.inventoryService.InventoryDetails.Warehouses.Add(new InventoryWarehouseMock() { Locality = "A", Quantity = 10, Type = "AA" });
+            
             await this.productServices.Delete(1);
 
             Assert.IsTrue(this.unitOfWork.UsedUnifOfWork);

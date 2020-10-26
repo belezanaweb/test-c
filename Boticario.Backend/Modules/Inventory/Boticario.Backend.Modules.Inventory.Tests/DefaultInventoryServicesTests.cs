@@ -25,9 +25,9 @@ namespace Boticario.Backend.Modules.Inventory.Tests
         [Test]
         public async Task When_ThereIsNotInventoryForSKU_Should_ReturnEmptyList()
         {
-            IList<IInventoryEntity> result = await this.inventoryServices.GetAll(0);
+            IInventoryDetails inventoryDetails = await this.inventoryServices.GetAll(0);
 
-            Assert.IsEmpty(result);
+            Assert.IsEmpty(inventoryDetails.Warehouses);
         }
 
         [Test]
@@ -37,18 +37,18 @@ namespace Boticario.Backend.Modules.Inventory.Tests
             this.inventoryRepository.Database.Add(new InventoryEntityMock() { Locality = "Aaa", Quantity = 20, Type = "Jjj" });
             this.inventoryRepository.Database.Add(new InventoryEntityMock() { Locality = "Aaa", Quantity = 30, Type = "Bbb" });
 
-            IList<IInventoryEntity> result = await this.inventoryServices.GetAll(0);
+            IInventoryDetails inventoryDetails = await this.inventoryServices.GetAll(0);
 
-            Assert.AreEqual(3, result.Count);
+            Assert.AreEqual(3, inventoryDetails.Warehouses.Count);
             
-            Assert.AreEqual("Aaa", result[0].Locality);
-            Assert.AreEqual("Bbb", result[0].Type);
+            Assert.AreEqual("Aaa", inventoryDetails.Warehouses[0].Locality);
+            Assert.AreEqual("Bbb", inventoryDetails.Warehouses[0].Type);
 
-            Assert.AreEqual("Aaa", result[1].Locality);
-            Assert.AreEqual("Jjj", result[1].Type);
+            Assert.AreEqual("Aaa", inventoryDetails.Warehouses[1].Locality);
+            Assert.AreEqual("Jjj", inventoryDetails.Warehouses[1].Type);
 
-            Assert.AreEqual("Zzz", result[2].Locality);
-            Assert.AreEqual("Mmm", result[2].Type);
+            Assert.AreEqual("Zzz", inventoryDetails.Warehouses[2].Locality);
+            Assert.AreEqual("Mmm", inventoryDetails.Warehouses[2].Type);
         }
 
         [Test]
@@ -82,7 +82,7 @@ namespace Boticario.Backend.Modules.Inventory.Tests
                 }
             });
 
-            Assert.AreEqual(5, this.inventoryFactory.CreateMethodEvents);
+            Assert.AreEqual(5, this.inventoryFactory.CreateEntityEvents);
         }
 
         [Test]

@@ -8,22 +8,22 @@ namespace Boticario.Backend.Modules.Products.Tests.Mocks
 {
     internal class InventoryServiceMock : IInventoryServices
     {
-        public IList<IInventoryEntity> Inventories { get; set; }
+        public IInventoryDetails InventoryDetails { get; set; }
         public bool SaveAllWasCalled { get; private set; }
         public bool DeleteAllWasCalled { get; private set; }
 
         public InventoryServiceMock()
         {
-            this.Inventories = new List<IInventoryEntity>();
+            this.InventoryDetails = new InventoryDetailsMock() { Warehouses = new List<IInventoryWarehouse>() };
             this.SaveAllWasCalled = true;
             this.DeleteAllWasCalled = true;
         }
 
-        public async Task<IList<IInventoryEntity>> GetAll(int sku)
+        public async Task<IInventoryDetails> GetAll(int sku)
         {
             return await Task.Run(() =>
             {
-                return this.Inventories;
+                return this.InventoryDetails;
             });
         }
 

@@ -39,7 +39,7 @@ namespace Boticario.Backend.Controllers
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -52,7 +52,7 @@ namespace Boticario.Backend.Controllers
 
             app.UseAuthorization();
 
-            app.UseGlobalExceptionHandler(loggerFactory);
+            app.UseGlobalExceptionHandler();
 
             app.UseEndpoints(endpoints =>
             {

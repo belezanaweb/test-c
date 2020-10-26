@@ -1,5 +1,5 @@
-﻿using Boticario.Backend.Modules.Products.Models;
-using System.Collections.Generic;
+﻿using Boticario.Backend.Modules.Inventory.Models;
+using Boticario.Backend.Modules.Products.Models;
 
 namespace Boticario.Backend.Modules.Products.Implementation.Models
 {
@@ -7,20 +7,7 @@ namespace Boticario.Backend.Modules.Products.Implementation.Models
     {
         public int Sku { get; set; }
         public string Name { get; set; }
-        public IProductInventory Inventory { get; set; }
+        public IInventoryDetails Inventory { get; set; }
         public bool IsMarketable { get; set; }
-    }
-
-    internal class ProductInventory : IProductInventory
-    {
-        public long Quantity { get; set; }
-        public IList<IProductInventoryDetails> Warehouses { get; set; }
-    }
-
-    internal class ProductInventoryDetails : IProductInventoryDetails
-    {
-        public string Locality { get; set; }
-        public long Quantity { get; set; }
-        public string Type { get; set; }
     }
 }

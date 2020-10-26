@@ -20,9 +20,11 @@ namespace Boticario.Backend.Modules.Inventory.Implementation.Services
             this.inventoryFactory = inventoryFactory;
         }
 
-        public async Task<IList<IInventoryEntity>> GetAll(int sku)
+        public async Task<IInventoryDetails> GetAll(int sku)
         {
-            return (await this.inventoryRepository.GetAll(sku)).OrderBy(p => p.Locality).ThenBy(p => p.Type).ToList();
+            IList<IInventoryEntity> inventoryEntities = (await this.inventoryRepository.GetAll(sku)).OrderBy(p => p.Locality).ThenBy(p => p.Type).ToList();
+            
+            return this.inventoryFactory.CreateDetails(inventoryEntities);
         }
 
         public async Task SaveAll(int sku, InventoryOperationDto inventory)
@@ -32,7 +34,7 @@ namespace Boticario.Backend.Modules.Inventory.Implementation.Services
                 return;
             }
 
-            IList<IInventoryEntity> entities = inventory.Warehouses.Select(p => this.inventoryFactory.Create(p.Locality, p.Quantity, p.Type)).ToList();
+            IList<IInventoryEntity> entities = inventory.Warehouses.Select(p => this.inventoryFactory.CreateEntity(p.Locality, p.Quantity, p.Type)).ToList();
 
             await this.inventoryRepository.SaveAll(sku, entities);
         }

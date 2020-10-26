@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using Boticario.Backend.Modules.Inventory.Models;
 
 namespace Boticario.Backend.Modules.Products.Models
 {
@@ -6,20 +6,7 @@ namespace Boticario.Backend.Modules.Products.Models
     {
         int Sku { get; }
         string Name { get; }
-        IProductInventory Inventory { get; }
+        IInventoryDetails Inventory { get; }
         bool IsMarketable { get; }
-    }
-
-    public interface IProductInventory
-    {
-        long Quantity { get; }
-        IList<IProductInventoryDetails> Warehouses { get; }
-    }
-
-    public interface IProductInventoryDetails
-    {
-        string Locality { get; }
-        long Quantity { get; }
-        string Type { get; }
     }
 }

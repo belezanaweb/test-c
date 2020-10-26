@@ -10,7 +10,7 @@ namespace Boticario.Backend.Controllers.Controllers
     [Route("api/products")]
     public class ProductsController : ControllerBase
     {
-        private IProductServices productServices;
+        private readonly IProductServices productServices;
 
         public ProductsController(IProductServices productServices)
         {

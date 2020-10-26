@@ -36,9 +36,9 @@ namespace Boticario.Backend.Modules.Products.Implementation.Services
                 return null;
             }
 
-            IList<IInventoryEntity> inventories = await this.inventoryServices.GetAll(sku);
+            IInventoryDetails inventoryDetails = await this.inventoryServices.GetAll(sku);
 
-            return this.productFactory.CreateProductDetails(productEntity, inventories);
+            return this.productFactory.CreateDetails(productEntity, inventoryDetails);
         }
 
         public async Task Create(ProductOperationDto product)

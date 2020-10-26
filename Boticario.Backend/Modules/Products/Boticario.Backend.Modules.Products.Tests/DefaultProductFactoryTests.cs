@@ -63,13 +63,15 @@ namespace Boticario.Backend.Modules.Products.Tests
         {
             IProductEntity entity = new ProductEntityMock() { Sku = 1, Name = "Abc" };
 
-            IList<IInventoryEntity> inventories = new List<IInventoryEntity>()
+            IInventoryDetails inventoryDetails = new InventoryDetailsMock()
             {
-                new InventoryEntityMock() { Locality = "A", Quantity = 10, Type = "AA" },
-                new InventoryEntityMock() { Locality = "B", Quantity = 20, Type = "BB" },
+                Warehouses = new List<IInventoryWarehouse>() {
+                    new InventoryWarehouseMock() { Locality = "A", Quantity = 10, Type = "AA" },
+                    new InventoryWarehouseMock() { Locality = "B", Quantity = 20, Type = "BB" }
+                }
             };
 
-            IProductDetails product = this.productFactory.CreateProductDetails(entity, inventories);
+            IProductDetails product = this.productFactory.CreateDetails(entity, inventoryDetails);
 
             Assert.AreEqual(1, product.Sku);
             Assert.AreEqual("Abc", product.Name);

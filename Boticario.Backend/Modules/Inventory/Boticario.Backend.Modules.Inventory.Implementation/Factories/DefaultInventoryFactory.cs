@@ -3,12 +3,14 @@ using Boticario.Backend.Modules.Inventory.Implementation.Exceptions;
 using Boticario.Backend.Modules.Inventory.Implementation.Models;
 using Boticario.Backend.Modules.Inventory.Models;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Boticario.Backend.Modules.Inventory.Implementation.Factories
 {
     public class DefaultInventoryFactory : IInventoryFactory
     {
-        public IInventoryEntity Create(string locality, long quantity, string type)
+        public IInventoryEntity CreateEntity(string locality, long quantity, string type)
         {
             if (string.IsNullOrWhiteSpace(locality))
             {
@@ -30,6 +32,19 @@ namespace Boticario.Backend.Modules.Inventory.Implementation.Factories
                 Locality = locality.Trim(),
                 Quantity = quantity,
                 Type = type.Trim()
+            };
+        }
+
+        public IInventoryDetails CreateDetails(IList<IInventoryEntity> inventories)
+        {
+            return new InventoryDetails()
+            {
+                Warehouses = inventories.Select(p => (IInventoryWarehouse)new InventoryWarehouse()
+                {
+                    Locality = p.Locality,
+                    Quantity = p.Quantity,
+                    Type = p.Type
+                }).ToList()
             };
         }
     }

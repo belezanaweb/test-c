@@ -26,7 +26,7 @@ namespace Boticario.Backend.Controllers
 			return HttpStatusCode.InternalServerError;
 		}
 
-		public static void UseGlobalExceptionHandler(this IApplicationBuilder app, ILoggerFactory loggerFactory)
+		public static void UseGlobalExceptionHandler(this IApplicationBuilder app)
 		{
 			app.UseExceptionHandler(builder =>
 			{
