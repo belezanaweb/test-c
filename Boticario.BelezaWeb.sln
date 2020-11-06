@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{516B66E4-10FC-4BA6-A80E-DA880BA6786B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{42A1F787-55CE-4581-AB66-E9338C4538DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.BelezaWeb.Application", "src\Boticario.BelezaWeb.Application\Boticario.BelezaWeb.Application.csproj", "{E953F468-B8F3-4732-B772-CC84191A8C49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.BelezaWeb.Domain", "src\Boticario.BelezaWeb.Domain\Boticario.BelezaWeb.Domain.csproj", "{5FB8B0FE-0E6B-4CBC-8CCA-513F9FF59A8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.BelezaWeb.Infra.Data", "src\Boticario.BelezaWeb.Infra.Data\Boticario.BelezaWeb.Infra.Data.csproj", "{C9D8E194-8DDA-4646-A099-2F5D7110149F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.BelezaWeb.Infra.IoC", "src\Boticario.BelezaWeb.Infra.IoC\Boticario.BelezaWeb.Infra.IoC.csproj", "{2DE05990-6F6C-4140-889D-A80FAF72E005}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.BelezaWeb.Api", "src\Boticario.BelezaWeb.Api\Boticario.BelezaWeb.Api.csproj", "{B3745ACE-E8DB-4467-AA06-C43A75EC4122}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E953F468-B8F3-4732-B772-CC84191A8C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E953F468-B8F3-4732-B772-CC84191A8C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E953F468-B8F3-4732-B772-CC84191A8C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E953F468-B8F3-4732-B772-CC84191A8C49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FB8B0FE-0E6B-4CBC-8CCA-513F9FF59A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FB8B0FE-0E6B-4CBC-8CCA-513F9FF59A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FB8B0FE-0E6B-4CBC-8CCA-513F9FF59A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FB8B0FE-0E6B-4CBC-8CCA-513F9FF59A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9D8E194-8DDA-4646-A099-2F5D7110149F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9D8E194-8DDA-4646-A099-2F5D7110149F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9D8E194-8DDA-4646-A099-2F5D7110149F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9D8E194-8DDA-4646-A099-2F5D7110149F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DE05990-6F6C-4140-889D-A80FAF72E005}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DE05990-6F6C-4140-889D-A80FAF72E005}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DE05990-6F6C-4140-889D-A80FAF72E005}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DE05990-6F6C-4140-889D-A80FAF72E005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3745ACE-E8DB-4467-AA06-C43A75EC4122}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3745ACE-E8DB-4467-AA06-C43A75EC4122}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3745ACE-E8DB-4467-AA06-C43A75EC4122}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3745ACE-E8DB-4467-AA06-C43A75EC4122}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E953F468-B8F3-4732-B772-CC84191A8C49} = {516B66E4-10FC-4BA6-A80E-DA880BA6786B}
+		{5FB8B0FE-0E6B-4CBC-8CCA-513F9FF59A8E} = {516B66E4-10FC-4BA6-A80E-DA880BA6786B}
+		{C9D8E194-8DDA-4646-A099-2F5D7110149F} = {516B66E4-10FC-4BA6-A80E-DA880BA6786B}
+		{2DE05990-6F6C-4140-889D-A80FAF72E005} = {516B66E4-10FC-4BA6-A80E-DA880BA6786B}
+		{B3745ACE-E8DB-4467-AA06-C43A75EC4122} = {42A1F787-55CE-4581-AB66-E9338C4538DA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BFE6DA9-7D74-4993-97EB-FB6669DBA8DB}
+	EndGlobalSection
+EndGlobal

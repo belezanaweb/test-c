@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Boticario.BelezaWeb.Domain\Boticario.BelezaWeb.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions"></Reference>
+	</ItemGroup>
+
+</Project>
