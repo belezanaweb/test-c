@@ -35,7 +35,7 @@ namespace GBTest.ALC.Domain.Services
 
         public void Remove(Product obj)
         {
-            _productRepository.Update(obj);
+            _productRepository.Remove(obj);
         }
 
         public void Dispose()
