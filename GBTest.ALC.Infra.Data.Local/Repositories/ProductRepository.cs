@@ -8,8 +8,8 @@ namespace GBTest.ALC.Infra.Data.Local.Repositories
     public class ProductRepository : Domain.Interfaces.IProductRepository
     {
         //GoF Singleton
-        private static List<Product> _Products;
-        private static List<Product> Products
+        private List<Product> _Products;
+        private List<Product> Products
         {
             get
             {

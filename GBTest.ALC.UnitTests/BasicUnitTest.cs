@@ -79,14 +79,13 @@ namespace GBTest.ALC.UnitTests
             Assert.AreEqual(qty-1, newQty);
         }
 
-        private bool _started = false;
         private Infra.Data.Local.Repositories.ProductRepository _productRepository;
         private Domain.Services.ProductService _productService;
         private WebAPI.Controllers.ProductController _productController;
         private List<Domain.Entities.Product> _products;
         private void Setup()
         {
-            if (_started)
+            if (_productRepository !=null)
                 return;
 
             _productRepository = new Infra.Data.Local.Repositories.ProductRepository();
@@ -197,7 +196,6 @@ namespace GBTest.ALC.UnitTests
                 _productController.Post(prod);
             });
 
-            _started = true;
         }
     }
 
