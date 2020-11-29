@@ -1,0 +1,218 @@
+{
+  "TestC.dll": {
+    "/home/guilhermo/Projects/test-c/TestC/Services/ProductService.cs": {
+      "TestC.Services.ProductService": {
+        "TestC.Models.Product TestC.Services.ProductService::Insert(TestC.Models.Product)": {
+          "Lines": {
+            "18": 2,
+            "19": 2,
+            "21": 2,
+            "22": 1,
+            "24": 1,
+            "25": 1
+          },
+          "Branches": [
+            {
+              "Line": 21,
+              "Offset": 25,
+              "EndOffset": 27,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 21,
+              "Offset": 25,
+              "EndOffset": 54,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "TestC.Models.Product TestC.Services.ProductService::Update(TestC.Models.Product)": {
+          "Lines": {
+            "28": 1,
+            "29": 1,
+            "31": 1,
+            "32": 0,
+            "34": 1,
+            "35": 1
+          },
+          "Branches": [
+            {
+              "Line": 31,
+              "Offset": 25,
+              "EndOffset": 27,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 31,
+              "Offset": 25,
+              "EndOffset": 54,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void TestC.Services.ProductService::Delete(System.Int32)": {
+          "Lines": {
+            "38": 2,
+            "39": 2,
+            "41": 2,
+            "42": 1,
+            "44": 1,
+            "45": 1
+          },
+          "Branches": [
+            {
+              "Line": 41,
+              "Offset": 20,
+              "EndOffset": 22,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 41,
+              "Offset": 20,
+              "EndOffset": 44,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "TestC.Models.Product TestC.Services.ProductService::GetByID(System.Int32)": {
+          "Lines": {
+            "48": 2,
+            "49": 2,
+            "50": 2
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.IEnumerable`1<TestC.Models.Product> TestC.Services.ProductService::GetAll()": {
+          "Lines": {
+            "53": 2,
+            "54": 2,
+            "55": 2
+          },
+          "Branches": []
+        },
+        "System.Void TestC.Services.ProductService::.ctor(TestC.Repositories.IBaseRepository`1<TestC.Models.Product>)": {
+          "Lines": {
+            "12": 8,
+            "13": 8,
+            "14": 8,
+            "15": 8
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/guilhermo/Projects/test-c/TestC/Models/Inventory.cs": {
+      "TestC.Models.Inventory": {
+        "System.Int32 TestC.Models.Inventory::get_quantity()": {
+          "Lines": {
+            "13": 39
+          },
+          "Branches": []
+        },
+        "System.Collections.Generic.List`1<TestC.Models.Warehouse> TestC.Models.Inventory::get_warehouses()": {
+          "Lines": {
+            "14": 66
+          },
+          "Branches": []
+        },
+        "System.Void TestC.Models.Inventory::.ctor()": {
+          "Lines": {
+            "8": 27,
+            "9": 27,
+            "10": 27,
+            "11": 27
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/guilhermo/Projects/test-c/TestC/Models/Product.cs": {
+      "TestC.Models.Product": {
+        "System.Int32 TestC.Models.Product::get_sku()": {
+          "Lines": {
+            "10": 60
+          },
+          "Branches": []
+        },
+        "System.String TestC.Models.Product::get_name()": {
+          "Lines": {
+            "11": 28
+          },
+          "Branches": []
+        },
+        "TestC.Models.Inventory TestC.Models.Product::get_inventory()": {
+          "Lines": {
+            "12": 69
+          },
+          "Branches": []
+        },
+        "System.Boolean TestC.Models.Product::get_isMarketable()": {
+          "Lines": {
+            "13": 9
+          },
+          "Branches": [
+            {
+              "Line": 13,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 3
+            },
+            {
+              "Line": 13,
+              "Offset": 7,
+              "EndOffset": 25,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void TestC.Models.Product::.ctor()": {
+          "Lines": {
+            "5": 27,
+            "6": 27,
+            "7": 27,
+            "8": 27
+          },
+          "Branches": []
+        }
+      }
+    },
+    "/home/guilhermo/Projects/test-c/TestC/Models/Warehouse.cs": {
+      "TestC.Models.Warehouse": {
+        "System.String TestC.Models.Warehouse::get_locality()": {
+          "Lines": {
+            "4": 0
+          },
+          "Branches": []
+        },
+        "System.Int32 TestC.Models.Warehouse::get_quantity()": {
+          "Lines": {
+            "5": 51
+          },
+          "Branches": []
+        },
+        "System.String TestC.Models.Warehouse::get_type()": {
+          "Lines": {
+            "6": 0
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
