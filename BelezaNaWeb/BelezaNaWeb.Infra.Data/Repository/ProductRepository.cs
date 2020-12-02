@@ -29,7 +29,7 @@ namespace BelezaNaWeb.Infra.Data.Repository
                 if (products.Any(x => x.Sku == sku))
                     products.RemoveAll(x => x.Sku == sku);
                 else
-                    throw new ArgumentException($"Produto não encontrado! Escolha outro valor de Sku e tente novamente");
+                    throw new ArgumentException($"Produto não encontrado!");
             }
             catch (Exception ex)
             {
@@ -72,7 +72,7 @@ namespace BelezaNaWeb.Infra.Data.Repository
                 }
                 else
                 {
-                    throw new ArgumentException($"Produto não encontrado! Escolha outro valor de Sku e tente novamente");
+                    throw new ArgumentException($"Produto não encontrado!");
                 }
             }
             catch (Exception ex)
