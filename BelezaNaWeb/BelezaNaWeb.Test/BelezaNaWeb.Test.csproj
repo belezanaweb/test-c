@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Bogus" Version="32.0.1" />
+    <PackageReference Include="ExpectedObjects" Version="2.3.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BelezaNaWeb.Api\BelezaNaWeb.Service.csproj" />
+    <ProjectReference Include="..\BelezaNaWeb.Application\BelezaNaWeb.Application.csproj" />
+    <ProjectReference Include="..\BelezaNaWeb.Domain\BelezaNaWeb.Domain.csproj" />
+    <ProjectReference Include="..\BelezaNaWeb.Infra.Data\BelezaNaWeb.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
