@@ -9,7 +9,7 @@ namespace BrunoTragl.BelezaNaWeb.Web.WebApi.Models
         public string Locality { get; set; }
         
         [Required(ErrorMessage = "The field quantity is required")]
-        public string Quantity { get; set; }
+        public uint Quantity { get; set; }
 
         [Required(ErrorMessage = "The field type is required")]
         public string Type { get; set; }
