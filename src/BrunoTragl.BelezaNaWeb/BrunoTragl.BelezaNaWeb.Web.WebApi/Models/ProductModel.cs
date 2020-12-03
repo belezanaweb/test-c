@@ -17,7 +17,7 @@ namespace BrunoTragl.BelezaNaWeb.Web.WebApi.Models
 
         public void SetIsMarketable(bool isMarketable)
         {
-            IsMarketable = IsMarketable;
+            IsMarketable = isMarketable;
         }
     }
 }
