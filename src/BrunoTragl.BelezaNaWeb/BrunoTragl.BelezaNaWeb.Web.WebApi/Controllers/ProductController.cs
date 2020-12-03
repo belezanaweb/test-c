@@ -38,7 +38,15 @@ namespace BrunoTragl.BelezaNaWeb.Web.WebApi.Controllers
                 if (product == null)
                     return NotFound();
 
-                return OkResult(Resources.Product, product);
+                ProductModel productModel = _mapper.Map<ProductModel>(product);
+
+                uint quantity = _inventoryService.CalculateInventory(productModel.Sku);
+                productModel.Inventory.SetQuantity(quantity);
+
+                bool isMarketable = _productService.IsMarketable(productModel.Sku);
+                productModel.SetIsMarketable(isMarketable);
+
+                return OkResult(Resources.Product, productModel);
             }
             catch (Exception ex)
             {
@@ -110,11 +118,6 @@ namespace BrunoTragl.BelezaNaWeb.Web.WebApi.Controllers
             {
                 throw ex;
             }
-        }
-
-        private IEnumerable<string> GetModelStateErrors(ModelStateDictionary modelState)
-        {
-            return ModelState.Values.SelectMany(ms => ms.Errors.Select(e => e.ErrorMessage));
         }
     }
 }
