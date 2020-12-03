@@ -3,6 +3,7 @@ using BrunoTragl.BelezaNaWeb.Application.Services.Interfaces;
 using BrunoTragl.BelezaNaWeb.Domain.Model;
 using BrunoTragl.BelezaNaWeb.Web.WebApi.Enumerable;
 using BrunoTragl.BelezaNaWeb.Web.WebApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,7 @@ using System.Linq;
 
 namespace BrunoTragl.BelezaNaWeb.Web.WebApi.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     public class ProductController : MainController
     {

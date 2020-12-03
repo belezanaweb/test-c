@@ -2,6 +2,7 @@
 {
     public enum Resources
     {
+        Auth,
         Product
     }
 }

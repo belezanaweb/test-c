@@ -2,7 +2,6 @@
 using BrunoTragl.BelezaNaWeb.Domain.Model;
 using BrunoTragl.BelezaNaWeb.Domain.Repository.Interfaces;
 using System;
-using System.Linq;
 
 namespace BrunoTragl.BelezaNaWeb.Application.Services
 {
