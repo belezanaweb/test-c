@@ -15,7 +15,8 @@ namespace BrunoTragl.BelezaNaWeb.Web.WebApi.Configurations
         {
             service.AddTransient<IProductRepository, ProductRepository>();
             service.AddTransient<IProductService, ProductService>();
-            service.AddTransient<IContext, Context>();
+            service.AddTransient<IInventoryService, InventoryService>();
+            service.AddSingleton<IContext, Context>();
             service.AddAutoMapper(typeof(Startup));
         }
     }
