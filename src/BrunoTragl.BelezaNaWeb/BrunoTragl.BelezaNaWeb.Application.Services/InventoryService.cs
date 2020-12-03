@@ -12,7 +12,7 @@ namespace BrunoTragl.BelezaNaWeb.Application.Services
         {
             _productRepository = productRepository;
         }
-        public int CalculateInventory(long sku)
+        public uint CalculateInventory(long sku)
         {
             try
             {

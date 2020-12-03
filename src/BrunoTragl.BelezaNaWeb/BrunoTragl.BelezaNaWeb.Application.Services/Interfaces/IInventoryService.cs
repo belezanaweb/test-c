@@ -2,6 +2,6 @@
 {
     public interface IInventoryService
     {
-        int CalculateInventory(long sku);
+        uint CalculateInventory(long sku);
     }
 }
