@@ -52,7 +52,7 @@ namespace BrunoTragl.BelezaNaWeb.Domain.Repository
             {
                 Product model = _context.Products.FirstOrDefault(p => p.Sku == product.Sku);
                 model.Name = product.Name;
-                model.Inventory = model.Inventory;
+                model.Inventory = product.Inventory;
             }
             catch (Exception ex)
             {
