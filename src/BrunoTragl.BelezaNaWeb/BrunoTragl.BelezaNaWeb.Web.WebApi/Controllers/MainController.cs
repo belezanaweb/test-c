@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BrunoTragl.BelezaNaWeb.Web.WebApi.Enumerable;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 
 namespace BrunoTragl.BelezaNaWeb.Web.WebApi.Controllers
@@ -13,7 +14,7 @@ namespace BrunoTragl.BelezaNaWeb.Web.WebApi.Controllers
     public abstract class MainController : ControllerBase
     {
         private readonly ILogger<MainController> _logger;
-        public MainController(ILogger<MainController> logger)
+        protected MainController(ILogger<MainController> logger)
         {
             _logger = logger;
         }
@@ -90,6 +91,10 @@ namespace BrunoTragl.BelezaNaWeb.Web.WebApi.Controllers
             {
                 return StatusCode(500, "An error occurred during the requested resource process");
             }
+        }
+        protected IEnumerable<string> GetModelStateErrors(ModelStateDictionary modelState)
+        {
+            return ModelState.Values.SelectMany(ms => ms.Errors.Select(e => e.ErrorMessage));
         }
         private IList<string> GetMessageErrors(Exception ex)
         {
