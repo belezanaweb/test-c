@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrunoTragl.BelezaNaWeb.Infr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrunoTragl.BelezaNaWeb.Domain.Repository", "BrunoTragl.BelezaNaWeb.Domain.Repository\BrunoTragl.BelezaNaWeb.Domain.Repository.csproj", "{7913BE45-7F11-48CC-9785-6F6F109F4891}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{58C9636F-6792-4C53-A2E0-286F829A8D93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrunoTragl.BelezaNaWeb.Application.Services", "BrunoTragl.BelezaNaWeb.Application.Services\BrunoTragl.BelezaNaWeb.Application.Services.csproj", "{65A150D5-4B08-4C15-9E15-7F69282CBB30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,10 @@ Global
 		{7913BE45-7F11-48CC-9785-6F6F109F4891}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7913BE45-7F11-48CC-9785-6F6F109F4891}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7913BE45-7F11-48CC-9785-6F6F109F4891}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A150D5-4B08-4C15-9E15-7F69282CBB30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A150D5-4B08-4C15-9E15-7F69282CBB30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A150D5-4B08-4C15-9E15-7F69282CBB30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A150D5-4B08-4C15-9E15-7F69282CBB30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +56,7 @@ Global
 		{0DBCB506-A4CA-4A7E-87AD-9E30570B806A} = {D64E14EE-2AB4-4CDD-895E-1E133DA06BE7}
 		{740B5E52-9DB6-4ED5-A04E-A19341A55423} = {BC7F9D5F-26FB-48C6-8B61-0F6B7539BB4E}
 		{7913BE45-7F11-48CC-9785-6F6F109F4891} = {D64E14EE-2AB4-4CDD-895E-1E133DA06BE7}
+		{65A150D5-4B08-4C15-9E15-7F69282CBB30} = {58C9636F-6792-4C53-A2E0-286F829A8D93}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {04A3E8BF-A630-4E5E-8B50-F10682AA89AF}
