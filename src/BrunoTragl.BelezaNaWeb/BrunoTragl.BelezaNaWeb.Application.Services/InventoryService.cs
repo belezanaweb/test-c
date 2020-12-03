@@ -18,7 +18,7 @@ namespace BrunoTragl.BelezaNaWeb.Application.Services
             {
                 Product product = _productRepository.Get(sku);
                 var haveWarehouses = product?.Inventory?.Warehouses;
-                return haveWarehouses == null ? 0 : haveWarehouses.Count;
+                return haveWarehouses == null ? 0 : (uint)haveWarehouses.Count;
             }
             catch (Exception ex)
             {
