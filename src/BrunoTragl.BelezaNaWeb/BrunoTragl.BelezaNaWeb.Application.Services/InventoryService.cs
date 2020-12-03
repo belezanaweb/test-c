@@ -2,6 +2,7 @@
 using BrunoTragl.BelezaNaWeb.Domain.Model;
 using BrunoTragl.BelezaNaWeb.Domain.Repository.Interfaces;
 using System;
+using System.Linq;
 
 namespace BrunoTragl.BelezaNaWeb.Application.Services
 {
@@ -18,7 +19,9 @@ namespace BrunoTragl.BelezaNaWeb.Application.Services
             {
                 Product product = _productRepository.Get(sku);
                 var haveWarehouses = product?.Inventory?.Warehouses;
-                return haveWarehouses == null ? 0 : (uint)haveWarehouses.Count;
+                if (haveWarehouses == null)
+                    return 0;
+                return (uint)haveWarehouses.Sum(w => w.Quantity);
             }
             catch (Exception ex)
             {

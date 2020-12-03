@@ -2,15 +2,19 @@
 using BrunoTragl.BelezaNaWeb.Domain.Model;
 using BrunoTragl.BelezaNaWeb.Domain.Repository.Interfaces;
 using System;
+using System.Linq;
 
 namespace BrunoTragl.BelezaNaWeb.Application.Services
 {
     public class ProductService : IProductService
     {
         private readonly IProductRepository _productRepository;
-        public ProductService(IProductRepository productRepository)
+        private readonly IInventoryService _inventoryService;
+        public ProductService(IProductRepository productRepository,
+                              IInventoryService inventoryService)
         {
             _productRepository = productRepository;
+            _inventoryService = inventoryService;
         }
         public Product Get(long sku)
         {
@@ -71,8 +75,8 @@ namespace BrunoTragl.BelezaNaWeb.Application.Services
         {
             try
             {
-                Product product = _productRepository.Get(sku);
-                return product?.Inventory?.Warehouses?.Count > 0;
+                uint quantity = _inventoryService.CalculateInventory(sku);
+                return quantity > 0;
             }
             catch (Exception ex)
             {
