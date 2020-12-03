@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrunoTragl.BelezaNaWeb.Domain.Model\BrunoTragl.BelezaNaWeb.Domain.Model.csproj" />
+    <ProjectReference Include="..\BrunoTragl.BelezaNaWeb.Infra.Data\BrunoTragl.BelezaNaWeb.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
