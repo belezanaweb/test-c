@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.API", "BelezaNaWeb.API\BelezaNaWeb.API.csproj", "{C6262FD8-AC22-43DE-9AB5-0BB1855E9BEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BelezaNaWeb.API", "BelezaNaWeb.API\BelezaNaWeb.API.csproj", "{C6262FD8-AC22-43DE-9AB5-0BB1855E9BEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.Data", "BelezaNaWeb.Data\BelezaNaWeb.Data.csproj", "{3A02BF67-17FC-4F1D-ACEC-2FFCE679E2FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BelezaNaWeb.Services", "BelezaNaWeb.Services\BelezaNaWeb.Services.csproj", "{2BB3B5AC-2DA2-4CA0-8F5C-69663F92238F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{C6262FD8-AC22-43DE-9AB5-0BB1855E9BEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6262FD8-AC22-43DE-9AB5-0BB1855E9BEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6262FD8-AC22-43DE-9AB5-0BB1855E9BEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A02BF67-17FC-4F1D-ACEC-2FFCE679E2FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A02BF67-17FC-4F1D-ACEC-2FFCE679E2FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A02BF67-17FC-4F1D-ACEC-2FFCE679E2FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A02BF67-17FC-4F1D-ACEC-2FFCE679E2FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB3B5AC-2DA2-4CA0-8F5C-69663F92238F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB3B5AC-2DA2-4CA0-8F5C-69663F92238F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB3B5AC-2DA2-4CA0-8F5C-69663F92238F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB3B5AC-2DA2-4CA0-8F5C-69663F92238F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
