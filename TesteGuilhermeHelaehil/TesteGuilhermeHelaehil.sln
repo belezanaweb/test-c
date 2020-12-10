@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteGuilhermeHelaehil", "TesteGuilhermeHelaehil\TesteGuilhermeHelaehil.csproj", "{E1232450-C6D5-4FA8-B124-93664F087562}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuilhermeHelaehilIntegrationTest", "GuilhermeHelaehilIntegrationTest\GuilhermeHelaehilIntegrationTest.csproj", "{F9AB7C06-1CB5-4ADD-8E08-B54BA7393189}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1232450-C6D5-4FA8-B124-93664F087562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1232450-C6D5-4FA8-B124-93664F087562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1232450-C6D5-4FA8-B124-93664F087562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1232450-C6D5-4FA8-B124-93664F087562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9AB7C06-1CB5-4ADD-8E08-B54BA7393189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9AB7C06-1CB5-4ADD-8E08-B54BA7393189}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9AB7C06-1CB5-4ADD-8E08-B54BA7393189}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9AB7C06-1CB5-4ADD-8E08-B54BA7393189}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {003D4FF4-57B9-4DCF-BD38-91B013C1FC37}
+	EndGlobalSection
+EndGlobal
