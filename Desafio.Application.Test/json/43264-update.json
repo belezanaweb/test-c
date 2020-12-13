@@ -1,0 +1,18 @@
+{
+  "sku": 43264,
+  "name": "Teste",
+  "inventory": {
+    "warehouses": [
+      {
+        "locality": "RJ",
+        "quantity": 0,
+        "type": "ECOMMERCE"
+      },
+      {
+        "locality": "IPANEMA",
+        "quantity": 0,
+        "type": "PHYSICAL_STORE"
+      }
+    ]
+  }
+}
