@@ -2,7 +2,7 @@
 
 Olá,
 
-O este desafio foi cumprido observando os requisitos solicitados no enunciado.
+Este desafio foi cumprido observando os requisitos solicitados no enunciado.
 Coloquei na api uma interface swagger para facilitar a verificação da funcionalidade.
 Construí o projeto com Domain Driven Design.
 O projeto Desafio.Application.Test, foi criado com o objetivo de ser um teste de integração na camada de serviço.
