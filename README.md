@@ -1,3 +1,15 @@
+### Notas do candidato
+
+Olá,
+
+O este desafio foi cumprido observando os requisitos solicitados no enunciado.
+Coloquei na api uma interface swagger para facilitar a verificação da funcionalidade.
+Construí o projeto com Domain Driven Design.
+O projeto Desafio.Application.Test, foi criado com o objetivo de ser um teste de integração na camada de serviço.
+O banco de dados utilizado é SQLite em memória.
+Foi utilizado o Dapper, paraacriação do banco e para acesso aos dados.
+
+
 ### Backend Test
 
 Esta é uma avaliação básica de código.
