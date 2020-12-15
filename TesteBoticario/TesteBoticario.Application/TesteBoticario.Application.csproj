@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TesteBoticario.Domain\TesteBoticario.Domain.csproj" />
+    <ProjectReference Include="..\TesteBoticario.Repository\TesteBoticario.Repository.Memory.csproj" />
+  </ItemGroup>
+
+</Project>

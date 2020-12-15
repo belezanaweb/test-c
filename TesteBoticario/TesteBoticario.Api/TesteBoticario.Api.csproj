@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TesteBoticario.Application\TesteBoticario.Application.csproj" />
+    <ProjectReference Include="..\TesteBoticario.Domain\TesteBoticario.Domain.csproj" />
+    <ProjectReference Include="..\TesteBoticario.Repository\TesteBoticario.Repository.Memory.csproj" />
+  </ItemGroup>
+
+
+</Project>
