@@ -83,7 +83,7 @@ Crie endpoints para as seguintes ações:
 - Dentro da pasta ./Api/Boticario.Test.UI executar **dotnet run**
 
 ## Obs
-- **É necessário Incluir os Status e Perfis antes de incluir os Usuários, pois estão ligados via FK.**
+- **É necessário ter instalado previamento o EfCore para funcionamento das migrations.**
 
 ## Tecnologias Utilizadas
 - Dotnet Core 5.0.100 (Podendo ser iniciado com dotnet core 3.1 +)
