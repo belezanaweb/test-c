@@ -71,3 +71,22 @@ Crie endpoints para as seguintes ações:
 
 - Os produtos podem ficar em memória, não é necessário persistir os dados
 - Testes são sempre bem-vindos :smiley:
+
+# Get Started
+
+## Migations
+- dotnet ef migrations add InitialMigration -p ./Infrastructure/Boticario.Test.Infrastructure --startup-project ./Api/Boticario.Test.UI
+
+- dotnet ef database update -p ./Infrastructure/Boticario.Test.Infrastructure --startup-project ./Api/Boticario.Test.UI
+
+## Running
+- Dentro da pasta ./Api/Boticario.Test.UI executar **dotnet run**
+
+## Obs
+- **É necessário Incluir os Status e Perfis antes de incluir os Usuários, pois estão ligados via FK.**
+
+## Tecnologias Utilizadas
+- Dotnet Core 5.0.100 (Podendo ser iniciado com dotnet core 3.1 +)
+- Entity Framework
+- SqLite
+- AutoMapper
