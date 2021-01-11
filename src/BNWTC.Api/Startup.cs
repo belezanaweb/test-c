@@ -54,7 +54,7 @@ namespace BNWTC.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "API de Produtos",
+                    Title = "Products API",
                     Version = "v1",
                     Contact = new OpenApiContact
                     {
@@ -77,7 +77,7 @@ namespace BNWTC.Api
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Produtos API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Products API v1");
             });
 
             app.UseRouting();
