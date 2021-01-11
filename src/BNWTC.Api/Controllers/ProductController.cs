@@ -27,7 +27,11 @@ namespace BNWTC.Api.Controllers
         [Route("{sku:int}")]
         public async Task<ActionResult<ProductViewModel>> GetBySku(int sku)
         {
+            
             var product = await _productSerices.FindBySku(sku);
+
+            if (product == null)
+                return NotFound(value: new { message = "Product not found" });
 
             return Ok(product);
         }
@@ -91,14 +95,14 @@ namespace BNWTC.Api.Controllers
         [Route("{sku:int}")]
         public async Task<ActionResult<ProductViewModel>> Delete(int sku)
         {
-            var produto = await _productSerices.FindBySku(sku);
+            var product = await _productSerices.FindBySku(sku);
 
-            if (produto == null)
+            if (product == null)
                 return NotFound(new { message = "Product not found" });
 
             try
             {
-                await _productSerices.Remove(produto);
+                await _productSerices.Remove(product);
                 return Ok(new { message = "Product successfully removed" });
             }
             catch
