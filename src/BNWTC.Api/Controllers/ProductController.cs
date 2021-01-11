@@ -27,7 +27,6 @@ namespace BNWTC.Api.Controllers
         [Route("{sku:int}")]
         public async Task<ActionResult<ProductViewModel>> GetBySku(int sku)
         {
-            
             var product = await _productSerices.FindBySku(sku);
 
             if (product == null)
