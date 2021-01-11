@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{21399CB3-EE37-4246-B292-22D5CE699453}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{0B82B8D3-3B0F-4540-8F9B-4B9FC94D48F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{80A493BB-A4FB-4C79-8A98-C152B536BF40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BNWTC.Api", "src\BNWTC.Api\BNWTC.Api.csproj", "{EEA4A7D3-C7E0-40E8-985A-E4F107996E74}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEA4A7D3-C7E0-40E8-985A-E4F107996E74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEA4A7D3-C7E0-40E8-985A-E4F107996E74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEA4A7D3-C7E0-40E8-985A-E4F107996E74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEA4A7D3-C7E0-40E8-985A-E4F107996E74}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B82B8D3-3B0F-4540-8F9B-4B9FC94D48F7} = {21399CB3-EE37-4246-B292-22D5CE699453}
+		{80A493BB-A4FB-4C79-8A98-C152B536BF40} = {21399CB3-EE37-4246-B292-22D5CE699453}
+		{EEA4A7D3-C7E0-40E8-985A-E4F107996E74} = {0B82B8D3-3B0F-4540-8F9B-4B9FC94D48F7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3DD3F645-D8D4-4FDE-9DB6-337B7CAB5EB0}
+	EndGlobalSection
+EndGlobal
