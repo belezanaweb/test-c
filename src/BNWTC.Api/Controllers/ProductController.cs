@@ -87,6 +87,26 @@ namespace BNWTC.Api.Controllers
             }
         }
 
+        [HttpDelete]
+        [Route("{sku:int}")]
+        public async Task<ActionResult<ProductViewModel>> Delete(int sku)
+        {
+            var produto = await _productSerices.FindBySku(sku);
+
+            if (produto == null)
+                return NotFound(new { message = "Product not found" });
+
+            try
+            {
+                await _productSerices.Remove(produto);
+                return Ok(new { message = "Product successfully removed" });
+            }
+            catch
+            {
+                return BadRequest(error: new { message = "The product could not be removed" });
+            }
+        }
+
         private async Task<bool> SkuExistsAsync(int sku)
         {
             var product = await _productSerices.FindBySku(sku: sku);
