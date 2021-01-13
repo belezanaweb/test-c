@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Produto.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Produto.Application.Controllers.ProdutoController">
+            <summary>
+            Api de Produtos para implementacao do BackEndTest
+            </summary>
+        </member>
+        <member name="M:Produto.Application.Controllers.ProdutoController.About">
+            <summary>
+            Retorna informacoes sobre API
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Produto.Application.Controllers.ProdutoController.Get(System.String)">
+            <summary>
+            Recupera um produto por sku
+            </summary>
+            <param name="sku"></param>
+            <returns></returns>
+            <response code="200">Retorna o produto com o sku informado</response>
+            <response code="400">Quando o produto não é encontrado</response>
+        </member>
+        <member name="M:Produto.Application.Controllers.ProdutoController.Include(Produto.Domain.DTO.ProductDTO)">
+            <summary>
+            Insere um novo produto de acordo com o payload de produto
+            </summary>
+            <param name="productDTO"></param>
+            <returns></returns>
+            <response code="201">Produto cadastrado sem erros</response>
+            <response code="400">Erro para cadastrar o produto</response>
+        </member>
+        <member name="M:Produto.Application.Controllers.ProdutoController.Update(System.Int32,System.String)">
+            <summary>
+            Atualiza um produto de acordo com o payload de produto
+            </summary>
+            <param name="parameterProduct"></param>
+            <param name="id"></param>
+            <returns></returns>
+            <response code="201">Produto atualizado sem erros</response>
+            <response code="400">Erro para atualizar o produto</response>
+        </member>
+        <member name="M:Produto.Application.Controllers.ProdutoController.Delete(System.String)">
+            <summary>
+            Excluir um produto por sku
+            </summary>
+            <param name="sku"></param>
+            <returns></returns>
+            <response code="200">Produto removido sem erros</response>
+            <response code="400">Erro para remover o produto</response>
+        </member>
+    </members>
+</doc>
