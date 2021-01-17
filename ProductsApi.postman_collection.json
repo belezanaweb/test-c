@@ -1,0 +1,109 @@
+{
+	"info": {
+		"_postman_id": "e7700787-b0dc-420b-b8d1-4ac23b7be651",
+		"name": "ProductsApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku\": 43271,\r\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\r\n    \"inventory\": {        \r\n        \"warehouses\": [\r\n            {\r\n                \"locality\": \"SP\",\r\n                \"quantity\": 10,\r\n                \"type\": \"ECOMMERCE\"\r\n            },\r\n            {\r\n                \"locality\": \"MOEMA\",\r\n                \"quantity\": 10,\r\n                \"type\": \"PHYSICAL_STORE\"\r\n            }\r\n        ]\r\n    }    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku\": 43271,\r\n    \"name\": \"L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g\",\r\n    \"inventory\": {        \r\n        \"warehouses\": [\r\n            {\r\n                \"locality\": \"SP\",\r\n                \"quantity\": 10,\r\n                \"type\": \"ECOMMERCE\"\r\n            },\r\n            {\r\n                \"locality\": \"MOEMA\",\r\n                \"quantity\": 10,\r\n                \"type\": \"PHYSICAL_STORE\"\r\n            }\r\n        ]\r\n    }    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/v1/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:5000/v1/todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/v1/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBySku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
