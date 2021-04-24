@@ -1,4 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Boticario.Application;
+using Boticario.Domain.Handlers;
+using Boticario.Domain.Interfaces;
+using Boticario.Infra.CrossCutting.Logging;
+using Boticario.Infra.Data.Repositories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Boticario.Api.Configuration
 {
@@ -10,20 +15,20 @@ namespace Boticario.Api.Configuration
         {
             #region Applications
 
-            //services.AddScoped<IProductApplication, ProductApplication>();
+            services.AddScoped<IProductApplication, ProductApplication>();
 
             #endregion
 
             #region Repositories
 
-            //services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
 
             #endregion
 
             #region Others
 
-            //services.AddScoped<ILogger, NLogLogger>();
-            //services.AddScoped<INotificator, NotificatorHandler>();
+            services.AddScoped<ILogger, NLogLogger>();
+            services.AddScoped<INotificator, NotificatorHandler>();
 
             #endregion
 

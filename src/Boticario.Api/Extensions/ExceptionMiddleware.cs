@@ -1,7 +1,9 @@
 ﻿using Boticario.Api.ViewModels;
+using Boticario.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http.Headers;
 using System.Text;
@@ -28,9 +30,7 @@ namespace Boticario.Api.Extensions
 
         #region Public Methods
 
-        public async Task InvokeAsync(HttpContext httpContext
-            //, ILogger logger, INotificator notificator
-            )
+        public async Task InvokeAsync(HttpContext httpContext, ILogger logger, INotificator notificator)
         {
             try
             {
@@ -38,9 +38,7 @@ namespace Boticario.Api.Extensions
             }
             catch (Exception ex)
             {
-                HandleExceptionAsync(httpContext, ex
-                    //, logger, notificator
-                    );
+                HandleExceptionAsync(httpContext, ex, logger, notificator);
             }
         }
 
@@ -48,16 +46,14 @@ namespace Boticario.Api.Extensions
 
         #region Private Methods
 
-        private void HandleExceptionAsync(HttpContext context, Exception exception
-            //, ILogger logger, INotificator notificator
-            )
+        private void HandleExceptionAsync(HttpContext context, Exception exception, ILogger logger, INotificator notificator)
         {
-            //logger.LogException(exception);
+            logger.LogException(exception);
 
             var responseBody = new ResponseViewModel
             {
                 success = false,
-                //errors = notificator.GetErrors().Select(x => x.Message).ToList()
+                errors = notificator.GetErrors().Select(x => x.Message).ToList()
             };
 
             responseBody.errors.Add(exception.Message);

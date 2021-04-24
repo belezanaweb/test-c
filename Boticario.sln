@@ -3,9 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 - Api", "01 - Api", "{CEEE80A6-77D6-483D-99C3-9DD2338A9BA2}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Api", "1 - Api", "{CEEE80A6-77D6-483D-99C3-9DD2338A9BA2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Api", "src\Boticario.Api\Boticario.Api.csproj", "{4A2178B4-2A90-4D7F-B114-EF62B80EE9AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{75678ACB-A73C-4D2F-A1E6-1053CE249F69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Application", "src\Boticario.Application\Boticario.Application.csproj", "{1B59FED5-4E06-4A52-B307-0E5BB6A9C757}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{D5669185-EE8A-4A08-8B72-B8DE2CB48B6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Domain", "src\Boticario.Domain\Boticario.Domain.csproj", "{1048865A-8322-4000-8DB5-EDF81C25D2B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{B11805B8-960F-4017-BAA7-5EC2EAE36087}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Infra.CrossCutting", "src\Boticario.Infra.CrossCutting\Boticario.Infra.CrossCutting.csproj", "{230959F0-E130-45A1-A056-C853F2E656CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boticario.Infra.Data", "src\Boticario.Infra.Data\Boticario.Infra.Data.csproj", "{6DE94108-7246-4204-82F7-83E69A576FE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +31,32 @@ Global
 		{4A2178B4-2A90-4D7F-B114-EF62B80EE9AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A2178B4-2A90-4D7F-B114-EF62B80EE9AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A2178B4-2A90-4D7F-B114-EF62B80EE9AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B59FED5-4E06-4A52-B307-0E5BB6A9C757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B59FED5-4E06-4A52-B307-0E5BB6A9C757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B59FED5-4E06-4A52-B307-0E5BB6A9C757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B59FED5-4E06-4A52-B307-0E5BB6A9C757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1048865A-8322-4000-8DB5-EDF81C25D2B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1048865A-8322-4000-8DB5-EDF81C25D2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1048865A-8322-4000-8DB5-EDF81C25D2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1048865A-8322-4000-8DB5-EDF81C25D2B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230959F0-E130-45A1-A056-C853F2E656CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{230959F0-E130-45A1-A056-C853F2E656CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{230959F0-E130-45A1-A056-C853F2E656CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230959F0-E130-45A1-A056-C853F2E656CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE94108-7246-4204-82F7-83E69A576FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE94108-7246-4204-82F7-83E69A576FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE94108-7246-4204-82F7-83E69A576FE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE94108-7246-4204-82F7-83E69A576FE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4A2178B4-2A90-4D7F-B114-EF62B80EE9AC} = {CEEE80A6-77D6-483D-99C3-9DD2338A9BA2}
+		{1B59FED5-4E06-4A52-B307-0E5BB6A9C757} = {75678ACB-A73C-4D2F-A1E6-1053CE249F69}
+		{1048865A-8322-4000-8DB5-EDF81C25D2B3} = {D5669185-EE8A-4A08-8B72-B8DE2CB48B6E}
+		{230959F0-E130-45A1-A056-C853F2E656CF} = {B11805B8-960F-4017-BAA7-5EC2EAE36087}
+		{6DE94108-7246-4204-82F7-83E69A576FE0} = {B11805B8-960F-4017-BAA7-5EC2EAE36087}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4D8E700F-6BBA-4B01-A817-DFC5B20E746D}
