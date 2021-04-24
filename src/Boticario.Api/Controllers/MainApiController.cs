@@ -1,4 +1,5 @@
 ﻿using Boticario.Api.ViewModels;
+using Boticario.Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
@@ -11,16 +12,16 @@ namespace Boticario.Api.Controllers
     {
         #region Attributes
 
-        //private readonly INotificator _notificator;
+        private readonly INotificator _notificator;
 
         #endregion
 
         #region Constructors
 
-        //public MainApiController(INotificator notificator)
-        //{
-        //    _notificator = notificator;
-        //}
+        public MainApiController(INotificator notificator)
+        {
+            _notificator = notificator;
+        }
 
         #endregion
 
@@ -64,19 +65,17 @@ namespace Boticario.Api.Controllers
 
         protected void AddError(string error)
         {
-            //_notificator.AddError(error);
+            _notificator.AddError(error);
         }
 
         protected bool ValidOperation()
         {
-            return true;
-            //return _notificator.GetErrors().Count > 0 ? false : true;
+            return _notificator.GetErrors().Count > 0 ? false : true;
         }
 
         protected IList<string> GetErrors()
         {
-            return null;
-            //return _notificator.GetErrors().Select(x => x.Message).ToList();
+            return _notificator.GetErrors().Select(x => x.Message).ToList();
         }
 
         #endregion

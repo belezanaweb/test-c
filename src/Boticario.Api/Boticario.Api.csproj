@@ -14,10 +14,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="V1\Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Boticario.Application\Boticario.Application.csproj" />
     <ProjectReference Include="..\Boticario.Domain\Boticario.Domain.csproj" />
     <ProjectReference Include="..\Boticario.Infra.CrossCutting\Boticario.Infra.CrossCutting.csproj" />
