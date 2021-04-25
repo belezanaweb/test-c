@@ -6,6 +6,7 @@ namespace Boticario.Api.ViewModels
     {
         #region Attributes
 
+        [Range(1, uint.MaxValue, ErrorMessage = "Sku deve ser um valor entre 1 e 4294967295")]
         [Required(ErrorMessage = "Campo Sku é obrigatório")]
         public uint sku { get; set; }
 
