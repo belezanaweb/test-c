@@ -12,7 +12,7 @@ namespace Boticario.Api.V1.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     public class ProductController : MainApiController
     {
-        #region Attributes
+        #region Properties
 
         private readonly IMapper _mapper;
         private readonly IProductApplication _iProductApplication;

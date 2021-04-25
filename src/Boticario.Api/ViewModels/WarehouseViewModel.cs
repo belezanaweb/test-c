@@ -2,13 +2,13 @@
 {
     public class WarehouseViewModel
     {
-        #region Attributes
+        #region Properties
 
-        public string locality { get; set; }
+        public string Locality { get; set; }
 
-        public uint quantity { get; set; }
+        public uint Quantity { get; set; }
 
-        public string type { get; set; }
+        public string Type { get; set; }
 
         #endregion
     }

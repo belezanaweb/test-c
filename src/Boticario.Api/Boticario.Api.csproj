@@ -20,4 +20,8 @@
     <ProjectReference Include="..\Boticario.Infra.Data\Boticario.Infra.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\NLog\" />
+  </ItemGroup>
+
 </Project>

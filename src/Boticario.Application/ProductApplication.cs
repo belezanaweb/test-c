@@ -7,7 +7,7 @@ namespace Boticario.Application
 {
     public class ProductApplication : IProductApplication
     {
-        #region Attributes
+        #region Properties
 
         private readonly INotificator _notificator;
         private readonly IProductRepository _productRepository;
@@ -28,6 +28,7 @@ namespace Boticario.Application
 
         public IList<Product> GetAll()
         {
+            throw new System.Exception("Error GetAll()");
             var products = _productRepository.GetAll()?.Select(x => SetProductWarehousesQuantity(x)).ToList();
 
             return products;
@@ -92,7 +93,7 @@ namespace Boticario.Application
 
         #region Private Methods
 
-        private Product SetProductWarehousesQuantity(Product product)
+        private static Product SetProductWarehousesQuantity(Product product)
         {
             if ((bool)product.Inventory?.Warehouses?.Any())
             {
@@ -104,9 +105,9 @@ namespace Boticario.Application
             return product;
         }
 
-        private Product SetProductIsMarketable(Product product)
+        private static Product SetProductIsMarketable(Product product)
         {
-            product.IsMarketable = product.Inventory?.Quantity > 0 ? true : false;
+            product.IsMarketable = product.Inventory?.Quantity > 0;
 
             return product;
         }

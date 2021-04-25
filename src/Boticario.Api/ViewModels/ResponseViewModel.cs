@@ -8,18 +8,18 @@ namespace Boticario.Api.ViewModels
 
         public ResponseViewModel()
         {
-            errors = new List<string>();
+            Errors = new List<string>();
         }
 
         #endregion
 
-        #region Attributes
+        #region Properties
 
-        public bool success { get; set; }
+        public bool Success { get; set; }
 
-        public object data { get; set; }
+        public object Data { get; set; }
 
-        public IList<string> errors { get; set; }
+        public IList<string> Errors { get; set; }
 
         #endregion
     }

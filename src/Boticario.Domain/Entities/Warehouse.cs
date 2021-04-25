@@ -2,7 +2,7 @@
 {
     public class Warehouse
     {
-        #region Attributes
+        #region Properties
 
         public string Locality { get; set; }
 

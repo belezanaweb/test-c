@@ -11,7 +11,7 @@
 
         #endregion
 
-        #region Attributes
+        #region Properties
 
         public string Message { get; }
 

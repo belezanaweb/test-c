@@ -15,11 +15,11 @@ namespace Boticario.Api.Test
     [TestCaseOrderer("Boticario.Api.Test.Configuration.PriorityOrderer", "Boticario.Api.Test")]
     public class ProductApiTests
     {
-        #region Attributes
+        #region Properties
 
         private readonly TestServer _server;
         private readonly HttpClient _client;
-        private ProductViewModel productFake;
+        private readonly ProductViewModel productFake;
 
         #endregion
 
@@ -47,7 +47,6 @@ namespace Boticario.Api.Test
 
             // Act
             var response = await _client.PostAsync("/api/v1/Product/Create", productContent);
-            var responseString = await response.Content.ReadAsStringAsync();
 
             // Assert
             Assert.True(response.IsSuccessStatusCode);
@@ -57,13 +56,12 @@ namespace Boticario.Api.Test
         public async Task Product_Update_Ok()
         {
             // Arrange
-            productFake.name = "Shampoo Update";
+            productFake.Name = "Shampoo Update";
             var productJson = JsonConvert.SerializeObject(productFake);
             var productContent = new StringContent(productJson, UnicodeEncoding.UTF8, "application/json");
 
             // Act
             var response = await _client.PutAsync("/api/v1/Product/Update", productContent);
-            var responseString = await response.Content.ReadAsStringAsync();
 
             // Assert
             Assert.True(response.IsSuccessStatusCode);
@@ -74,7 +72,6 @@ namespace Boticario.Api.Test
         {
             // Act
             var response = await _client.GetAsync("/api/v1/Product/GetAll");
-            var responseString = await response.Content.ReadAsStringAsync();
 
             // Assert
             Assert.True(response.IsSuccessStatusCode);
@@ -84,9 +81,8 @@ namespace Boticario.Api.Test
         public async Task Product_GetBySku_Ok()
         {
             // Act
-            var sku = productFake.sku;
+            var sku = productFake.Sku;
             var response = await _client.GetAsync($"/api/v1/Product/GetBySku/{sku}");
-            var responseString = await response.Content.ReadAsStringAsync();
 
             // Assert
             Assert.True(response.IsSuccessStatusCode);
@@ -96,9 +92,8 @@ namespace Boticario.Api.Test
         public async Task Product_Delete_Ok()
         {
             // Act
-            var sku = productFake.sku;
+            var sku = productFake.Sku;
             var response = await _client.DeleteAsync($"/api/v1/Product/DeleteBySku/{sku}");
-            var responseString = await response.Content.ReadAsStringAsync();
 
             // Assert
             Assert.True(response.IsSuccessStatusCode);
@@ -117,8 +112,8 @@ namespace Boticario.Api.Test
             var responseObject = JsonConvert.DeserializeObject<ResponseViewModel>(responseString);
 
             // Assert
-            Assert.False(responseObject.success);
-            Assert.True(responseObject.errors.Any(x => x.Contains("Sku deve ser um valor entre 1 e 4294967295")));
+            Assert.False(responseObject.Success);
+            Assert.Contains(responseObject.Errors, x => x.Contains("Sku deve ser um valor entre 1 e 4294967295"));
         }
 
         [Fact, TestPriority(7)]
@@ -134,55 +129,55 @@ namespace Boticario.Api.Test
             var responseObject = JsonConvert.DeserializeObject<ResponseViewModel>(responseString);
 
             // Assert
-            Assert.False(responseObject.success);
-            Assert.True(responseObject.errors.Any(x => x.Contains("Campo Name é obrigatório")));
+            Assert.False(responseObject.Success);
+            Assert.Contains(responseObject.Errors, x => x.Contains("Campo Name é obrigatório"));
         }
 
         #endregion
 
         #region Private Methods
 
-        private ProductViewModel NewProduct()
+        private static ProductViewModel NewProduct()
         {
             return new ProductViewModel
             {
-                sku = 43264,
-                name = "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-                inventory = new InventoryViewModel
+                Sku = 43264,
+                Name = "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+                Inventory = new InventoryViewModel
                 {
-                    warehouses = new List<WarehouseViewModel> {
-                        new WarehouseViewModel{locality = "SP", quantity = 12, type = "ECOMMERCE"},
-                        new WarehouseViewModel{locality = "MOEMA", quantity = 3, type = "PHYSICAL_STORE"}
+                    Warehouses = new List<WarehouseViewModel> {
+                        new WarehouseViewModel{Locality = "SP", Quantity = 12, Type = "ECOMMERCE"},
+                        new WarehouseViewModel{Locality = "MOEMA", Quantity = 3, Type = "PHYSICAL_STORE"}
                     }
                 },
             };
         }
 
-        private ProductViewModel NewProductWithOutSku()
+        private static ProductViewModel NewProductWithOutSku()
         {
             return new ProductViewModel
             {
-                name = "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
-                inventory = new InventoryViewModel
+                Name = "L'Oréal Professionnel Expert Absolut Repair Cortex Lipidium - Máscara de Reconstrução 500g",
+                Inventory = new InventoryViewModel
                 {
-                    warehouses = new List<WarehouseViewModel> {
-                        new WarehouseViewModel{locality = "SP", quantity = 12, type = "ECOMMERCE"},
-                        new WarehouseViewModel{locality = "MOEMA", quantity = 3, type = "PHYSICAL_STORE"}
+                    Warehouses = new List<WarehouseViewModel> {
+                        new WarehouseViewModel{Locality = "SP", Quantity = 12, Type = "ECOMMERCE"},
+                        new WarehouseViewModel{Locality = "MOEMA", Quantity = 3, Type = "PHYSICAL_STORE"}
                     }
                 },
             };
         }
 
-        private ProductViewModel NewProductWithOutName()
+        private static ProductViewModel NewProductWithOutName()
         {
             return new ProductViewModel
             {
-                sku = 43264,
-                inventory = new InventoryViewModel
+                Sku = 43264,
+                Inventory = new InventoryViewModel
                 {
-                    warehouses = new List<WarehouseViewModel> {
-                        new WarehouseViewModel{locality = "SP", quantity = 12, type = "ECOMMERCE"},
-                        new WarehouseViewModel{locality = "MOEMA", quantity = 3, type = "PHYSICAL_STORE"}
+                    Warehouses = new List<WarehouseViewModel> {
+                        new WarehouseViewModel{Locality = "SP", Quantity = 12, Type = "ECOMMERCE"},
+                        new WarehouseViewModel{Locality = "MOEMA", Quantity = 3, Type = "PHYSICAL_STORE"}
                     }
                 },
             };

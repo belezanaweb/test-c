@@ -4,7 +4,7 @@ namespace Boticario.Domain.Entities
 {
     public class Inventory
     {
-        #region Attributes
+        #region Properties
 
         public uint Quantity { get; set; }
 

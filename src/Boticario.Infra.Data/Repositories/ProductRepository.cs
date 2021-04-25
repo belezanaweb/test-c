@@ -7,9 +7,9 @@ namespace Boticario.Infra.Data.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        #region Attributes
+        #region Properties
 
-        private static List<Product> memoryDatabase = new List<Product>();
+        private static readonly List<Product> memoryDatabase = new();
 
         #endregion
 

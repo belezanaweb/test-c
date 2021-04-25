@@ -2,7 +2,7 @@
 {
     public class Product
     {
-        #region Attributes
+        #region Properties
 
         public uint Sku { get; set; }
 

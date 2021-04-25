@@ -10,8 +10,8 @@ namespace Boticario.Api.Controllers
     [ApiController]
     public class MainApiController : Controller
     {
-        #region Attributes
-
+        #region Properties
+        
         private readonly INotificator _notificator;
 
         #endregion
@@ -33,15 +33,15 @@ namespace Boticario.Api.Controllers
             {
                 return BadRequest(new ResponseViewModel
                 {
-                    success = false,
-                    errors = GetErrors()
+                    Success = false,
+                    Errors = GetErrors()
                 });
             }
 
             return Ok(new ResponseViewModel
             {
-                success = true,
-                data = result
+                Success = true,
+                Data = result
             });
         }
 
@@ -70,7 +70,7 @@ namespace Boticario.Api.Controllers
 
         protected bool ValidOperation()
         {
-            return _notificator.GetErrors().Count > 0 ? false : true;
+            return _notificator.GetErrors().Count <= 0;
         }
 
         protected IList<string> GetErrors()

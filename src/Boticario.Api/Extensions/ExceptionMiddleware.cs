@@ -13,7 +13,7 @@ namespace Boticario.Api.Extensions
 {
     public class ExceptionMiddleware
     {
-        #region Attributes
+        #region Properties
 
         private readonly RequestDelegate _next;
 
@@ -46,17 +46,17 @@ namespace Boticario.Api.Extensions
 
         #region Private Methods
 
-        private void HandleExceptionAsync(HttpContext context, Exception exception, ILogger logger, INotificator notificator)
+        private static void HandleExceptionAsync(HttpContext context, Exception exception, ILogger logger, INotificator notificator)
         {
             logger.LogException(exception);
 
             var responseBody = new ResponseViewModel
             {
-                success = false,
-                errors = notificator.GetErrors().Select(x => x.Message).ToList()
+                Success = false,
+                Errors = notificator.GetErrors().Select(x => x.Message).ToList()
             };
 
-            responseBody.errors.Add(exception.Message);
+            responseBody.Errors.Add(exception.Message);
 
             var responseJson = JsonConvert.SerializeObject(responseBody);
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;

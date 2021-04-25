@@ -19,8 +19,10 @@ namespace Boticario.Application.Test
             var productRepository = new Mock<IProductRepository>();
             var productApplication = new ProductApplication(notificator.Object, productRepository.Object);
 
-            var productsFakeList = new List<Product>();
-            productsFakeList.Add(NewProduct());
+            var productsFakeList = new List<Product>
+            {
+                NewProduct()
+            };
             productRepository.Setup(x => x.GetAll()).Returns(productsFakeList);
 
             // Act
@@ -187,7 +189,7 @@ namespace Boticario.Application.Test
 
         #region Private Methods
 
-        private Product NewProduct()
+        private static Product NewProduct()
         {
             return new Product
             {

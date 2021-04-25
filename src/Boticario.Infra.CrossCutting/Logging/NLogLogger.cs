@@ -5,7 +5,7 @@ namespace Boticario.Infra.CrossCutting.Logging
 {
     public class NLogLogger : ILogger
     {
-        #region Attributes
+        #region Properties
 
         private readonly NLog.Logger _appExLogger;
 

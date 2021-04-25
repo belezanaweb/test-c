@@ -4,11 +4,11 @@ namespace Boticario.Api.ViewModels
 {
     public class InventoryViewModel
     {
-        #region Attributes
+        #region Properties
 
-        public uint quantity { get; set; }
+        public uint Quantity { get; set; }
 
-        public List<WarehouseViewModel> warehouses { get; set; }
+        public List<WarehouseViewModel> Warehouses { get; set; }
 
         #endregion
     }
