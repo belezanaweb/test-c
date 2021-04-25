@@ -28,7 +28,6 @@ namespace Boticario.Application
 
         public IList<Product> GetAll()
         {
-            throw new System.Exception("Error GetAll()");
             var products = _productRepository.GetAll()?.Select(x => SetProductWarehousesQuantity(x)).ToList();
 
             return products;
