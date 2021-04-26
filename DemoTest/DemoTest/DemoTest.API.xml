@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DemoTest.API</name>
+    </assembly>
+    <members>
+        <member name="M:DemoTest.API.Controllers.ProdutoController.Cadastrar(DemoTest.AppService.Application.Produto.DTO.ProdutoRequest)">
+            <summary>
+            Método para cadastrar um produto
+            </summary>
+            <param name="request">Produto Request</param>
+            <returns>Objeto produto criado</returns>
+        </member>
+        <member name="M:DemoTest.API.Controllers.ProdutoController.Atualizar(DemoTest.AppService.Application.Produto.DTO.ProdutoRequest)">
+            <summary>
+            Método para atualizar um produto
+            </summary>
+            <param name="request">Produto Request</param>
+            <returns>Objeto produto atualizado</returns>
+        </member>
+        <member name="M:DemoTest.API.Controllers.ProdutoController.Recuperar(System.Int64)">
+            <summary>
+            Método para recuperar produto
+            </summary>
+            <param name="sku">Codigo sku do produto</param>
+            <returns>Objeto produto</returns>
+        </member>
+        <member name="M:DemoTest.API.Controllers.ProdutoController.Deletar(System.Int64)">
+            <summary>
+            Método que deleta um produto
+            </summary>
+            <param name="sku">Codigo sku do produto</param>        
+        </member>
+    </members>
+</doc>
