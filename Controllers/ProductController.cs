@@ -53,9 +53,12 @@ namespace Inventory.api.Controllers
                 return BadRequest();
             }
 
-            context.Entry(model).State = EntityState.Modified;
+            model.id = product.id;
+            model.inventory.id = product.inventory.id;
+            context.Products.Update(model);
             await context.SaveChangesAsync();
-            return product;
+           
+            return model;
         }
 
         [HttpDelete]

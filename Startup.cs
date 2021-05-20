@@ -27,7 +27,8 @@ namespace Inventory.api
             var settings = Configuration.GetSection(nameof(Settings)).Get<Settings>();
             var assemblies = settings.Assemblies.Select(assembly => AppDomain.CurrentDomain.Load(assembly)).ToArray();
 
-            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+            //services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
+            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
             services.AddScoped<DataContext, DataContext>();
             services.AddControllers();
             services.AddSwagger();
