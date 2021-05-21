@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ML+07EFoLUXiQ7nDuyYafkmN6CQjcbTKTLEn+IMoguag8tgRvA2NcF9u2eqAmaRlDfCwYb9Os+KOuoutlTCoEA==",
+  "success": true,
+  "projectFilePath": "C:\\PROJETOS\\BelezaNaWebAvaliacao\\BelezaNaWebAvaliacao.Models\\BelezaNaWebAvaliacao.Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\brn_a\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
