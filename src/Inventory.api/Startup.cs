@@ -1,12 +1,14 @@
 using AutoMapper;
 using Inventory.api.Configurations;
-using Inventory.api.Data;
+using Inventory.Domain.DependencyInjection;
+using Inventory.Infrastructure.Database.DependencyInjection;
+using Inventory.Infrastructure.Database.Extensions.InMemory.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NetHacksPack.Core.Extensions.Events.DependencyInjection;
 using System;
 using System.Linq;
 
@@ -27,11 +29,16 @@ namespace Inventory.api
             var settings = Configuration.GetSection(nameof(Settings)).Get<Settings>();
             var assemblies = settings.Assemblies.Select(assembly => AppDomain.CurrentDomain.Load(assembly)).ToArray();
 
-            //services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database"));
-            services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("Database").UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
-            services.AddScoped<DataContext, DataContext>();
+            services
+                .AddObjectEventsAndMessagesHandler(typeof(object));
+            services
+                .AddCommandsAndEventsHandlers();
+            
+            services.AddQueryableAsRepository<Infrastructure.Database.Context.ApplicationContext>();
+            services.AddEfStorage().AddInMemoryRepository("grupoblzdb");
             services.AddControllers();
             services.AddSwagger();
+            services.AddQueries();
             services.AddAutoMapper(assemblies);
         }
 
