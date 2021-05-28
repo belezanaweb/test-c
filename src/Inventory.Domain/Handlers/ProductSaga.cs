@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Domain.Handlers
 {
-    class ProductSaga 
+    public class ProductSaga 
         : MediatR.IRequestHandler<CreateProductCommand, bool>,
           MediatR.IRequestHandler<UpdateProductCommand, bool>,
           MediatR.IRequestHandler<RemoveProductCommand, bool>

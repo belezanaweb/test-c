@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Inventory.Domain.Queries;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Inventory.Domain.DependencyInjection
@@ -16,6 +17,12 @@ namespace Inventory.Domain.DependencyInjection
             services.AddScoped<INotificationHandler<Events.DomainErrorRaised>>((service) => service.GetRequiredService<Handlers.Notifiable<Events.DomainErrorRaised>>());
 
             return services;
+        }
+
+        public static IServiceCollection AddQueries(this IServiceCollection services)
+        {
+
+            return services.AddTransient<ProductQuery>();
         }
     }
 }

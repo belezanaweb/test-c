@@ -7,13 +7,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{921F47C4-7D3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.api", "src\Inventory.api\Inventory.api.csproj", "{6470C7FA-8CBC-4BD1-83F4-65C80BC2EBBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Infrastructure.Database", "src\Inventory.Infrastructure.Database\Inventory.Infrastructure.Database.csproj", "{3225FF6A-0B14-4C58-AC5A-F0F88CBA26F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Infrastructure.Database", "src\Inventory.Infrastructure.Database\Inventory.Infrastructure.Database.csproj", "{3225FF6A-0B14-4C58-AC5A-F0F88CBA26F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Core", "src\Inventory.Core\Inventory.Core.csproj", "{6FE7998E-0FC9-406A-BA8E-E4B544D88E12}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Core", "src\Inventory.Core\Inventory.Core.csproj", "{6FE7998E-0FC9-406A-BA8E-E4B544D88E12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Infrastructure.Database.Extensions.InMemory", "src\Inventory.Infrastructure.Database.Extensions.InMemory\Inventory.Infrastructure.Database.Extensions.InMemory.csproj", "{77CA1210-4394-4C72-B67F-0896B7835FB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Infrastructure.Database.Extensions.InMemory", "src\Inventory.Infrastructure.Database.Extensions.InMemory\Inventory.Infrastructure.Database.Extensions.InMemory.csproj", "{77CA1210-4394-4C72-B67F-0896B7835FB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.Domain", "src\Inventory.Domain\Inventory.Domain.csproj", "{B78CC4E5-E1CD-4CAB-B349-FE5306F98DD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Inventory.Domain", "src\Inventory.Domain\Inventory.Domain.csproj", "{B78CC4E5-E1CD-4CAB-B349-FE5306F98DD8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory.test", "Inventory.test\Inventory.test.csproj", "{4E1C8892-32B3-4C3D-AAFC-10BFDD9CE69B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{B78CC4E5-E1CD-4CAB-B349-FE5306F98DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B78CC4E5-E1CD-4CAB-B349-FE5306F98DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B78CC4E5-E1CD-4CAB-B349-FE5306F98DD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E1C8892-32B3-4C3D-AAFC-10BFDD9CE69B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E1C8892-32B3-4C3D-AAFC-10BFDD9CE69B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E1C8892-32B3-4C3D-AAFC-10BFDD9CE69B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E1C8892-32B3-4C3D-AAFC-10BFDD9CE69B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +57,7 @@ Global
 		{6FE7998E-0FC9-406A-BA8E-E4B544D88E12} = {921F47C4-7D3B-41E1-B481-581194E9C86A}
 		{77CA1210-4394-4C72-B67F-0896B7835FB9} = {921F47C4-7D3B-41E1-B481-581194E9C86A}
 		{B78CC4E5-E1CD-4CAB-B349-FE5306F98DD8} = {921F47C4-7D3B-41E1-B481-581194E9C86A}
+		{4E1C8892-32B3-4C3D-AAFC-10BFDD9CE69B} = {921F47C4-7D3B-41E1-B481-581194E9C86A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D8C2BDB7-8444-4CA0-9C6C-F2FBD5D42D63}

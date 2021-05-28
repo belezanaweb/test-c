@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Inventory.Domain.Handlers
 {
-    class Notifiable<T> 
+    public class Notifiable<T> 
         : INotifiable<T>, 
           INotificationHandler<T>
         where T : INotification

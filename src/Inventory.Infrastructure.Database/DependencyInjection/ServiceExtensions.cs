@@ -1,6 +1,5 @@
 ﻿using Inventory.Core.Data;
 using Inventory.Infrastructure.Database.Context;
-using Inventory.Infrastructure.Database.Data.Queries;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,12 +17,5 @@ namespace Inventory.Infrastructure.Database.DependencyInjection
             });
             return services.AddScoped<IStorageRepository, Data.EFStorageRepository>();
         }
-
-        public static IServiceCollection AddQueries(this IServiceCollection services)
-        {
-            
-            return services.AddTransient<ProductQuery>();
-        }
     }
-
 }

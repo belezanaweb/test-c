@@ -1,8 +1,7 @@
 ﻿using Inventory.Core.Notification;
 using Inventory.Domain.Events;
-using Inventory.Infrastructure.Database.Data.Queries;
+using Inventory.Domain.Queries;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;

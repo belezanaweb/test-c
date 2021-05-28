@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Inventory.Infrastructure.Database.Data.Queries
+namespace Inventory.Domain.Queries
 {
     public class ProductQuery
     {
