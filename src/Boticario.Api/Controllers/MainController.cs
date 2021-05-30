@@ -54,7 +54,7 @@ namespace Boticario.Api.Controllers
                 if (method == HttpMethod.Put.ToString().ToUpper() || method == HttpMethod.Patch.ToString().ToUpper() || method == HttpMethod.Get.ToString().ToUpper())
                     return Ok(response);
 
-                else if (method == HttpMethod.Put.ToString().ToUpper())
+                else if (method == HttpMethod.Post.ToString().ToUpper())
                     return Created("", response);
 
                 else if (method == HttpMethod.Delete.ToString().ToUpper())
