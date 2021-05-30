@@ -3,3 +3,13 @@
 ################################################################################
 
 /.vs/Boticario
+/src/Boticario.Api/bin/Debug/net5.0
+/src/Boticario.Api/obj
+/src/Boticario.ApplicationService/obj
+/src/Boticario.ApplicationService/bin/Debug/net5.0
+/src/Boticario.ApplicationService.Test/bin/Debug/net5.0
+/src/Boticario.Repository/obj
+/src/Boticario.Repository/bin/Debug/net5.0
+/src/Boticario.Domain/obj
+/src/Boticario.Domain/bin/Debug/net5.0
+/src/Boticario.ApplicationService.Test/obj

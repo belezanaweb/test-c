@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+	<PropertyGroup>
+		<DocumentationFile>XmlDocument.xml</DocumentationFile>
+		<UserSecretsId>72d98370-a47d-490c-99a6-323b871590f4</UserSecretsId>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.15.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+  
+    <ProjectReference Include="..\Boticario.ApplicationService\Boticario.ApplicationService.csproj" />
+    <ProjectReference Include="..\Boticario.Domain\Boticario.Domain.csproj" />
+    <ProjectReference Include="..\Boticario.Repository\Boticario.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

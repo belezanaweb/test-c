@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Boticario.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Boticario.Api.Controllers.ProductsController.Get">
+            <summary>
+            LISTA TODOS OS PRODUTOS
+            </summary>
+            <returns>Products</returns>  
+        </member>
+        <member name="M:Boticario.Api.Controllers.ProductsController.Search(Boticario.Domain.Search.ProductSearch)">
+            <summary>
+            ESTE ENPOINT RETORNA PRODUTOS DE ACORDO O FILTRO NA QUERYSTRING
+            </summary>
+            <returns>Products</returns>  
+        </member>
+        <member name="M:Boticario.Api.Controllers.ProductsController.Get(System.Int32)">
+            <summary>
+            RETORNA UM PRODUTO DE DE ACORDO O SKU PASADO NA URL
+            </summary>     
+            <returns></returns>
+        </member>
+        <member name="M:Boticario.Api.Controllers.ProductsController.Save(Boticario.Domain.ViewModels.ProductViewModel)">
+            <summary>
+            METODO PARA INSERIR PRODUTO
+            </summary>            
+            <returns></returns>
+        </member>
+        <member name="M:Boticario.Api.Controllers.ProductsController.Update(System.Int32,Boticario.Domain.ViewModels.ProductUpdateViewModel)">
+            <summary>
+            METODO PARA EDITAR PRODUTOS
+            </summary>     
+            <returns></returns>
+        </member>
+        <member name="M:Boticario.Api.Controllers.ProductsController.Delete(System.Int32)">
+            <summary>
+            METODO PARA EXCLUIR UM PRODUTO PELO SKU
+            </summary>     
+            <returns></returns>
+        </member>
+    </members>
+</doc>
