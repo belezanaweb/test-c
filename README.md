@@ -6,7 +6,7 @@ Projeto utilizando .Net 5
  - Testes de Unidade (somente para camada de regra de negócios) com MSTest
  - Documentação da Api com Swagger
  - Validações com FluentValidation
- - Logs, monitoramento e métricas com Application Insights (Necessita de uma chave no aquivo appsettings.Development.json)
+ - Logs, monitoramento e métricas com Application Insights (Opcional, necessita de uma chave no aquivo appsettings.Development.json)
  - Versionamento
  - HealthChecks (https://localhost:5001/status-json, https://localhost:5001/status-text)
 
