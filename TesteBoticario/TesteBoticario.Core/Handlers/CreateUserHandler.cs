@@ -1,16 +1,18 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TesteBoticario.Core.Requests;
 using TesteBoticario.Core.Responses;
+using TesteBoticario.Domain.Entities;
 
 namespace TesteBoticario.Core.Handlers
 {
     public class CreateUserHandler : BaseHandler<CreateProductRequest>
     {
-        public CreateUserHandler() { }
+        public CreateUserHandler(IMapper mapper) : base(mapper) { }
 
         public override Task<BaseResponse> SafeExecuteHandler(CreateProductRequest request, CancellationToken cancellationToken)
         {
@@ -21,6 +23,8 @@ namespace TesteBoticario.Core.Handlers
         {
             // validation
             // service.create
+
+            var newProduct = _mapper.Map<Product>(request);
 
             var product = new CreateProductResponse
             {

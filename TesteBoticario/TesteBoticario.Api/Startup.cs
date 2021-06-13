@@ -22,9 +22,14 @@ namespace TesteBoticario.Api
         {
             services.AddControllers();
 
-            #region MediatR
             var assembly = AppDomain.CurrentDomain.Load("TesteBoticario.Core");
+
+            #region MediatR
             services.AddMediatR(assembly);
+            #endregion
+
+            #region AutoMapper
+            services.AddAutoMapper(assembly);
             #endregion
         }
 

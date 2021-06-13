@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using AutoMapper;
+using MediatR;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +10,11 @@ namespace TesteBoticario.Core.Handlers
 {
     public abstract class BaseHandler<T> : IRequestHandler<T, BaseResponse> where T : BaseRequest
     {
-        public BaseHandler() { }
+        protected IMapper _mapper;
+        public BaseHandler(IMapper mapper) 
+        {
+            _mapper = mapper;
+        }
 
         public async Task<BaseResponse> Handle(T request, CancellationToken cancellationToken)
         {
