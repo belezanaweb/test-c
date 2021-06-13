@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteBoticario.Api", "Teste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteBoticario.Domain", "TesteBoticario.Domain\TesteBoticario.Domain.csproj", "{E8A10183-0DAB-4ABD-9493-36B1C2F9B8D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteBoticario.Core", "TesteBoticario.Core\TesteBoticario.Core.csproj", "{2917393E-835B-460D-A603-9F718E69435A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E8A10183-0DAB-4ABD-9493-36B1C2F9B8D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8A10183-0DAB-4ABD-9493-36B1C2F9B8D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8A10183-0DAB-4ABD-9493-36B1C2F9B8D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2917393E-835B-460D-A603-9F718E69435A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2917393E-835B-460D-A603-9F718E69435A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2917393E-835B-460D-A603-9F718E69435A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2917393E-835B-460D-A603-9F718E69435A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
