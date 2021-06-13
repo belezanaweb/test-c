@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteBoticario.Api", "TesteBoticario.Api\TesteBoticario.Api.csproj", "{6CA15089-127D-41F6-B5DD-718E7C21903A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteBoticario.Api", "TesteBoticario.Api\TesteBoticario.Api.csproj", "{6CA15089-127D-41F6-B5DD-718E7C21903A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteBoticario.Domain", "TesteBoticario.Domain\TesteBoticario.Domain.csproj", "{E8A10183-0DAB-4ABD-9493-36B1C2F9B8D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteBoticario.Domain", "TesteBoticario.Domain\TesteBoticario.Domain.csproj", "{E8A10183-0DAB-4ABD-9493-36B1C2F9B8D6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteBoticario.Core", "TesteBoticario.Core\TesteBoticario.Core.csproj", "{2917393E-835B-460D-A603-9F718E69435A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesteBoticario.Core", "TesteBoticario.Core\TesteBoticario.Core.csproj", "{2917393E-835B-460D-A603-9F718E69435A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteBoticario.Storage", "TesteBoticario.Storage\TesteBoticario.Storage.csproj", "{84392955-CCF3-4CD7-81AE-4513DCBCB269}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{2917393E-835B-460D-A603-9F718E69435A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2917393E-835B-460D-A603-9F718E69435A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2917393E-835B-460D-A603-9F718E69435A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84392955-CCF3-4CD7-81AE-4513DCBCB269}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84392955-CCF3-4CD7-81AE-4513DCBCB269}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84392955-CCF3-4CD7-81AE-4513DCBCB269}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84392955-CCF3-4CD7-81AE-4513DCBCB269}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

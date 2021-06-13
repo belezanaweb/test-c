@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TesteBoticario.Core.Services;
 using TesteBoticario.Core.Services.Interfaces;
+using TesteBoticario.Storage;
+using TesteBoticario.Storage.Interfaces;
 
 namespace TesteBoticario.Api
 {
@@ -36,6 +38,11 @@ namespace TesteBoticario.Api
 
             #region Service
             services.AddScoped<IProductService, ProductService>();
+            #endregion
+
+            #region Memory
+            services.AddMemoryCache();
+            services.AddScoped<IProductCache, ProductCache>();
             #endregion
         }
 
