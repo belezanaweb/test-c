@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TesteBoticario.Core.Services;
+using TesteBoticario.Core.Services.Interfaces;
 
 namespace TesteBoticario.Api
 {
@@ -30,6 +32,10 @@ namespace TesteBoticario.Api
 
             #region AutoMapper
             services.AddAutoMapper(assembly);
+            #endregion
+
+            #region Service
+            services.AddScoped<IProductService, ProductService>();
             #endregion
         }
 
