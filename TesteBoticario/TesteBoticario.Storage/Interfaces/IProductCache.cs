@@ -9,5 +9,6 @@ namespace TesteBoticario.Storage.Interfaces
     {
         Product Get(int sku);
         Product Insert(Product product);
+        Product Delete(int sku);
     }
 }

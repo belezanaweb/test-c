@@ -21,7 +21,7 @@ namespace TesteBoticario.Core.Services
         public BaseResponse GetProduct(int sku)
         {
             if (sku == 0)
-                return new BaseResponse("Invalid sku", false);
+                return new BaseResponse($"Invalid sku: {sku}", false);
 
             var product = _memory.Get(sku);
 
@@ -53,15 +53,29 @@ namespace TesteBoticario.Core.Services
             if (string.IsNullOrEmpty(product.Name))
                 result.Add("The 'Name' property cannot be null or empty");
 
-            if (ProductAlreadyExists(product.Sku))
+            if (SkuExists(product.Sku))
                 result.Add($"A product with the Sku {product.Sku} already exists");
 
             return result;
         }
 
-        public bool ProductAlreadyExists(int sku)
+        public bool SkuExists(int sku)
         {
             return _memory.Get(sku) != null;
+        }
+
+        public BaseResponse DeleteProduct(int sku)
+        {
+            if (sku == 0)
+                return new BaseResponse($"Invalid sku: {sku}", false);
+
+            if (!SkuExists(sku))
+                return new BaseResponse($"Product with sku {sku} does not exists.", false);
+
+            var product = _memory.Delete(sku);
+
+            return new BaseResponse(product, true);
+
         }
     }
 }

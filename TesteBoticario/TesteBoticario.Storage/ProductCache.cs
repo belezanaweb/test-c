@@ -32,5 +32,13 @@ namespace TesteBoticario.Storage
 
             return result;
         }
+
+        public Product Delete(int sku)
+        {
+            var result = Get(sku);
+             _cache.Remove(sku);
+
+            return result;
+        }
     }
 }
