@@ -7,6 +7,7 @@ namespace TesteBoticario.Storage.Interfaces
 {
     public interface IProductCache
     {
+        Product Get(int sku);
         Product Insert(Product product);
     }
 }

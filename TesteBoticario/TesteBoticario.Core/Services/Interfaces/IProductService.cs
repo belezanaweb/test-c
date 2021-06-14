@@ -8,6 +8,7 @@ namespace TesteBoticario.Core.Services.Interfaces
 {
     public interface IProductService
     {
+        BaseResponse GetProduct(int sku);
         BaseResponse CreateProduct(Product product);
     }
 }

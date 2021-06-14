@@ -16,6 +16,13 @@ namespace TesteBoticario.Storage
             _cache = cache;
         }
 
+        public Product Get(int sku)
+        {
+            var result = _cache.Get<Product>(sku);
+
+            return result;
+        }
+
         public Product Insert(Product product)
         {
             if (product == null)

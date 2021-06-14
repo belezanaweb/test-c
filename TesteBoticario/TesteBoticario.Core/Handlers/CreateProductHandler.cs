@@ -1,7 +1,5 @@
 ﻿using AutoMapper;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TesteBoticario.Core.Requests;
@@ -11,9 +9,9 @@ using TesteBoticario.Domain.Entities;
 
 namespace TesteBoticario.Core.Handlers
 {
-    public class CreateUserHandler : BaseHandler<CreateProductRequest>
+    public class CreateProductHandler : BaseHandler<CreateProductRequest>
     {
-        public CreateUserHandler(IMapper mapper, IProductService service) : base(mapper, service) { }
+        public CreateProductHandler(IMapper mapper, IProductService service) : base(mapper, service) { }
 
         public override Task<BaseResponse> SafeExecuteHandler(CreateProductRequest request, CancellationToken cancellationToken)
         {

@@ -27,7 +27,7 @@ namespace TesteBoticario.Api.Controllers
             return await _mediator.Send(request);                
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("Get")]
         public async Task<ActionResult<BaseResponse>> GetProduct(GetProductRequest request)
         {
