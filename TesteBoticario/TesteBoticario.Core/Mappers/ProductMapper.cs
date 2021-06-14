@@ -9,12 +9,15 @@ namespace TesteBoticario.Core.Mappers
     {
         public ProductMapper()
         {
-            CreateMap<CreateProductRequest, Product>().ReverseMap();
-            CreateMap<Product, CreateProductResponse>().ReverseMap();
-            CreateMap<Product, GetProductResponse>().ReverseMap();
-            CreateMap<Product, DeleteProductResponse>().ReverseMap();
-            CreateMap<UpdateProductRequest, Product>().ReverseMap();
-            CreateMap<Product, UpdateProductResponse>().ReverseMap();
+            CreateMap<CreateProductRequest, Product>()
+                .ForPath(p => p.Warehouses, map => map.MapFrom(r => r.Inventory.Warehouses));
+            CreateMap<Product, CreateProductResponse>();
+            CreateMap<Product, GetProductResponse>()
+                .ForPath(r => r.Inventory.Warehouses, map => map.MapFrom(p => p.Warehouses));
+            CreateMap<Product, DeleteProductResponse>();
+            CreateMap<UpdateProductRequest, Product>()
+                .ForPath(p => p.Warehouses, map => map.MapFrom(r => r.Inventory.Warehouses));
+            CreateMap<Product, UpdateProductResponse>();
         }
     }
 }

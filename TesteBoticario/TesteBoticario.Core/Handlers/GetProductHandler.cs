@@ -27,6 +27,8 @@ namespace TesteBoticario.Core.Handlers
             if (result.Result != null)
             {
                 var productResponse = _mapper.Map<GetProductResponse>(result.Result);
+                productResponse.Inventory.Quantity = _service.CalculateInventoryQuantity(productResponse.Inventory.Warehouses);
+                productResponse.IsMarketable = _service.ProductIsMarketable(productResponse.Inventory.Warehouses);
                 result.AddResult(productResponse);
             }
 

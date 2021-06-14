@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using TesteBoticario.Core.Responses;
 using TesteBoticario.Domain.Entities;
 
@@ -12,5 +10,7 @@ namespace TesteBoticario.Core.Services.Interfaces
         BaseResponse CreateProduct(Product product);
         BaseResponse UpdateProduct(Product product);
         BaseResponse DeleteProduct(int sku);
+        int CalculateInventoryQuantity(List<Warehouse> warehouses);
+        bool ProductIsMarketable(List<Warehouse> warehouses);
     }
 }
