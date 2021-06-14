@@ -27,6 +27,7 @@ namespace TesteBoticario.Core.Handlers
             if (result.Result != null)
             {
                 var productResponse = _mapper.Map<DeleteProductResponse>(result.Result);
+                productResponse.DeletedAt = DateTime.Now;
                 result.AddResult(productResponse);
             }
 

@@ -13,6 +13,8 @@ namespace TesteBoticario.Core.Mappers
             CreateMap<Product, CreateProductResponse>().ReverseMap();
             CreateMap<Product, GetProductResponse>().ReverseMap();
             CreateMap<Product, DeleteProductResponse>().ReverseMap();
+            CreateMap<UpdateProductRequest, Product>().ReverseMap();
+            CreateMap<Product, UpdateProductResponse>().ReverseMap();
         }
     }
 }

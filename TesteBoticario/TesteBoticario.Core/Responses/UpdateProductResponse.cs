@@ -1,13 +1,14 @@
-﻿using TesteBoticario.Domain.Entities;
-using MediatR;
+﻿using MediatR;
+using System;
 
 namespace TesteBoticario.Core.Responses
 {
-    public class GetProductResponse : IRequest
+    class UpdateProductResponse : IRequest
     {
         public int Sku { get; set; }
         public string Name { get; set; }
-        public Inventory Inventory { get; set; }
+        public int Quantity { get; set; }
         public bool IsMarketable { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

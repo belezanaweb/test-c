@@ -1,4 +1,5 @@
-﻿
+﻿using MediatR;
+
 namespace TesteBoticario.Core.Requests
 {
     public class GetProductRequest : BaseRequest

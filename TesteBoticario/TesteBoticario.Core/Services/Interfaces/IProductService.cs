@@ -10,6 +10,7 @@ namespace TesteBoticario.Core.Services.Interfaces
     {
         BaseResponse GetProduct(int sku);
         BaseResponse CreateProduct(Product product);
+        BaseResponse UpdateProduct(Product product);
         BaseResponse DeleteProduct(int sku);
     }
 }
