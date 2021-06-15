@@ -7,26 +7,30 @@ namespace TesteBoticario.Core.Responses
     public class BaseResponse
     {
         public bool Success { get; set; }
+        public int HttpReponse { get; set; }
         public object Result { get; private set; }
         public List<string> Messages { get; }
 
         public BaseResponse() { }
-        public BaseResponse(object obj, bool success = true)
+        public BaseResponse(object obj, int http, bool success = true)
         {
             Success = success;
             Result = obj;
+            HttpReponse = http;
         }
 
-        public BaseResponse(string message, bool success)
+        public BaseResponse(string message, int http, bool success)
         {
             Success = success;
+            HttpReponse = http;
             if (Messages == null) Messages = new List<string>();
             AddMessage(message);
         }
 
-        public BaseResponse(List<string> messages, bool success)
+        public BaseResponse(List<string> messages, int http, bool success)
         {
             Success = success;
+            HttpReponse = http;
             if (Messages == null) Messages = new List<string>();
             AddMessage(messages);
         }

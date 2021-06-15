@@ -21,51 +21,51 @@ namespace TesteBoticario.Core.Services
             var product = _memory.Get(sku);
 
             if (product == null)
-                return new BaseResponse($"Product with sku {sku} does not exists.", false);
+                return new BaseResponse($"There is no product with Sku {sku} to retrieve.", 404, false);
 
-            return new BaseResponse(product, true);
+            return new BaseResponse(product, 200, true);
         }
 
         public BaseResponse CreateProduct(Product product)
         {
             if (SkuExists(product.Sku))
-                return new BaseResponse($"A product with Sku {product.Sku} already exists.", false);
+                return new BaseResponse($"A product with Sku {product.Sku} already exists.", 409, false);
 
             var validations = ValidateProduct(product);
             if (validations.Any())
             {
-                return new BaseResponse(validations, false);
+                return new BaseResponse(validations, 400, false);
             }
 
             var newProduct = _memory.Insert(product);
-            return new BaseResponse(newProduct, true);
+            return new BaseResponse(newProduct, 200, true);
         }
 
         public BaseResponse UpdateProduct(Product product)
         {
             if (!SkuExists(product.Sku))
-                return new BaseResponse($"There is no product with Sku {product.Sku} to update.", false);
+                return new BaseResponse($"There is no product with Sku {product.Sku} to update.", 404, false);
 
             var validations = ValidateProduct(product);
             if (validations.Any())
             {
-                return new BaseResponse(validations, false);
+                return new BaseResponse(validations, 400, false);
             }
 
             _memory.Delete(product.Sku);
             var updatedProduct = _memory.Insert(product);
 
-            return new BaseResponse(updatedProduct, true);
+            return new BaseResponse(updatedProduct, 200, true);
         }
 
         public BaseResponse DeleteProduct(int sku)
         {
             if (!SkuExists(sku))
-                return new BaseResponse($"There is no product with Sku {sku} to delete.", false);
+                return new BaseResponse($"There is no product with Sku {sku} to delete.", 404, false);
 
             var product = _memory.Delete(sku);
 
-            return new BaseResponse(product, true);
+            return new BaseResponse(product, 200, true);
 
         }
 

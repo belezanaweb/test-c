@@ -27,7 +27,7 @@ namespace TesteBoticario.Core.Handlers
             }
             catch (Exception e)
             {
-                return new BaseResponse(e.Message);
+                return new BaseResponse(e.Message, 500);
             }
         }
 
