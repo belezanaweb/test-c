@@ -4,11 +4,6 @@ using BoticarioAPI.Domain.Interfaces.Repository;
 using BoticarioAPI.Infra.Context;
 using BoticarioAPI.Infra.Repository;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BoticarioAPI.DependencyInjection
 {

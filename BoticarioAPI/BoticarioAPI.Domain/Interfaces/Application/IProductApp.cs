@@ -1,10 +1,4 @@
-﻿using BoticarioAPI.Domain.Entities;
-using BoticarioAPI.Domain.TransferObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BoticarioAPI.Domain.TransferObjects;
 
 namespace BoticarioAPI.Domain.Interfaces.Application
 {

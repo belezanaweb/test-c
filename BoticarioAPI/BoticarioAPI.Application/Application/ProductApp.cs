@@ -3,11 +3,7 @@ using BoticarioAPI.Domain.Entities;
 using BoticarioAPI.Domain.Interfaces.Application;
 using BoticarioAPI.Domain.Interfaces.Repository;
 using BoticarioAPI.Domain.TransferObjects;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BoticarioAPI.Application.Application
 {

@@ -1,11 +1,7 @@
 ﻿using BoticarioAPI.Domain.Interfaces.Repository;
 using BoticarioAPI.Infra.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BoticarioAPI.Infra.Repository
 {
