@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace BoticarioAPI.Services.API.Controllers
@@ -25,7 +26,7 @@ namespace BoticarioAPI.Services.API.Controllers
             if (_productApp.Add(product))
                 return Ok();
             else
-                return StatusCode(409, new { Message = "Produto com mesmo SKU já cadastrado" });
+                return StatusCode((int)HttpStatusCode.Conflict, new { Message = "Produto com mesmo SKU já cadastrado" });
         }
 
         [HttpPut]
@@ -34,7 +35,7 @@ namespace BoticarioAPI.Services.API.Controllers
             if (_productApp.Update(product))
                 return Ok();
             else
-                return StatusCode(400, new { Message = "Produto não encontrado" });
+                return StatusCode((int)HttpStatusCode.NotFound, new { Message = "Produto não encontrado" });
 
         }
 
