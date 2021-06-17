@@ -1,4 +1,5 @@
-﻿using BoticarioAPI.Domain.Entities;
+﻿using AutoMapper;
+using BoticarioAPI.Domain.Entities;
 using BoticarioAPI.Domain.Interfaces.Application;
 using BoticarioAPI.Domain.Interfaces.Repository;
 using BoticarioAPI.Domain.TransferObjects;
@@ -14,11 +15,13 @@ namespace BoticarioAPI.Application.Application
     {
         private readonly IProductRepository _productRepository;
         private readonly IWarehouseRepository _warehouseRepository;
+        private readonly IMapper _mapper; 
 
-        public ProductApp(IUnitOfWork uow, IProductRepository productRepository, IWarehouseRepository warehouseRepository) : base(uow)
+        public ProductApp(IUnitOfWork uow, IProductRepository productRepository, IWarehouseRepository warehouseRepository, IMapper mapper) : base(uow)
         {
             _productRepository = productRepository;
             _warehouseRepository = warehouseRepository;
+            _mapper = mapper;
         }
 
         public bool Add(NewProductTO newProduct)
@@ -41,11 +44,11 @@ namespace BoticarioAPI.Application.Application
             var product = _productRepository.GetBySku(sku);
             var warehouses = _warehouseRepository.GetAllBySku(sku);
 
-            _productRepository.Delete(product);
+            _productRepository.Remove(product);
 
             foreach (var warehouse in warehouses)
             {
-                _warehouseRepository.Delete(warehouse);
+                _warehouseRepository.Remove(warehouse);
             }
 
             return Save();
@@ -54,9 +57,12 @@ namespace BoticarioAPI.Application.Application
         public ProductTO Get(int sku)
         {
             var product = _productRepository.GetBySku(sku);
-            var warehouses = _warehouseRepository.GetAllBySku(sku);
+            if (product == null)
+                return null;
 
-            return new ProductTO(product.Sku, product.Name, warehouses.Select(warehouse => new WarehouseTO(warehouse.Locality, warehouse.Quantity, warehouse.Type)).ToList());
+            product.Warehouses = _warehouseRepository.GetAllBySku(sku);
+
+            return _mapper.Map<ProductTO>(product);
         }
 
         public bool Update(NewProductTO newProduct)

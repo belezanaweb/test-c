@@ -30,6 +30,8 @@ namespace BoticarioAPI.Services.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BoticarioAPI.Services.API", Version = "v1" });
             });
 
+            services.AddAutoMapperSetup();
+
             DependencyInjectionBootstrapper.RegisterServices(services);
         }
 

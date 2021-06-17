@@ -48,7 +48,11 @@ namespace BoticarioAPI.Services.API.Controllers
         [HttpGet("{sku}")]
         public IActionResult Get(int sku)
         {
-            return Ok(_productApp.Get(sku));
+            var product = _productApp.Get(sku);
+            if(product != null)
+                return Ok(product);
+            else
+                return StatusCode((int)HttpStatusCode.NotFound, new { Message = "Produto não encontrado" });
         }
     }
 }

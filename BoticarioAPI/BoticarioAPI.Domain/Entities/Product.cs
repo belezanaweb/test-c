@@ -18,7 +18,7 @@ namespace BoticarioAPI.Domain.Entities
         public int Id { get; private set; }
         public int Sku { get; private set; }
         public string Name { get; private set; }
-        public virtual List<Warehouse> Warehouses { get; private set; }
+        public virtual List<Warehouse> Warehouses { get; set; }
 
         public void Update(int sku, string name)
         {
