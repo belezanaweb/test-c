@@ -6,15 +6,8 @@ using System.Threading.Tasks;
 
 namespace BoticarioAPI.Domain.TransferObjects
 {
-    public class InventoryTO
+    public class NewInventoryTO
     {
-        public InventoryTO(int quantity, List<WarehouseTO> warehouses)
-        {
-            Quantity = quantity;
-            Warehouses = warehouses;
-        }
-
-        public int Quantity { get; set; }
         public List<WarehouseTO> Warehouses { get; set; }
     }
 }

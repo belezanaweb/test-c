@@ -22,20 +22,26 @@ namespace BoticarioAPI.Services.API.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] NewProductTO product)
         {
-            return Ok(_productApp.Add(product));
+            if (_productApp.Add(product))
+                return Ok();
+            else
+                return StatusCode(409, new { Message = "Produto com mesmo SKU já cadastrado" });
         }
 
         [HttpPut]
         public IActionResult Update([FromBody] NewProductTO product)
         {
-            return Ok();
+            if (_productApp.Update(product))
+                return Ok();
+            else
+                return StatusCode(400, new { Message = "Produto não encontrado" });
 
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            return Ok();
+            return Ok(_productApp.Delete(id));
         }
 
         [HttpGet("{sku}")]

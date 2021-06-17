@@ -12,7 +12,7 @@ namespace BoticarioAPI.Domain.Interfaces.Application
     {
         bool Add(NewProductTO newProduct);
         bool Update(NewProductTO product);
-        Product Get(int sku);
+        ProductTO Get(int sku);
         bool Delete(int sku);
     }
 }

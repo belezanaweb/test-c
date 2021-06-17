@@ -10,7 +10,6 @@ namespace BoticarioAPI.Domain.TransferObjects
     {
         public int Sku { get; set; }
         public string Name { get; set; }
-        public InventoryTO Inventory { get; set; }
-        public bool IsMarketable { get; set; }
+        public NewInventoryTO Inventory { get; set; }
     }
 }

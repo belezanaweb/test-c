@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BoticarioAPI.Domain.Interfaces.Repository
 {
-    public interface IWarehouseRepository
+    public interface IWarehouseRepository : IBaseRepository<Warehouse>
     {
         List<Warehouse> GetAllBySku(int sku);
     }

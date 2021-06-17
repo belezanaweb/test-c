@@ -23,24 +23,60 @@ namespace BoticarioAPI.Application.Application
 
         public bool Add(NewProductTO newProduct)
         {
-            var product = new Product(newProduct.Sku, newProduct.Name);
+            var product = _productRepository.GetBySku(newProduct.Sku);
+
+            if (product != null)
+                return false;
+
+            product = new Product(newProduct.Sku, newProduct.Name);
             _productRepository.Add(product);
+
+            _warehouseRepository.Add(newProduct.Inventory.Warehouses.Select(warehouse => new Warehouse(newProduct.Sku, warehouse.Locality, warehouse.Quantity, warehouse.Type)).ToList());
+
             return Save();
         }
 
         public bool Delete(int sku)
         {
-            throw new NotImplementedException();
+            var product = _productRepository.GetBySku(sku);
+            var warehouses = _warehouseRepository.GetAllBySku(sku);
+
+            _productRepository.Delete(product);
+
+            foreach (var warehouse in warehouses)
+            {
+                _warehouseRepository.Delete(warehouse);
+            }
+
+            return Save();
         }
 
-        public Product Get(int sku)
+        public ProductTO Get(int sku)
         {
-            return _productRepository.GetBySku(sku);
+            var product = _productRepository.GetBySku(sku);
+            var warehouses = _warehouseRepository.GetAllBySku(sku);
+
+            return new ProductTO(product.Sku, product.Name, warehouses.Select(warehouse => new WarehouseTO(warehouse.Locality, warehouse.Quantity, warehouse.Type)).ToList());
         }
 
-        public bool Update(NewProductTO product)
+        public bool Update(NewProductTO newProduct)
         {
-            throw new NotImplementedException();
+            var product = _productRepository.GetBySku(newProduct.Sku);
+            if (product == null)
+                return false;
+
+            var warehouses = _warehouseRepository.GetAllBySku(product.Sku);
+
+            foreach (var warehouse in warehouses)
+            {
+                _warehouseRepository.Remove(warehouse);
+            }
+
+            product.Update(newProduct.Sku, newProduct.Name);
+
+            _warehouseRepository.Add(newProduct.Inventory.Warehouses.Select(warehouse => new Warehouse(newProduct.Sku, warehouse.Locality, warehouse.Quantity, warehouse.Type)).ToList());
+
+            return Save();
         }
     }
 }
