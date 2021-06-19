@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BelezaNaWeb.Api.Data;
+using BelezaNaWeb.Api.Data.Repositories.Contract;
+using BelezaNaWeb.Api.Data.Repositories.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +34,7 @@ namespace BelezaNaWeb.Api
             services.AddControllers();
 
             services.AddDbContext<DataContext>(opt => opt.UseInMemoryDatabase("DbBelezaNaWeb"));
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddSwaggerGen(c =>
             {
