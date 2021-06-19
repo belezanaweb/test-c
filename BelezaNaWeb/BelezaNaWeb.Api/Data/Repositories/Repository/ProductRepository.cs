@@ -43,7 +43,7 @@ namespace BelezaNaWeb.Api.Data.Repositories.Repository
         }
         public async Task<Product> Update(Product product)
         {
-            _context.Entry(product).State = EntityState.Modified;
+            _context.Products.Update(product);
             await _context.SaveChangesAsync();
 
             return product;
