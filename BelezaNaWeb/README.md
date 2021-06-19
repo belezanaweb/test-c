@@ -14,12 +14,11 @@ Este repositório contém a API RESTful criada no ambiente Linux, utilizando a d
 A solution para esse projeto, bem como seu conteúdo foram gerados via terminal zsh.
 
 ### Como utilizar a api.
-Faça uma cópia do repositório rode o seguinte comando no seu terminal favorito:
+Faça uma cópia do repositório e rode o seguinte comando no seu terminal favorito:
 ```sh
 dotnet run
 ```
 Se preferir aproveitar do recurso de "hot reload" utilize:
-ou
 ```sh
 dotnet watch run
 ```
