@@ -20,6 +20,7 @@ namespace BelezaNaWeb.Api.Data.Repositories.Repository
             var products = await _context.Products
                 .Include(x => x.Inventory)
                 .Include(x => x.Inventory.Warehouses)
+                .AsNoTracking()
                 .ToListAsync();
             return products;
         }
