@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Process", "Process", "{B2D86072-975A-4481-9567-EB567B4AAE1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Web", "1 - Web", "{343F05DA-BD96-46A1-86E8-10DBD6BA3901}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrupoBoticario.Web", "GrupoBoticario.Web\GrupoBoticario.Web.csproj", "{1EA797CC-766C-4D68-8320-A54BACE6E9BB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{3B027D78-D1B8-43E7-A4D8-7163CED0652E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrupoBoticario.Application", "GrupoBoticario.Application\GrupoBoticario.Application.csproj", "{D2A0C947-DF4B-4196-8EF4-6033086B38FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{6A573282-3F5C-4849-A53D-0D5842B672BE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Data Access", "4 - Data Access", "{AFB256BD-D05B-4DFE-BA26-15A2C11227DA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrupoBoticario.Domain", "GrupoBoticario.Domain\GrupoBoticario.Domain.csproj", "{6BB5FD3E-BA4D-48BD-ACA1-86E173B43FF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrupoBoticario.DataAccess", "GrupoBoticario.DataAccess\GrupoBoticario.DataAccess.csproj", "{4DB740F3-86FA-44AC-9612-0733847F2B60}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrupoBoticario.Domain.Map", "GrupoBoticario.Domain.Map\GrupoBoticario.Domain.Map.csproj", "{48734650-E6B9-46DF-9A94-38EEA49F5A0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{83BA7D95-FFD5-47DA-A624-2D38EAD31653}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrupoBoticario.Domain.Tests", "GrupoBoticario.Domain.Tests\GrupoBoticario.Domain.Tests.csproj", "{53F1DD21-077F-4B66-BAA2-1535F626F4D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrupoBoticario.Services.Tests", "GrupoBoticario.Services.Tests\GrupoBoticario.Services.Tests.csproj", "{DCE2D3B1-F808-4176-8B44-7B5F35453C57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EA797CC-766C-4D68-8320-A54BACE6E9BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EA797CC-766C-4D68-8320-A54BACE6E9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EA797CC-766C-4D68-8320-A54BACE6E9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EA797CC-766C-4D68-8320-A54BACE6E9BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2A0C947-DF4B-4196-8EF4-6033086B38FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2A0C947-DF4B-4196-8EF4-6033086B38FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2A0C947-DF4B-4196-8EF4-6033086B38FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2A0C947-DF4B-4196-8EF4-6033086B38FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BB5FD3E-BA4D-48BD-ACA1-86E173B43FF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BB5FD3E-BA4D-48BD-ACA1-86E173B43FF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BB5FD3E-BA4D-48BD-ACA1-86E173B43FF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BB5FD3E-BA4D-48BD-ACA1-86E173B43FF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DB740F3-86FA-44AC-9612-0733847F2B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB740F3-86FA-44AC-9612-0733847F2B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB740F3-86FA-44AC-9612-0733847F2B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DB740F3-86FA-44AC-9612-0733847F2B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48734650-E6B9-46DF-9A94-38EEA49F5A0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48734650-E6B9-46DF-9A94-38EEA49F5A0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48734650-E6B9-46DF-9A94-38EEA49F5A0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48734650-E6B9-46DF-9A94-38EEA49F5A0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53F1DD21-077F-4B66-BAA2-1535F626F4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F1DD21-077F-4B66-BAA2-1535F626F4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F1DD21-077F-4B66-BAA2-1535F626F4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53F1DD21-077F-4B66-BAA2-1535F626F4D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE2D3B1-F808-4176-8B44-7B5F35453C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE2D3B1-F808-4176-8B44-7B5F35453C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE2D3B1-F808-4176-8B44-7B5F35453C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE2D3B1-F808-4176-8B44-7B5F35453C57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{343F05DA-BD96-46A1-86E8-10DBD6BA3901} = {B2D86072-975A-4481-9567-EB567B4AAE1E}
+		{1EA797CC-766C-4D68-8320-A54BACE6E9BB} = {343F05DA-BD96-46A1-86E8-10DBD6BA3901}
+		{3B027D78-D1B8-43E7-A4D8-7163CED0652E} = {B2D86072-975A-4481-9567-EB567B4AAE1E}
+		{D2A0C947-DF4B-4196-8EF4-6033086B38FF} = {3B027D78-D1B8-43E7-A4D8-7163CED0652E}
+		{6A573282-3F5C-4849-A53D-0D5842B672BE} = {B2D86072-975A-4481-9567-EB567B4AAE1E}
+		{AFB256BD-D05B-4DFE-BA26-15A2C11227DA} = {B2D86072-975A-4481-9567-EB567B4AAE1E}
+		{6BB5FD3E-BA4D-48BD-ACA1-86E173B43FF5} = {6A573282-3F5C-4849-A53D-0D5842B672BE}
+		{4DB740F3-86FA-44AC-9612-0733847F2B60} = {AFB256BD-D05B-4DFE-BA26-15A2C11227DA}
+		{48734650-E6B9-46DF-9A94-38EEA49F5A0B} = {6A573282-3F5C-4849-A53D-0D5842B672BE}
+		{53F1DD21-077F-4B66-BAA2-1535F626F4D9} = {83BA7D95-FFD5-47DA-A624-2D38EAD31653}
+		{DCE2D3B1-F808-4176-8B44-7B5F35453C57} = {83BA7D95-FFD5-47DA-A624-2D38EAD31653}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74F11B1F-85B0-4B98-9568-CE296019AE4F}
+	EndGlobalSection
+EndGlobal

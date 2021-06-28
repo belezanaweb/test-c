@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GrupoBoticario.Application\GrupoBoticario.Application.csproj" />
+    <ProjectReference Include="..\GrupoBoticario.DataAccess\GrupoBoticario.DataAccess.csproj" />
+    <ProjectReference Include="..\GrupoBoticario.Domain.Map\GrupoBoticario.Domain.Map.csproj" />
+    <ProjectReference Include="..\GrupoBoticario.Domain\GrupoBoticario.Domain.csproj" />
+  </ItemGroup>
+
+
+</Project>
