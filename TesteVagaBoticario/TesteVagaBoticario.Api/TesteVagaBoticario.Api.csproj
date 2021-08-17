@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TesteVagaBoticario.Interfaces\TesteVagaBoticario.Interfaces.csproj" />
+    <ProjectReference Include="..\TesteVagaBoticario.ServicoMapeador\TesteVagaBoticario.ServicoMapeador.csproj" />
+  </ItemGroup>
+
+
+</Project>
