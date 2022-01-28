@@ -9,8 +9,8 @@
             Type = type;
         }
 
-        public string Locality { get; set; }
-        public int Quantity { get; set; }
-        public string Type { get; set; }
+        public string Locality { get; private set; }
+        public int Quantity { get; private set; }
+        public string Type { get; private set; }
     }
 }

@@ -4,4 +4,9 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Boticario.Core\Boticario.Core.csproj" />
+    <ProjectReference Include="..\Boticario.Infrastructure\Boticario.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

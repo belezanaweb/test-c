@@ -1,102 +1,51 @@
-﻿using Boticario.API.Data.Repositories;
-using Boticario.API.Models;
+﻿using Boticario.Application.InputModels;
+using Boticario.Application.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System;
 
 namespace Boticario.API.Controllers
 {
     [Route("api/products")]
     public class ProductsController : ControllerBase
     {
-        private readonly IRepository _repository;
+        private readonly IProductService _productService;
 
-        public ProductsController(IRepository repository)
+        public ProductsController(IProductService productService)
         {
-            _repository = repository;
+            _productService = productService;
         }        
 
         [HttpPost]
-        public IActionResult Post([FromBody] CreateProduct model)
+        public IActionResult Post([FromBody] NewProductInputModel inputModel)
         {
-            try
-            {
-                var product = _repository.GetBySku(model.Sku);
+            var sku = _productService.Create(inputModel);
 
-                if (product != null)
-                    return NotFound("Produto já existente.");
-
-                _repository.Add(model);
-
-                if (_repository.SaveChanges())
-                    return Ok(model);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro: {ex.Message}");
-            }
-
-            return BadRequest();
+            return CreatedAtAction(nameof(GetBySku), new { sku = sku }, inputModel);
         }
 
         [HttpGet("{sku}")]
         public IActionResult GetBySku(int sku)
         {
-            try
-            {
-                var product = _repository.GetBySku(sku);
+            var product = _productService.GetBySku(sku);
 
-                return Ok(product);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro: {ex.Message}");
-            }
+            if (product == null) return NotFound();
+
+            return Ok(product);
         }
 
         [HttpPut("{sku}")]
-        public IActionResult Put(int sku, [FromBody] Product model)
+        public IActionResult Put(int sku, [FromBody] UpdateProductInputModel inputModel)
         {
-            try
-            {
-                var product = _repository.GetBySku(sku);
+            _productService.Update(inputModel);
 
-                if (product == null)
-                    return NotFound();
-
-                _repository.Update(product);
-
-                if (_repository.SaveChanges())
-                    return Ok(model);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro: {ex.Message}");
-            }
-
-            return BadRequest();
+            return NoContent();
         }        
 
         [HttpDelete("{sku}")]
         public IActionResult Delete(int sku)
         {
-            try
-            {
-                var product = _repository.GetBySku(sku);
+            _productService.Delete(sku);
 
-                if (product == null)
-                    return NotFound();
-
-                _repository.Delete(product);
-
-                if (_repository.SaveChanges())
-                    return Ok("Deletado");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro: {ex.Message}");
-            }
-
-            return BadRequest();
+            return NoContent();
         }
     }
 }

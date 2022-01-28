@@ -1,4 +1,6 @@
-using Boticario.API.Data;
+using Boticario.Application.Services.Implementations;
+using Boticario.Application.Services.Interfaces;
+using Boticario.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,9 +30,11 @@ namespace Boticario.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetConnectionString("Data");
+            var connectionString = Configuration.GetConnectionString("DataBaseCs");
 
-            services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));            
+
+            services.AddScoped<IProductService, ProductService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

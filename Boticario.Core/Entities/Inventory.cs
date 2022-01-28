@@ -7,11 +7,10 @@ namespace Boticario.Core.Entities
         public Inventory(int quantity)
         {
             Quantity = quantity;
-
             Warehouses = new List<Warehouse>();
         }
-
-        public int Quantity { get; set; }
-        public List<Warehouse> Warehouses { get; set; }
+        
+        public int Quantity { get; private set; }   
+        public List<Warehouse> Warehouses { get; private set; }
     }
 }

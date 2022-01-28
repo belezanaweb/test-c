@@ -2,6 +2,7 @@
 {
     public class NewProductInputModel
     {
-        public string Name { get; set; }
+        public int Sku { get; private set; }
+        public string Name { get; private set; }
     }
 }
