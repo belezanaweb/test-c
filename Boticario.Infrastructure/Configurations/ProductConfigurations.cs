@@ -10,11 +10,11 @@ namespace Boticario.Infrastructure.Configurations
         {
             builder.HasKey(product => product.Id);
 
-            builder
-                .HasOne(product => product.Inventory)
-                .WithMany()
-                .HasForeignKey(product => product.IdInventory)
-                .OnDelete(DeleteBehavior.Restrict);                
+            //builder
+            //    .HasOne(product => product.Inventory)
+            //    .WithMany()
+            //    .HasForeignKey(product => product.IdInventory)
+            //    .OnDelete(DeleteBehavior.Restrict);                
         }
     }
 }

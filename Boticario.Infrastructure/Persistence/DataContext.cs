@@ -11,7 +11,7 @@ namespace Boticario.Infrastructure.Persistence
         }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<Inventory> Inventory { get; set; }
+        public DbSet<Inventory> Inventorys { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

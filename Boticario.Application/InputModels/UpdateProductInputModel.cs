@@ -1,8 +1,9 @@
 ﻿namespace Boticario.Application.InputModels
 {
-    public class NewProductInputModel
+    public class UpdateProductInputModel
     {
         public int Sku { get; set; }
         public string Name { get; set; }
+        public bool IsMarketable { get; set; }
     }
 }
