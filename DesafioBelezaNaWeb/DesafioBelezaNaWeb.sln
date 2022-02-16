@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioBelezaNaWeb", "DesafioBelezaNaWeb\DesafioBelezaNaWeb.csproj", "{CA135D73-0FAA-4444-87F4-3832CE394DB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesafioBelezaNaWeb.Test", "DesafioBelezaNaWeb.Test\DesafioBelezaNaWeb.Test.csproj", "{A998720D-F0B4-4485-B563-FF7ADD660AC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CA135D73-0FAA-4444-87F4-3832CE394DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA135D73-0FAA-4444-87F4-3832CE394DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA135D73-0FAA-4444-87F4-3832CE394DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A998720D-F0B4-4485-B563-FF7ADD660AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A998720D-F0B4-4485-B563-FF7ADD660AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A998720D-F0B4-4485-B563-FF7ADD660AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A998720D-F0B4-4485-B563-FF7ADD660AC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
