@@ -28,9 +28,10 @@ namespace BackendTest.Controllers
             return mediator.Send(command);
         }
 
-        [HttpPut]
-        public Task<UpdateProductResponse> Put([FromServices] IMediator mediator, [FromBody] UpdateProductRequest command)
+        [HttpPut("{sku}")]
+        public Task<UpdateProductResponse> Put([FromServices] IMediator mediator, long sku, [FromBody] UpdateProductRequest command)
         {
+            command.AtribuirSku(sku);
             return mediator.Send(command);
         }
     }

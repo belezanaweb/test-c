@@ -1,5 +1,6 @@
 ﻿using BackendTest.Domain.Commands.Responses;
 using MediatR;
+using System;
 using System.Collections.Generic;
 
 namespace BackendTest.Domain.Commands.Requests
@@ -9,6 +10,11 @@ namespace BackendTest.Domain.Commands.Requests
         public long Sku { get; set; }
         public string Name { get; set; }
         public InventoryUpdateRequest Inventory { get; set; }
+
+        public void AtribuirSku(long sku)
+        {
+            Sku = sku;
+        }
     }
 
     public class InventoryUpdateRequest
