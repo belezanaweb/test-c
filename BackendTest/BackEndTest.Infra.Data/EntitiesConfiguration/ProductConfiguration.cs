@@ -8,7 +8,7 @@ namespace BackEndTest.Infra.Data.EntitiesConfiguration
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.HasKey(t => t.Sku);
+            builder.HasKey(t => t.Id);
             builder.Property(p => p.Name).HasMaxLength(300).IsRequired();
         }
     }

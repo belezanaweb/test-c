@@ -4,6 +4,7 @@ namespace BackEndTest.Application.Interfaces
 {
     public interface IProductService
     {
+        bool CheckExistingSku(int sku);
         Task<bool> CreateProduct(ProductDTO product);
         Task<ProductDTO> GetProductBySku(int sku);
         Task<bool> RemoveProductBySku(int sku);

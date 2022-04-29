@@ -18,6 +18,16 @@ namespace BackEndTest.Application.Services
             _mapper = mapper;
         }
 
+        /** Verifica existência de SKU
+         * True se for repetido
+         * False caso contrário
+         * */
+        public bool CheckExistingSku(int sku)
+        {
+            var skuList = _productRepository.GetAllProductSku();
+            return skuList.Contains(sku);
+        }
+
         public async Task<bool> CreateProduct(ProductDTO productDTO)
         {
             var productEntity = _mapper.Map<Product>(productDTO);

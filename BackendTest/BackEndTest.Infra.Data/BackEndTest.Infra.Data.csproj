@@ -26,4 +26,8 @@
     <ProjectReference Include="..\BackEndTest.Domain\BackEndTest.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

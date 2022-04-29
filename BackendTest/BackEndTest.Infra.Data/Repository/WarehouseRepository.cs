@@ -74,6 +74,8 @@ namespace BackEndTest.Infra.Data.Repository
                         _context.Update(warehouse);
                         await _context.SaveChangesAsync();
                     }
+
+                    await _context.SaveChangesAsync();
                     return true;
                 }
                 catch (Exception)

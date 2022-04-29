@@ -5,6 +5,7 @@ namespace BackEndTest.Application.DTOs
 {
     public class ProductDTO
     {
+        public int Id { get; set; }
         public int Sku { get; set; }
         public string Name { get; set; }
         public bool isMarketable { get; set; }

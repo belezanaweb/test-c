@@ -59,17 +59,20 @@ namespace BackEndTest.Infra.Data.Repository
 
         public async Task<bool> UpdateInventoryByProductSkuAsync(Inventory inventory)
         {
-            try
+            if (inventory != null)
             {
-                _context.Update(inventory);
-                await _context.SaveChangesAsync();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
+                try
+                {
+                    _context.Update(inventory);
+                    await _context.SaveChangesAsync();
 
+                    return true;
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
             return false;
         }
     }

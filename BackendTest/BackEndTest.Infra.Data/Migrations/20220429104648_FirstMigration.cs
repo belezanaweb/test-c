@@ -26,15 +26,15 @@ namespace BackEndTest.Infra.Data.Migrations
                 name: "Products",
                 columns: table => new
                 {
-                    Sku = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Sku = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
-                    isMarketable = table.Column<bool>(type: "bit", nullable: false),
-                    InventoryId = table.Column<int>(type: "int", nullable: false)
+                    isMarketable = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Products", x => x.Sku);
+                    table.PrimaryKey("PK_Products", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(

@@ -42,24 +42,24 @@ namespace BackEndTest.Infra.Data.Migrations
 
             modelBuilder.Entity("BackEndTest.Domain.Entities.Product", b =>
                 {
-                    b.Property<int>("Sku")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Sku"), 1L, 1);
-
-                    b.Property<int>("InventoryId")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
+                    b.Property<int>("Sku")
+                        .HasColumnType("int");
+
                     b.Property<bool>("isMarketable")
                         .HasColumnType("bit");
 
-                    b.HasKey("Sku");
+                    b.HasKey("Id");
 
                     b.ToTable("Products");
                 });
