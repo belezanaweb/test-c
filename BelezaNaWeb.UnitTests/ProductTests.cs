@@ -3,6 +3,7 @@ using BelezaNaWeb.Exceptions;
 using BelezaNaWeb.Services;
 using System;
 using Xunit;
+using System.Linq;
 
 namespace BelezaNaWeb.UnitTests
 {
@@ -112,6 +113,43 @@ namespace BelezaNaWeb.UnitTests
             DomainException exception = Assert.Throws<DomainException>(() => StorageControl.UpdateProduct(7, product));
 
             Assert.Equal("Valor da quantidade de um ou mais dos estoques está negativo!", exception.Message);
+        }
+
+
+        [Fact]
+        public void GetProduct_ProductDoesExists_QuantityIsRight()
+        {
+            Product product = TestsUtil.GetMockProduct();
+
+            long sku = 8;
+
+            product.sku = sku;
+
+            StorageControl.AddProduct(product);
+
+            var result = StorageControl.GetProduct(sku);
+            
+            int totalQuantity = product.inventory.warehouses.Sum(c => c.quantity);
+
+            Assert.Equal(totalQuantity, result.inventory.quantity);
+        }
+
+        [Fact]
+        public void GetProduct_ProductDoesExists_IsNotMarketable()
+        {
+            Product product = TestsUtil.GetMockProduct();
+
+            long sku = 9;
+
+            product.sku = sku;
+
+            product.inventory = new Inventory();
+
+            StorageControl.AddProduct(product);
+
+            var result = StorageControl.GetProduct(sku);
+
+            Assert.False(result.isMarketable);
         }
     }
 }
