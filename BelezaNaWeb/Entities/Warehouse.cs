@@ -9,7 +9,6 @@ namespace BelezaNaWeb.Entities
         [Required]
         public string locality { get; set; }
         
-        [Required]
         public int quantity { get; set; }
         
         [Required]

@@ -12,14 +12,13 @@ namespace BelezaNaWeb.Services
 
         public static void AddProduct(Product product)
         {
+            validateProduct(product);
             if (!(_products?.Any() ?? false))
             {
-                validateQuantity(product.inventory.warehouses);
                 _products = new List<Product> { product };
             }
             else
             {
-                validateQuantity(product.inventory.warehouses);
 
                 Product productValidate = _products.Find(c => c.sku == product.sku);
                 if (productValidate != null)
@@ -52,8 +51,10 @@ namespace BelezaNaWeb.Services
             {
                 throw new DomainException("Sku não existe na base!");
             }
-            
-            validateQuantity(product.inventory.warehouses);
+
+            product.sku = sku;
+
+            validateProduct(product);
 
             int productIndex = _products.FindIndex(c => c.sku == sku);
 
@@ -62,14 +63,16 @@ namespace BelezaNaWeb.Services
                 throw new DomainException("Sku não existe na base!");
             }
 
-            product.sku = sku;
-
             _products[productIndex] = product;
         }
 
-        private static void validateQuantity(List<Warehouse> warehouses)
+        private static void validateProduct(Product product)
         {
-            if ((warehouses?.Any() ?? false) && warehouses.Any(c => c.quantity < 0))
+            if (product.sku <= 0)
+            {
+                throw new DomainException("Sku do produto não pode ser 0, vazio ou negativo!");
+            }
+            if ((product.inventory.warehouses?.Any() ?? false) && product.inventory.warehouses.Any(c => c.quantity < 0))
             {
                 throw new DomainException("Valor da quantidade de um ou mais dos estoques está negativo!");
             }

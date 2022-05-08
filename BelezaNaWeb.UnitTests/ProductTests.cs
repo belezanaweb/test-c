@@ -11,6 +11,18 @@ namespace BelezaNaWeb.UnitTests
     {
 
         [Fact]
+        public void AddProduct_ProductSku0_DoesThrowException()
+        {
+            Product product = TestsUtil.GetMockProduct();
+
+            product.sku = 0;
+
+            DomainException exception = Assert.Throws<DomainException>(() => StorageControl.AddProduct(product));
+
+            Assert.Equal("Sku do produto não pode ser 0, vazio ou negativo!", exception.Message);
+        }
+
+        [Fact]
         public void AddProduct_ProductDoesNotExists_DoesNotThrowException()
         {
             Product product = TestsUtil.GetMockProduct();
@@ -74,6 +86,20 @@ namespace BelezaNaWeb.UnitTests
             Assert.Equal("Sku não existe na base!", exception.Message);
         }
 
+
+        [Fact]
+        public void UpdateProduct_ProductSku0_DoesThrowException()
+        {
+            Product product = TestsUtil.GetMockProduct();
+
+            product.sku = 10;
+
+            StorageControl.AddProduct(product);
+
+            DomainException exception = Assert.Throws<DomainException>(() => StorageControl.UpdateProduct(0, product));
+
+            Assert.Equal("Sku do produto não pode ser 0, vazio ou negativo!", exception.Message);
+        }
 
         [Fact]
         public void UpdateProduct_ProductDoesNotExists_DoesThrowException()

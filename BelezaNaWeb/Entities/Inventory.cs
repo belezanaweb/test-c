@@ -12,7 +12,6 @@ namespace BelezaNaWeb.Entities
         }
         public int quantity { get { return this.warehouses.Sum(item => item.quantity); } }
 
-        [Required]
         public List<Warehouse> warehouses { get; set; }
     }
 }
