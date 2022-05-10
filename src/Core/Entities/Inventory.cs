@@ -20,7 +20,7 @@ namespace Core.Entities
             if (Warehouses is null)
                 return 0;
 
-            return Warehouses.Count;
+            return Warehouses.Sum(x => x.Quantity);
         }
     }
 }

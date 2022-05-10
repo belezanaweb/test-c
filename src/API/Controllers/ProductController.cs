@@ -35,7 +35,7 @@ namespace API.Controllers
             if (productCreate is null)
                 throw new ArgumentException($"{nameof(productCreate)} is null");
 
-            var product = this.productService.InsertProduct(productCreate.GetProduct());
+            var product = this.productService.InsertProduct(productCreate.ToProduct());
 
             return Ok(ProductDTO.FromProduct(product));
         }
@@ -52,16 +52,20 @@ namespace API.Controllers
                 return BadRequest($"{nameof(sku)} is zero");
 
             if (!sku.Equals(productCreate.Sku))
-                return BadRequest($"{nameof(productCreate.Sku)} and {nameof(sku)} are differents");
+                return BadRequest($"Product.{nameof(productCreate.Sku)} and {nameof(sku)} are differents");
 
-            var product = productCreate.GetProduct();
+            var product = productCreate.ToProduct();
 
-            if (product is null)
-                return BadRequest();
+            try
+            {
+                product = this.productService.UpdateProduct(sku, product);
+                return Ok(product);
+            }
+            catch (Exception ex)
+            {
 
-            this.productService.UpdateProduct(sku, product);
-
-            return Accepted();
+                return BadRequest(ex.Message);
+            }
 
         }
 
@@ -78,12 +82,10 @@ namespace API.Controllers
 
                 return Ok("Product deleted");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return BadRequest(ex.Message);
             }
-            
 
         }
     }

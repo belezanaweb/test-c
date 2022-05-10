@@ -15,7 +15,7 @@ namespace API.ApiModels
             Inventory = new InventoryCreateDTO();
         }
 
-        internal Product GetProduct() {
+        internal Product ToProduct() {
 
             var product = new Product();
             JsonConvert.PopulateObject(JsonConvert.SerializeObject(this), product);

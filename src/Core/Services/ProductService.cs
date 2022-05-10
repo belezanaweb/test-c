@@ -49,9 +49,15 @@ namespace Core.Services
 
         public Product UpdateProduct(int sku, Product product)
         {
+            if (product is null)
+                throw new ArgumentNullException($"Argument {nameof(product)} is null.");
+
+            if (!sku.Equals(product.Sku))
+                throw new ArgumentException($"{nameof(sku)} and {nameof(product.Sku)} are not the same.");
+
             var existingProduct = this.GetProduct(sku);
             if (existingProduct is null)
-                throw new ArgumentException("This 'sku' not exists");
+                throw new InvalidOperationException("This 'sku' not exists");
 
             this.repository.Update(existingProduct, product);
 
