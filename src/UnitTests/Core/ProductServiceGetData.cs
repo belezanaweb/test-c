@@ -46,7 +46,7 @@ namespace UnitTests.Core
             var service = GetProductService();
 
             product.Inventory = null;
-                        
+
             product = service.InsertProduct(product);
             var savedProduct = service.GetProduct(product.Sku);
 
@@ -85,18 +85,18 @@ namespace UnitTests.Core
             var product = fixture.Create<Product>();
 
             var service = GetProductService();
-                        
+
 
             var warehouses = fixture.CreateMany<Warehouse>(20);
 
             var random = new Random();
 
-            foreach(var warehouse in warehouses)
+            foreach (var warehouse in warehouses)
             {
                 warehouse.Quantity = random.Next(1, 10);
                 product.Inventory.Warehouses.Add(warehouse);
             }
-            
+
 
             product = service.InsertProduct(product);
 
@@ -117,7 +117,7 @@ namespace UnitTests.Core
             product.Inventory = new Inventory();
 
             var warehouses = fixture.CreateMany<Warehouse>(20);
-                        
+
             foreach (var warehouse in warehouses)
             {
                 warehouse.Quantity = 0;
@@ -138,17 +138,22 @@ namespace UnitTests.Core
         {
             var fixture = new Fixture();
             var product = fixture.Create<Product>();
+            product.Inventory.Warehouses = new List<Warehouse>();
 
             var service = GetProductService();
 
 
+            
+
             var warehouses = fixture.CreateMany<Warehouse>(20);
 
-            var random = new Random();
 
+            var random = new Random();
+            int sumQuantity = 0;
             foreach (var warehouse in warehouses)
             {
                 warehouse.Quantity = random.Next(1, 10);
+                sumQuantity += warehouse.Quantity;
                 product.Inventory.Warehouses.Add(warehouse);
             }
 
@@ -158,6 +163,8 @@ namespace UnitTests.Core
 
             Assert.True(product.Inventory.Quantity > 0);
             Assert.True(savedProduct.Inventory.Quantity > 0);
+
+            Assert.Equal(savedProduct.Inventory.Quantity, sumQuantity);
         }
     }
 }
