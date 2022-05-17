@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\webapi.domain\webapi.domain.csproj" />
+    <ProjectReference Include="..\webapi.application\webapi.application.csproj" />
+    <ProjectReference Include="..\webapi.infrastructure\webapi.infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
