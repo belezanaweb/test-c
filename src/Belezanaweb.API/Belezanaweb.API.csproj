@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Belezanaweb.Application.Core\Belezanaweb.Application.Core.csproj" />
+    <ProjectReference Include="..\Belezanaweb.Infra.IoC\Belezanaweb.Infra.IoC.csproj" />
+  </ItemGroup>
+
+
+</Project>
