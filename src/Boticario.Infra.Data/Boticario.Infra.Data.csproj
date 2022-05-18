@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="AutoMapper\NovaPasta1\**" />
+    <Compile Remove="AutoMapper\NovaPasta2\**" />
+    <EmbeddedResource Remove="AutoMapper\NovaPasta1\**" />
+    <EmbeddedResource Remove="AutoMapper\NovaPasta2\**" />
+    <None Remove="AutoMapper\NovaPasta1\**" />
+    <None Remove="AutoMapper\NovaPasta2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.21" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Boticario.Core\Boticario.Core.csproj" />
+  </ItemGroup>
+
+</Project>
