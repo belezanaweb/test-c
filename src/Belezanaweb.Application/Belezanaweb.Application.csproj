@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.0.1" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Belezanaweb.Application.Core\Belezanaweb.Application.Core.csproj" />
+    <ProjectReference Include="..\Belezanaweb.Core\Belezanaweb.Core.csproj" />
+    <ProjectReference Include="..\Belezanaweb.Infra.Data\Belezanaweb.Infra.Data.csproj" />
+  </ItemGroup>
+
+</Project>
